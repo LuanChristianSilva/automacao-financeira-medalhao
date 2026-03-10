@@ -50,23 +50,15 @@ Parquet
 Local esperado no repositório:
 
 ```
-data/silver/
+Dados/2_Silver/
 ```
 
-Arquivo esperado:
+Arquivos esperados:
 
 ```
-dados_tratados.parquet
+fato_despesa.parquet
+fato_renda.parquet
 ```
-
-Os dados recebidos devem possuir:
-
-* estrutura tabular
-* tipos de dados já padronizados
-* colunas finais já definidas
-* ausência de registros inválidos
-
-A camada de consumo **não deve realizar limpeza ou tratamento de dados**.
 
 ---
 
@@ -74,20 +66,20 @@ A camada de consumo **não deve realizar limpeza ou tratamento de dados**.
 
 O processamento desta etapa consiste em:
 
-1. leitura do arquivo parquet
-2. agregação ou seleção de colunas necessárias
-3. conversão para JSON otimizado para leitura web
+1. leitura dos arquivos parquet (Renda e Despesa)
+2. agregação de valores por competência e categoria
+3. conversão para arquivos JSON otimizados
 
 Script responsável:
 
 ```
-pipeline/load.py
+gold_load.py
 ```
 
 Fluxo desta etapa:
 
 ```
-Parquet → JSON
+Parquet (Silver) → JSON (Gold)
 ```
 
 ---
@@ -97,13 +89,7 @@ Parquet → JSON
 Os dados gerados nesta etapa serão armazenados no seguinte local:
 
 ```
-data/gold/
-```
-
-Arquivo gerado:
-
-```
-dados_site.json
+Dados/3_Gold/
 ```
 
 Este arquivo representa a **fonte de dados utilizada pelo site**.
@@ -144,11 +130,10 @@ A estrutura deve priorizar:
 Estrutura relacionada a esta etapa:
 
 ```
-consumo_dados/
+teste_antgravity/
 │
-├── data/
-│   └── gold/
-│       └── dados_site.json
+├── Dados/3_Gold/
+│   └── *
 │
 ├── pipeline/
 │   └── load.py
@@ -163,15 +148,16 @@ consumo_dados/
 
 # Consumo pelo Site
 
-O site consome os dados diretamente do arquivo JSON.
+O site consome os dados diretamente da pasta Gold.
 
 Exemplo de leitura no JavaScript:
 
 ```javascript
-fetch("../data/gold/dados_site.json")
+// Ajustado para a estrutura do projeto
+fetch("../Dados/3_Gold/resumo_mensal.json")
   .then(response => response.json())
   .then(data => {
-      console.log(data);
+      console.log("Dados Gold carregados:", data);
   });
 ```
 
