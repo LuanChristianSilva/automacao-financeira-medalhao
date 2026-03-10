@@ -18,7 +18,6 @@ Mensal.xlsx
 
 # Artifacts e Logs internos
 .gemini/
-.agents/
 brain/
 *.log
 
