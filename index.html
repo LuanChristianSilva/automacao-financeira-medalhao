@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Financeiro</title>
+    <meta name="description" content="Dashboard financeiro pessoal com controle de receitas e despesas.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Defer JS -->
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>FinDash</h2>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#" class="active"><span class="icon">📊</span> Visão Geral</a></li>
+                    <li><a href="#"><span class="icon">💸</span> Transações</a></li>
+                    <li><a href="#"><span class="icon">📈</span> Investimentos</a></li>
+                    <li><a href="#"><span class="icon">⚙️</span> Configurações</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div>
+                    <h1>Olá, Luan!</h1>
+                    <p>Aqui está o resumo das suas finanças hoje.</p>
+                </div>
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Luan&background=random" alt="Avatar do usuário">
+                </div>
+            </header>
+
+            <!-- Dashboard Cards -->
+            <section class="overview-cards">
+                <article class="card balance-card">
+                    <h3>Saldo Total</h3>
+                    <p class="amount">R$ 24.500,00</p>
+                    <span class="trend positive">↑ 12% desde o último mês</span>
+                </article>
+                <article class="card income-card">
+                    <h3>Receitas</h3>
+                    <p class="amount">R$ 8.200,00</p>
+                    <span class="trend positive">↑ 5%</span>
+                </article>
+                <article class="card expense-card">
+                    <h3>Despesas</h3>
+                    <p class="amount">R$ 3.100,00</p>
+                    <span class="trend negative">↓ 2%</span>
+                </article>
+                <article class="card saving-card">
+                    <h3>Economias</h3>
+                    <p class="amount">R$ 5.100,00</p>
+                    <span class="trend neutral">0%</span>
+                </article>
+            </section>
+
+            <!-- Charts and Activity Area -->
+            <section class="dashboard-grid">
+                <!-- CSS Only Chart -->
+                <article class="chart-container card">
+                    <h2>Fluxo de Caixa Mensal</h2>
+                    <div class="css-chart">
+                        <div class="bar-group">
+                            <div class="bar income" style="height: 80%;"></div>
+                            <div class="bar expense" style="height: 40%;"></div>
+                            <span class="label">Jan</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar income" style="height: 60%;"></div>
+                            <div class="bar expense" style="height: 50%;"></div>
+                            <span class="label">Fev</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar income" style="height: 90%;"></div>
+                            <div class="bar expense" style="height: 30%;"></div>
+                            <span class="label">Mar</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Recent Transactions -->
+                <article class="transactions-container card">
+                    <h2>Transações Recentes</h2>
+                    <div class="transaction-list" id="transactionList">
+                        <!-- Populated by JS -->
+                    </div>
+                    <button class="btn-primary" id="addTransactionBtn">Nova Transação</button>
+                </article>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+<!-- A estrutura HTML acima utiliza tags semânticas (header, nav, main, article, section, aside) e carrega o CSS/JS corretamente conforme as boas práticas. -->

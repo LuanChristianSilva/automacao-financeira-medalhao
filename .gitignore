@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Dados (Seguindo arquitetura medalhão)
+# Ignoramos os arquivos de dados para não subir arquivos pesados ou sensíveis
+Dados/1_Bronze/*.csv
+Dados/2_Silver/*.parquet
+Dados/3_Gold/
+
+# Excel de origem
+Mensal.xlsx
+
+# Artifacts e Logs internos
+.gemini/
+.agents/
+brain/
+*.log
+
+# Outros
+.DS_Store
+Thumbs.db
