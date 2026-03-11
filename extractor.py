@@ -11,8 +11,7 @@ CONFIG = {
     "PADRAO_ABAS": ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
     "CONFIG_RENDA": {
         "START_KEYWORD": "Renda Mensal",
-        "END_KEYWORD": "Total de Renda",
-        "END_ROW": 14,  # Limite máximo de linha para a coluna B
+        "STOP_CONDITION": "Total de Renda ou 2 linhas vazias",
         "COL_RANGE": "B:D"
     },
     "CONFIG_DESPESA": {
@@ -28,43 +27,65 @@ CONFIG = {
 def extrair_bloco_dados(sheet_name, excel_file, config_type):
     """
     Localiza e extrai um bloco específico de dados (Renda ou Despesa) dentro de uma aba.
+    Aplica lógica de parada dinâmica para a Renda.
     """
-    # Carrega a aba inteira para localizar as keywords
+    # Carrega a aba inteira para localização inicial
     df_raw = pd.read_excel(excel_file, sheet_name=sheet_name)
     conf = CONFIG[config_type]
     
-    # Localização: Busca a linha que contém a START_KEYWORD
-    # O script percorre as células para encontrar o cabeçalho do bloco
+    # 1. Localização: Busca a linha que contém a START_KEYWORD
     start_row = None
     for idx, row in df_raw.iterrows():
         if row.astype(str).str.contains(conf["START_KEYWORD"]).any():
-            start_row = idx + 1 # +1 pois o pandas ignora o header na contagem
+            start_row = idx + 1 # +1 para começar na linha seguinte ao cabeçalho
             break
             
     if start_row is None:
         return pd.DataFrame()
 
-    # Delimitação e Extração Real
-    # Lê apenas o range de colunas definido na configuração
-    # Se houver END_ROW (como na Renda), limita o número de linhas lidas
-    nrows = None
-    if "END_ROW" in conf:
-        # Calcula quantas linhas restam até o limite (considerando o skiprows)
-        nrows = conf["END_ROW"] - start_row
+    # 2. Delimitação e Extração Dinâmica (Stop Condition)
+    if config_type == "CONFIG_RENDA":
+        # Para Renda, lemos linha a linha para detectar a STOP_CONDITION
+        # Carregamos apenas as colunas necessárias a partir da start_row
+        df_full = pd.read_excel(excel_file, sheet_name=sheet_name, skiprows=start_row, usecols=conf["COL_RANGE"], header=None)
+        
+        rows_validas = []
+        empty_count = 0
+        
+        for _, row in df_full.iterrows():
+            # Condição 1: Encontrar 'Total de Renda' (na primeira coluna do bloco)
+            if str(row.iloc[0]).strip().lower() == "total de renda":
+                break
+            
+            # Condição 2: Detectar linhas vazias consecutivas
+            if row.isnull().all() or (row.astype(str).str.strip() == "").all():
+                empty_count += 1
+                if empty_count >= 2: # Para ao encontrar 2 linhas vazias
+                    break
+            else:
+                empty_count = 0 # Reseta se encontrar uma linha com dados
+                rows_validas.append(row)
+        
+        df_bloco = pd.DataFrame(rows_validas) if rows_validas else pd.DataFrame()
+        # Reaplica nomes de colunas originais (essenciais para a Silver)
+        if not df_bloco.empty:
+            df_bloco.columns = ["Renda Mensal", "Real", "Mes Ano Renda"]
+    else:
+        # Para Despesa, mantemos a extração padrão via auto_filter ou limites definidos
+        df_bloco = pd.read_excel(
+            excel_file, 
+            sheet_name=sheet_name, 
+            skiprows=start_row, 
+            usecols=conf["COL_RANGE"]
+        )
 
-    df_bloco = pd.read_excel(
-        excel_file, 
-        sheet_name=sheet_name, 
-        skiprows=start_row, 
-        usecols=conf["COL_RANGE"],
-        nrows=nrows
-    )
+    if df_bloco.empty:
+        return pd.DataFrame()
 
     # Identificação da Origem (Rastreabilidade)
     df_bloco["Origem_Aba"] = sheet_name
     
-    # Módulo de Limpeza e Tipagem
-    # Remove linhas vazias e limpa espaços em branco em strings
+    # 3. Módulo de Limpeza e Tipagem
     df_bloco = df_bloco.dropna(how='all').reset_index(drop=True)
     df_bloco = df_bloco.apply(lambda x: x.strip() if isinstance(x, str) else x)
     
