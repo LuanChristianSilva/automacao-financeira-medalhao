@@ -11,7 +11,7 @@ Para facilitar a manutenção e o uso em novos arquivos, todos os parâmetros se
     * `COL_RANGE`: "B:D"
 * **CONFIG_DESPESA**:
     * `START_KEYWORD`: "Despesa Mensal"
-    * `STOP_CONDITION`: "Encontrar 'Valor em atraso do mes anterior' OU 2 linhas vazias consecutivas"
+    * `STOP_CONDITION`: "Encontrar 'Valor em atraso do mes anterior'"
     * `COL_RANGE`: "B:I"
 
 ## 2. Fluxo de Execução Modular

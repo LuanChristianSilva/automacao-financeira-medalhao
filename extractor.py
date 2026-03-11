@@ -64,13 +64,14 @@ def extrair_bloco_dados(sheet_name, excel_file, config_type):
         elif config_type == "CONFIG_DESPESA" and primeira_coluna == "valor em atraso do mes anterior":
             break
             
-        # Detectar linhas vazias consecutivas
-        if row.isnull().all() or (row.astype(str).str.strip() == "").all() or primeira_coluna == "nan":
-            empty_count += 1
-            if empty_count >= 2:
-                break
-        else:
-            empty_count = 0
+        # Detectar linhas vazias consecutivas (apenas para Renda)
+        if config_type == "CONFIG_RENDA":
+            if row.isnull().all() or (row.astype(str).str.strip() == "").all() or primeira_coluna == "nan":
+                empty_count += 1
+                if empty_count >= 2:
+                    break
+            else:
+                empty_count = 0
             
         rows_validas.append(row)
         
