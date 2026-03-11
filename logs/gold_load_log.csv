@@ -1,0 +1,1 @@
+log_id,run_id,event_ts,stage,script_name,status,severity,environment,branch,commit_sha,input_path,output_path,entity_name,metric_name,metric_value,metric_unit,row_count,error_code,error_message,action_taken,duration_ms,notes
