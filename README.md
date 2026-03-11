@@ -1,56 +1,56 @@
-# Automação de Extração Financeira - Arquitetura Medalhão 🥇
+# Automação Financeira: Arquitetura Medalhão 🥇
 
-Este projeto automatiza a extração, limpeza e consolidação de dados financeiros a partir de planilhas Excel complexas, utilizando uma arquitetura de dados em camadas (Bronze e Silver) para garantir qualidade e rastreabilidade.
+Este projeto automatiza a extração e transformação de dados financeiros pessoais de arquivos Excel, seguindo a **Arquitetura Medalhão** (Bronze, Silver e Gold) para garantir qualidade, rastreabilidade e prontidão para o consumo web.
 
-## 🚀 Arquitetura do Projeto
+## 🚀 Novidades Recentes (v4.0)
+- **Extração Inteligente (Renda)**: Implementada a `STOP_CONDITION` dinâmica, detectando automaticamente o fim dos dados por palavra-chave ("Total de Renda") ou por 2 linhas vazias consecutivas no `extractor.py`.
+- **Ecossistema de Skills**: Documentação técnica e regras de negócio agora integradas ao repositório em `.agents/skills/`, garantindo que o conhecimento do pipeline seja versionado.
+- **Validação Integrada**: Script `validate_results.py` adicionado para conferência rápida dos dados processados nas camadas Bronze e Silver.
+- **Fase Gold (Draft)**: Planejamento da camada de consumo via JSON usando DuckDB para máxima performance no front-end.
 
-O projeto segue o padrão **Medallion Architecture**:
+## 🏗️ Arquitetura do Pipeline
 
-1.  **Bronze (Raw)**: Dados brutos extraídos diretamente do Excel sem transformações. Salvos em `.csv`.
-2.  **Silver (Refined)**: Dados limpos, tipados e padronizados via SQL (DuckDB). Salvos em `.parquet` para performance e integração com ferramentas de BI (Power BI).
+```mermaid
+graph LR
+    A[Excel Source] -->|Python/Pandas| B[1_Bronze: CSV Raw]
+    B -->|DuckDB/SQL| C[2_Silver: Parquet Cleansed]
+    C -->|DuckDB/JSON| D[3_Gold: JSON Consumption]
+    D -->|Fetch API| E[Site: GitHub Pages]
+```
+
+### 1. Camada Bronze (Raw)
+- **Script**: `extractor.py`
+- **O que faz**: Consolida abas mensais (Jan-Dez) ignorando ruídos (abas de Viagem) e salva os dados brutos em CSV.
+- **Diferencial**: Detecção inteligente de início e fim de blocos de dados sem limites fixos de linha.
+
+### 2. Camada Silver (Refined)
+- **Script**: `silver_transform.py`
+- **O que faz**: Utiliza o motor SQL do DuckDB para limpar nulos, padronizar valores monetários e criar a `Data_Competencia` (essencial para Power BI/Gráficos).
+- **Formato**: Parquet (colunar, leve e rápido).
+
+### 3. Camada Gold (Business)
+- **O que faz**: Geração de arquivos JSON agregados (`resumo_mensal.json`) para visualização no site hospedado via GitHub Pages.
 
 ## 🛠️ Tecnologias Utilizadas
+- **Linguagem**: Python 3.x
+- **Manipulação de Dados**: Pandas & DuckDB
+- **Engine SQL**: DuckDB (Processamento in-memory em milissegundos)
+- **Armazenamento**: CSV, Parquet e JSON
+- **Versionamento**: Git & GitHub (Repositório Privado)
 
-- **Python**: Linguagem core para automação.
-- **Pandas & Openpyxl**: Extração dinâmica de blocos de dados do Excel.
-- **DuckDB**: Engine SQL em processo para transformações ultra-rápidas na camada Silver.
-- **Parquet**: Formato de arquivo colunar para armazenamento eficiente na camada Silver.
-
-## 📁 Estrutura de Pastas
-
-```bash
-📂 Dados/
-├── 📂 1_Bronze/       # Arquitetos brutos (CSV)
-└── 📂 2_Silver/       # Fatos refinados (Parquet)
-📂 .agents/            # Definições de Skills e regras de negócio
-├── extractor.py       # Script de extração Excel -> Bronze
-└── silver_transform.py # Script de transformação Bronze -> Silver
+## 📁 Estrutura do Projeto
+```text
+teste_antgravity/
+├── .agents/skills/       # Documentação técnica (Bronze/Silver/Gold)
+├── Dados/
+│   ├── 1_Bronze/         # Dados brutos consolidados (CSV)
+│   ├── 2_Silver/         # Dados limpos e tipados (Parquet)
+│   └── 3_Gold/           # Dados para o site (JSON)
+├── extractor.py          # Script de extração Excel
+├── silver_transform.py   # Script de refinamento SQL
+├── validate_results.py   # Script de validação de dados
+└── README.md             # Documentação principal
 ```
-
-## ⚙️ Como Executar
-
-### 1. Requisitos
-Instale as dependências necessárias:
-```bash
-pip install pandas openpyxl duckdb
-```
-
-### 2. Extração para Bronze
-Execute o script para varrer as abas do Excel e gerar os consolidados brutos:
-```bash
-python extractor.py
-```
-
-### 3. Transformação para Silver (SQL Engine)
-Execute o script que utiliza DuckDB para aplicar as regras de limpeza, tratar datas PT-BR e gerar os arquivos Parquet:
-```bash
-python silver_transform.py
-```
-
-## 📊 Diferenciais Técnicos (Silver Layer)
-- **Unificação Inteligente**: Uso de `COALESCE` para priorizar colunas de valor real sobre valores previstos.
-- **BI Ready**: Criação automática de `Data_Competencia` (dia 1 do mês) para inteligência de tempo no Power BI.
-- **Data Cleaning**: Aplicação de `TRIM` em todos os campos de texto para evitar erros de filtro.
 
 ---
-*Desenvolvido como parte do projeto de estudos de Engenharia de Dados.*
+*Desenvolvido para transformar planilhas complexas em dashboards interativos.*
