@@ -44,43 +44,44 @@ def extrair_bloco_dados(sheet_name, excel_file, config_type):
         return pd.DataFrame()
 
     # 2. Delimitação e Extração Dinâmica (Stop Condition)
-    if config_type == "CONFIG_RENDA":
-        # Para Renda, lemos linha a linha para detectar a STOP_CONDITION
-        # Carregamos apenas as colunas necessárias a partir da start_row
-        df_full = pd.read_excel(excel_file, sheet_name=sheet_name, skiprows=start_row, usecols=conf["COL_RANGE"], header=None)
+    # Lemos os dados usando a linha de keywords como cabeçalho de colunas (header=0 padrão)
+    df_full = pd.read_excel(
+        excel_file, 
+        sheet_name=sheet_name, 
+        skiprows=start_row, 
+        usecols=conf["COL_RANGE"]
+    )
+    
+    rows_validas = []
+    empty_count = 0
+    
+    for _, row in df_full.iterrows():
+        primeira_coluna = str(row.iloc[0]).strip().lower()
         
-        rows_validas = []
-        empty_count = 0
-        
-        for _, row in df_full.iterrows():
-            # Condição 1: Encontrar 'Total de Renda' (na primeira coluna do bloco)
-            if str(row.iloc[0]).strip().lower() == "total de renda":
-                break
+        # Condições de parada
+        if config_type == "CONFIG_RENDA" and primeira_coluna == "total de renda":
+            break
+        elif config_type == "CONFIG_DESPESA" and primeira_coluna == "valor em atraso do mes anterior":
+            break
             
-            # Condição 2: Detectar linhas vazias consecutivas
-            if row.isnull().all() or (row.astype(str).str.strip() == "").all():
-                empty_count += 1
-                if empty_count >= 2: # Para ao encontrar 2 linhas vazias
-                    break
-            else:
-                empty_count = 0 # Reseta se encontrar uma linha com dados
-                rows_validas.append(row)
+        # Detectar linhas vazias consecutivas
+        if row.isnull().all() or (row.astype(str).str.strip() == "").all() or primeira_coluna == "nan":
+            empty_count += 1
+            if empty_count >= 2:
+                break
+        else:
+            empty_count = 0
+            
+        rows_validas.append(row)
         
-        df_bloco = pd.DataFrame(rows_validas) if rows_validas else pd.DataFrame()
-        # Reaplica nomes de colunas originais (essenciais para a Silver)
-        if not df_bloco.empty:
-            df_bloco.columns = ["Renda Mensal", "Real", "Mes Ano Renda"]
-    else:
-        # Para Despesa, mantemos a extração padrão via auto_filter ou limites definidos
-        df_bloco = pd.read_excel(
-            excel_file, 
-            sheet_name=sheet_name, 
-            skiprows=start_row, 
-            usecols=conf["COL_RANGE"]
-        )
+    df_bloco = pd.DataFrame(rows_validas) if rows_validas else pd.DataFrame()
 
     if df_bloco.empty:
         return pd.DataFrame()
+
+    # Reaplica nomes padronizados nas Rendas para evitar conflitos na Silver
+    if config_type == "CONFIG_RENDA":
+        df_bloco.columns = ["Renda Mensal", "Real", "Mes Ano Renda"]
 
     # Identificação da Origem (Rastreabilidade)
     df_bloco["Origem_Aba"] = sheet_name
