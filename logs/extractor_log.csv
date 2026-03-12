@@ -1,1 +1,15 @@
 log_id,run_id,event_ts,stage,script_name,status,severity,environment,branch,commit_sha,input_path,output_path,entity_name,metric_name,metric_value,metric_unit,row_count,error_code,error_message,action_taken,duration_ms,notes
+e8872d20-a818-4572-8fee-24204f2858e9,671876cc-a2d9-4357-b158-71a45a1b25d2,2026-03-11T21:40:15-03:00,Bronze,extractor.py,STARTED,INFO,local,main,c814649,,,,,,,,,,,,Iniciando varredura e extração de planilhas locais.
+af6f408a-7a36-444e-846c-61a83f5eff29,671876cc-a2d9-4357-b158-71a45a1b25d2,2026-03-11T21:40:15-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,c814649,,,Excel Tabs,total_tabs,36,count,,,,,,
+b90e25d5-ae52-4ee0-a557-dbb4feef468d,671876cc-a2d9-4357-b158-71a45a1b25d2,2026-03-11T21:40:15-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,c814649,,,Excel Tabs,eligible_tabs,31,count,,,,,,
+81790bac-5136-4e4a-b38f-7b5a6851b8d1,671876cc-a2d9-4357-b158-71a45a1b25d2,2026-03-11T21:40:17-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,c814649,,,Extraction Data,processed_tabs,31,count,,,,,,
+8c71bb0e-7175-4348-965c-fcbd1355fbdb,671876cc-a2d9-4357-b158-71a45a1b25d2,2026-03-11T21:40:17-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,c814649,,,Consolidate Output,rows_extracted_renda,93,rows,93,,,,,
+41b4c4d2-2409-4de0-a4f6-017fa37a59f7,671876cc-a2d9-4357-b158-71a45a1b25d2,2026-03-11T21:40:17-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,c814649,,,Consolidate Output,rows_extracted_despesa,1100,rows,1100,,,,,
+08a5cab6-cf59-42e6-b989-effd5a26887b,671876cc-a2d9-4357-b158-71a45a1b25d2,2026-03-11T21:40:17-03:00,Bronze,extractor.py,FINISHED,INFO,local,main,c814649,,,,,,,,,,,2270,
+6d75a72c-b71e-4ecb-983d-48fa07e438f0,af7abcab-5c13-450e-8011-ebf543688fb0,2026-03-11T21:55:48-03:00,Bronze,extractor.py,STARTED,INFO,local,main,c814649,,,,,,,,,,,,Iniciando varredura e extração de planilhas locais.
+0e230e88-477b-44c3-901a-3be740a892e9,af7abcab-5c13-450e-8011-ebf543688fb0,2026-03-11T21:55:48-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,c814649,,,Excel Tabs,total_tabs,36,count,,,,,,
+5c2205a8-e40b-4f1e-849b-1f31d00ce180,af7abcab-5c13-450e-8011-ebf543688fb0,2026-03-11T21:55:48-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,c814649,,,Excel Tabs,eligible_tabs,31,count,,,,,,
+8c86ec36-da55-43bb-b51b-06a25a47c4ed,af7abcab-5c13-450e-8011-ebf543688fb0,2026-03-11T21:55:50-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,c814649,,,Extraction Data,processed_tabs,31,count,,,,,,
+3ace715f-ac3a-49fa-a524-bcfddfcac41b,af7abcab-5c13-450e-8011-ebf543688fb0,2026-03-11T21:55:50-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,c814649,,,Consolidate Output,rows_extracted_renda,93,rows,93,,,,,
+536d923d-15c2-4ddf-98b9-d5076568d85e,af7abcab-5c13-450e-8011-ebf543688fb0,2026-03-11T21:55:50-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,c814649,,,Consolidate Output,rows_extracted_despesa,1100,rows,1100,,,,,
+4cff0316-dcb6-42e6-b6e3-fb255000d8c4,af7abcab-5c13-450e-8011-ebf543688fb0,2026-03-11T21:55:50-03:00,Bronze,extractor.py,FINISHED,INFO,local,main,c814649,,,,,,,,,,,2079,

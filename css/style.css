@@ -126,6 +126,39 @@ body {
     color: var(--text-secondary);
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.month-filter {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.6rem 2rem 0.6rem 1rem;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0f0f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1em;
+}
+
+.month-filter:hover {
+    border-color: var(--accent-color);
+}
+
+.month-filter:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
 .user-profile img {
     border-radius: 50%;
     width: 48px;
@@ -192,52 +225,9 @@ body {
     }
 }
 
-/* Gráfico CSS Puro */
 .chart-container h2, .transactions-container h2 {
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
-}
-
-.css-chart {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    height: 250px;
-    padding-top: 2rem;
-    border-bottom: 1px solid var(--border-color);
-    position: relative;
-}
-
-.bar-group {
-    display: flex;
-    gap: 8px;
-    height: 100%;
-    align-items: flex-end;
-    position: relative;
-    width: 40px;
-    justify-content: center;
-}
-
-.bar {
-    width: 12px;
-    border-radius: 6px 6px 0 0;
-    animation: growBar 1s ease-out forwards;
-    transform-origin: bottom;
-}
-
-.bar.income { background-color: var(--accent-color); }
-.bar.expense { background-color: var(--negative); }
-
-.bar-group .label {
-    position: absolute;
-    bottom: -30px;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-}
-
-@keyframes growBar {
-    from { transform: scaleY(0); }
-    to { transform: scaleY(1); }
 }
 
 /* Transações Recentes */

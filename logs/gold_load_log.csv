@@ -1,1 +1,11 @@
 log_id,run_id,event_ts,stage,script_name,status,severity,environment,branch,commit_sha,input_path,output_path,entity_name,metric_name,metric_value,metric_unit,row_count,error_code,error_message,action_taken,duration_ms,notes
+79552c7c-84a6-4971-988c-5844c72d653d,573ff27f-7acf-4b57-b30a-9da927baae86,2026-03-11T21:42:31-03:00,Gold,gold_load.py,STARTED,INFO,local,main,c814649,,,,,,,,,,,,Iniciando geração de relatórios JSON da Camada Gold.
+ca7b204e-09d4-480b-9f09-90fd0cfd43a7,573ff27f-7acf-4b57-b30a-9da927baae86,2026-03-11T21:42:31-03:00,Gold,gold_load.py,SUCCESS,INFO,local,main,c814649,,,Gold Output,json_resumo_mensal,31,rows,31,,,,,
+31c3a62d-d0df-4522-b6ae-b1ae285e5754,573ff27f-7acf-4b57-b30a-9da927baae86,2026-03-11T21:42:31-03:00,Gold,gold_load.py,SUCCESS,INFO,local,main,c814649,,,Gold Output,json_detalhe_despesa,712,rows,712,,,,,
+3b9102a1-86b3-4370-8471-8f3646254e95,573ff27f-7acf-4b57-b30a-9da927baae86,2026-03-11T21:42:31-03:00,Gold,gold_load.py,SUCCESS,INFO,local,main,c814649,,,Gold Output,json_detalhe_renda,42,rows,42,,,,,
+1108ce84-7ec7-485e-96fc-3308ef894dd8,573ff27f-7acf-4b57-b30a-9da927baae86,2026-03-11T21:42:31-03:00,Gold,gold_load.py,FINISHED,INFO,local,main,c814649,,,,,,,,,,,157,Camada Gold populada com sucesso.
+ad7262e6-b1ef-4fe1-898d-be8acb81be81,bbc7718b-4315-4abe-b13b-5594f5df237d,2026-03-11T21:55:50-03:00,Gold,gold_load.py,STARTED,INFO,local,main,c814649,,,,,,,,,,,,Iniciando geração de relatórios JSON da Camada Gold.
+1a746ec3-c824-4220-a8be-66be35a5423f,bbc7718b-4315-4abe-b13b-5594f5df237d,2026-03-11T21:55:50-03:00,Gold,gold_load.py,SUCCESS,INFO,local,main,c814649,,,Gold Output,json_resumo_mensal,31,rows,31,,,,,
+1681ffa5-b2bc-4c15-b540-cd1322c4e161,bbc7718b-4315-4abe-b13b-5594f5df237d,2026-03-11T21:55:50-03:00,Gold,gold_load.py,SUCCESS,INFO,local,main,c814649,,,Gold Output,json_detalhe_despesa,712,rows,712,,,,,
+fd88b348-7cbc-47c0-9c0c-240dd3a1cb54,bbc7718b-4315-4abe-b13b-5594f5df237d,2026-03-11T21:55:50-03:00,Gold,gold_load.py,SUCCESS,INFO,local,main,c814649,,,Gold Output,json_detalhe_renda,42,rows,42,,,,,
+ac662c2f-1bc6-4a74-a040-8d699e4af8a6,bbc7718b-4315-4abe-b13b-5594f5df237d,2026-03-11T21:55:50-03:00,Gold,gold_load.py,FINISHED,INFO,local,main,c814649,,,,,,,,,,,124,Camada Gold populada com sucesso.

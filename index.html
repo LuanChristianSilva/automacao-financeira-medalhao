@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Defer JS -->
@@ -37,10 +39,15 @@
             <header class="top-header">
                 <div>
                     <h1>Olá, Luan!</h1>
-                    <p>Aqui está o resumo das suas finanças hoje.</p>
+                    <p>Aqui está o resumo das suas finanças.</p>
                 </div>
-                <div class="user-profile">
-                    <img src="https://ui-avatars.com/api/?name=Luan&background=random" alt="Avatar do usuário">
+                <div class="header-actions">
+                    <select id="monthFilter" class="month-filter">
+                        <!-- Populated by JS -->
+                    </select>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Luan&background=random" alt="Avatar do usuário">
+                    </div>
                 </div>
             </header>
 
@@ -48,47 +55,33 @@
             <section class="overview-cards">
                 <article class="card balance-card">
                     <h3>Saldo Total</h3>
-                    <p class="amount">R$ 24.500,00</p>
-                    <span class="trend positive">↑ 12% desde o último mês</span>
+                    <p class="amount" id="overview-saldo">R$ 0,00</p>
+                    <span class="trend" id="trend-saldo">--</span>
                 </article>
                 <article class="card income-card">
                     <h3>Receitas</h3>
-                    <p class="amount">R$ 8.200,00</p>
-                    <span class="trend positive">↑ 5%</span>
+                    <p class="amount" id="overview-receitas">R$ 0,00</p>
+                    <span class="trend" id="trend-receitas">--</span>
                 </article>
                 <article class="card expense-card">
                     <h3>Despesas</h3>
-                    <p class="amount">R$ 3.100,00</p>
-                    <span class="trend negative">↓ 2%</span>
+                    <p class="amount" id="overview-despesas">R$ 0,00</p>
+                    <span class="trend" id="trend-despesas">--</span>
                 </article>
                 <article class="card saving-card">
-                    <h3>Economias</h3>
-                    <p class="amount">R$ 5.100,00</p>
-                    <span class="trend neutral">0%</span>
+                    <h3>Economias (Saldo % Renda)</h3>
+                    <p class="amount" id="overview-economias">0%</p>
+                    <span class="trend" id="trend-economias">--</span>
                 </article>
             </section>
 
             <!-- Charts and Activity Area -->
             <section class="dashboard-grid">
-                <!-- CSS Only Chart -->
+                <!-- Data Chart -->
                 <article class="chart-container card">
                     <h2>Fluxo de Caixa Mensal</h2>
-                    <div class="css-chart">
-                        <div class="bar-group">
-                            <div class="bar income" style="height: 80%;"></div>
-                            <div class="bar expense" style="height: 40%;"></div>
-                            <span class="label">Jan</span>
-                        </div>
-                        <div class="bar-group">
-                            <div class="bar income" style="height: 60%;"></div>
-                            <div class="bar expense" style="height: 50%;"></div>
-                            <span class="label">Fev</span>
-                        </div>
-                        <div class="bar-group">
-                            <div class="bar income" style="height: 90%;"></div>
-                            <div class="bar expense" style="height: 30%;"></div>
-                            <span class="label">Mar</span>
-                        </div>
+                    <div class="canvas-wrapper" style="position: relative; height: 300px; width: 100%;">
+                        <canvas id="cashflowChart"></canvas>
                     </div>
                 </article>
 

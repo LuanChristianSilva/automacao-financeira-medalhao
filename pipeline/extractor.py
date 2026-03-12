@@ -2,6 +2,8 @@ import pandas as pd
 import openpyxl
 import os
 
+from pipeline.utils.logger import PipelineLogger
+
 # ==========================================
 # 1. Camada de Configuração (Maintenance Layer)
 # ==========================================
@@ -97,54 +99,77 @@ def extrair_bloco_dados(sheet_name, excel_file, config_type):
 # 3. Fluxo de Execução Principal
 # ==========================================
 def main():
+    logger = PipelineLogger(
+        stage="Bronze",
+        script_name="extractor.py",
+        log_file_path=os.path.join("logs", "extractor_log.csv")
+    )
+    logger.start("Iniciando varredura e extração de planilhas locais.")
     path = CONFIG["ARQUIVO_PATH"]
     
     if not os.path.exists(path):
+        logger.log_error(f"Arquivo não encontrado em {path}")
         print(f"Erro: Arquivo não encontrado em {path}")
+        logger.finish()
         return
 
     # Módulo de Varredura
     # Filtra apenas as abas que correspondem aos meses/ano definidos
     # ADENDO: Desconsidera abas que iniciam com "Viagem" conforme solicitado
-    with pd.ExcelFile(path) as reader:
-        abas_validas = [
-            s for s in reader.sheet_names 
-            if any(mes in s for mes in CONFIG["PADRAO_ABAS"]) 
-            and not s.startswith("Viagem")
-        ]
-        
-        lista_rendas = []
-        lista_despesas = []
-
-        for aba in abas_validas:
-            print(f"Processando aba: {aba}...")
+    try:
+        with pd.ExcelFile(path) as reader:
+            abas_validas = [
+                s for s in reader.sheet_names 
+                if any(mes in s for mes in CONFIG["PADRAO_ABAS"]) 
+                and not s.startswith("Viagem")
+            ]
             
-            # Extração de Renda
-            df_renda = extrair_bloco_dados(aba, reader, "CONFIG_RENDA")
-            if not df_renda.empty:
-                lista_rendas.append(df_renda)
+            # Log de métrica (quantas abas no total vs válidas)
+            logger.log_metric("Excel Tabs", "total_tabs", len(reader.sheet_names), metric_unit="count")
+            logger.log_metric("Excel Tabs", "eligible_tabs", len(abas_validas), metric_unit="count")            
+            
+            lista_rendas = []
+            lista_despesas = []
+
+            for aba in abas_validas:
+                print(f"Processando aba: {aba}...")
                 
-            # Extração de Despesa
-            df_despesa = extrair_bloco_dados(aba, reader, "CONFIG_DESPESA")
-            if not df_despesa.empty:
-                lista_despesas.append(df_despesa)
-
-        # Módulo de Consolidação (Output)
-        # Agrupa tudo em um dataframe final e salva em CSV na camada Bronze
-        output_dir = os.path.join("Dados", "1_Bronze")
-        os.makedirs(output_dir, exist_ok=True)
-
-        if lista_rendas:
-            df_final_renda = pd.concat(lista_rendas, ignore_index=True)
-            path_renda = os.path.join(output_dir, "consolidado_renda.csv")
-            df_final_renda.to_csv(path_renda, index=False, encoding='utf-8-sig')
-            print(f"Total de registros de Renda salvos em Bronze: {len(df_final_renda)}")
+                # Extração de Renda
+                df_renda = extrair_bloco_dados(aba, reader, "CONFIG_RENDA")
+                if not df_renda.empty:
+                    lista_rendas.append(df_renda)
+                    
+                # Extração de Despesa
+                df_despesa = extrair_bloco_dados(aba, reader, "CONFIG_DESPESA")
+                if not df_despesa.empty:
+                    lista_despesas.append(df_despesa)
             
-        if lista_despesas:
-            df_final_despesa = pd.concat(lista_despesas, ignore_index=True)
-            path_despesa = os.path.join(output_dir, "consolidado_despesa.csv")
-            df_final_despesa.to_csv(path_despesa, index=False, encoding='utf-8-sig')
-            print(f"Total de registros de Despesa salvos em Bronze: {len(df_final_despesa)}")
+            logger.log_metric("Extraction Data", "processed_tabs", len(abas_validas), metric_unit="count")
+
+            # Módulo de Consolidação (Output)
+            # Agrupa tudo em um dataframe final e salva em CSV na camada Bronze
+            output_dir = os.path.join("Dados", "1_Bronze")
+            os.makedirs(output_dir, exist_ok=True)
+
+            if lista_rendas:
+                df_final_renda = pd.concat(lista_rendas, ignore_index=True)
+                path_renda = os.path.join(output_dir, "consolidado_renda.csv")
+                df_final_renda.to_csv(path_renda, index=False, encoding='utf-8-sig')
+                logger.log_metric("Consolidate Output", "rows_extracted_renda", len(df_final_renda), metric_unit="rows", row_count=len(df_final_renda))
+                print(f"Total de registros de Renda salvos em Bronze: {len(df_final_renda)}")
+                
+            if lista_despesas:
+                df_final_despesa = pd.concat(lista_despesas, ignore_index=True)
+                path_despesa = os.path.join(output_dir, "consolidado_despesa.csv")
+                df_final_despesa.to_csv(path_despesa, index=False, encoding='utf-8-sig')
+                logger.log_metric("Consolidate Output", "rows_extracted_despesa", len(df_final_despesa), metric_unit="rows", row_count=len(df_final_despesa))
+                print(f"Total de registros de Despesa salvos em Bronze: {len(df_final_despesa)}")
+
+    except Exception as e:
+        logger.log_error(f"Erro fatal na extração: {str(e)}")
+        print(f"Erro fatal: {e}")
+
+    logger.finish()
 
 if __name__ == "__main__":
     main()

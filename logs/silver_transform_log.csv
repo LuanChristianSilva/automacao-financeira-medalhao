@@ -1,1 +1,9 @@
 log_id,run_id,event_ts,stage,script_name,status,severity,environment,branch,commit_sha,input_path,output_path,entity_name,metric_name,metric_value,metric_unit,row_count,error_code,error_message,action_taken,duration_ms,notes
+f2e0af17-e83b-444f-9d9d-c3ec631cf048,7e1d0058-0ff8-45b8-987e-194f32a65b08,2026-03-11T21:41:13-03:00,Silver,silver_transform.py,STARTED,INFO,local,main,c814649,,,,,,,,,,,,Iniciando processamento DuckDB (Bronze -> Silver)
+c2fb7d57-9cc1-44f1-aa14-5b5e969cf797,7e1d0058-0ff8-45b8-987e-194f32a65b08,2026-03-11T21:41:14-03:00,Silver,silver_transform.py,SUCCESS,INFO,local,main,c814649,,,Silver Renda,rows_transformed_renda,42,rows,42,,,,,
+00c22174-7543-468f-8fa0-1188f04a69b0,7e1d0058-0ff8-45b8-987e-194f32a65b08,2026-03-11T21:41:14-03:00,Silver,silver_transform.py,SUCCESS,INFO,local,main,c814649,,,Silver Despesa,rows_transformed_despesa,752,rows,752,,,,,
+0b540e9b-d4ef-47c7-89d6-1bd1d17aff64,7e1d0058-0ff8-45b8-987e-194f32a65b08,2026-03-11T21:41:14-03:00,Silver,silver_transform.py,FINISHED,INFO,local,main,c814649,,,,,,,,,,,277,Transformação Silver gerada com sucesso.
+90e2f3d1-0d7d-4f1c-b782-8f5d500ba9c8,51d075f8-b77f-46c6-8de3-0a5c823c42ba,2026-03-11T21:55:50-03:00,Silver,silver_transform.py,STARTED,INFO,local,main,c814649,,,,,,,,,,,,Iniciando processamento DuckDB (Bronze -> Silver)
+4e66dfe2-3844-46ff-b866-6bb8e3a7f157,51d075f8-b77f-46c6-8de3-0a5c823c42ba,2026-03-11T21:55:50-03:00,Silver,silver_transform.py,SUCCESS,INFO,local,main,c814649,,,Silver Renda,rows_transformed_renda,42,rows,42,,,,,
+6e392170-e2de-43e3-a9a5-88670c2f70d6,51d075f8-b77f-46c6-8de3-0a5c823c42ba,2026-03-11T21:55:50-03:00,Silver,silver_transform.py,SUCCESS,INFO,local,main,c814649,,,Silver Despesa,rows_transformed_despesa,752,rows,752,,,,,
+52f57069-2cd4-467d-b484-132a4df4a997,51d075f8-b77f-46c6-8de3-0a5c823c42ba,2026-03-11T21:55:50-03:00,Silver,silver_transform.py,FINISHED,INFO,local,main,c814649,,,,,,,,,,,200,Transformação Silver gerada com sucesso.
