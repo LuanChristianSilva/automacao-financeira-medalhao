@@ -62,3 +62,17 @@ b6a3f31a-954e-4b0e-85f9-4d4b85acd717,5dcd4d8c-ca9b-4f87-ab6a-1dab59444fc7,2026-0
 e09c30bb-57e1-4713-a811-23635b7126bc,5dcd4d8c-ca9b-4f87-ab6a-1dab59444fc7,2026-03-14T19:01:04-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,5fb7f93,,,Consolidate Output,rows_extracted_renda,102,rows,102,,,,,
 fdadda85-f88d-4e88-b0d7-c79c62b809b9,5dcd4d8c-ca9b-4f87-ab6a-1dab59444fc7,2026-03-14T19:01:04-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,5fb7f93,,,Consolidate Output,rows_extracted_despesa,1238,rows,1238,,,,,
 43417d33-c76c-4582-bc0c-e0c08fdd0c6d,5dcd4d8c-ca9b-4f87-ab6a-1dab59444fc7,2026-03-14T19:01:04-03:00,Bronze,extractor.py,FINISHED,INFO,local,main,5fb7f93,,,,,,,,,,,2316,
+f5d8f5a5-4cc3-48e4-8c8b-66a0caecf893,82c46a3c-b56c-4e4c-894a-2ad82c3d92dd,2026-03-14T20:36:26-03:00,Bronze,extractor.py,STARTED,INFO,local,main,da2eb2a,,,,,,,,,,,,Iniciando varredura e extração de planilhas locais.
+b86d4d5e-f1f1-4c38-bc87-502c89b5d3c8,82c46a3c-b56c-4e4c-894a-2ad82c3d92dd,2026-03-14T20:36:26-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,da2eb2a,,,Excel Tabs,total_tabs,38,count,,,,,,
+5f692d22-2896-4fc0-8a4b-398eac137081,82c46a3c-b56c-4e4c-894a-2ad82c3d92dd,2026-03-14T20:36:26-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,da2eb2a,,,Excel Tabs,eligible_tabs,34,count,,,,,,
+c48cfb01-4f7e-4346-b07d-04b17733e5f7,82c46a3c-b56c-4e4c-894a-2ad82c3d92dd,2026-03-14T20:36:29-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,da2eb2a,,,Extraction Data,processed_tabs,34,count,,,,,,
+668538b9-c594-4ae8-a312-b8bff32d7554,82c46a3c-b56c-4e4c-894a-2ad82c3d92dd,2026-03-14T20:36:29-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,da2eb2a,,,Consolidate Output,rows_extracted_renda,102,rows,102,,,,,
+7e5896e6-659d-4c0b-a28f-acf3cb3b4e65,82c46a3c-b56c-4e4c-894a-2ad82c3d92dd,2026-03-14T20:36:29-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,da2eb2a,,,Consolidate Output,rows_extracted_despesa,1238,rows,1238,,,,,
+60df1fc8-8773-48b1-8ca8-bbbd57e9ff65,82c46a3c-b56c-4e4c-894a-2ad82c3d92dd,2026-03-14T20:36:29-03:00,Bronze,extractor.py,FINISHED,INFO,local,main,da2eb2a,,,,,,,,,,,3404,
+3443aa5d-cad2-4597-9fbc-1acb637334ea,04710e30-9cbd-42e5-aa73-616f7a1df692,2026-03-14T20:37:24-03:00,Bronze,extractor.py,STARTED,INFO,local,main,da2eb2a,,,,,,,,,,,,Iniciando varredura e extração de planilhas locais.
+de46352d-5fdd-43ca-bd17-1615bc0be150,04710e30-9cbd-42e5-aa73-616f7a1df692,2026-03-14T20:37:24-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,da2eb2a,,,Excel Tabs,total_tabs,38,count,,,,,,
+d629a600-dffc-4edd-898c-6aa5cff7ffd4,04710e30-9cbd-42e5-aa73-616f7a1df692,2026-03-14T20:37:24-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,da2eb2a,,,Excel Tabs,eligible_tabs,34,count,,,,,,
+59ed6304-0bb2-4909-8769-032e405bd671,04710e30-9cbd-42e5-aa73-616f7a1df692,2026-03-14T20:37:27-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,da2eb2a,,,Extraction Data,processed_tabs,34,count,,,,,,
+22c109dc-ca4b-42d0-8a87-09d8b26b2950,04710e30-9cbd-42e5-aa73-616f7a1df692,2026-03-14T20:37:27-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,da2eb2a,,,Consolidate Output,rows_extracted_renda,102,rows,102,,,,,
+574f0daf-0e2e-4992-bd5e-4a48e7adbc28,04710e30-9cbd-42e5-aa73-616f7a1df692,2026-03-14T20:37:27-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,da2eb2a,,,Consolidate Output,rows_extracted_despesa,1238,rows,1238,,,,,
+5d50adc1-3a16-48a0-8990-eb0afafc38c7,04710e30-9cbd-42e5-aa73-616f7a1df692,2026-03-14T20:37:27-03:00,Bronze,extractor.py,FINISHED,INFO,local,main,da2eb2a,,,,,,,,,,,3308,
