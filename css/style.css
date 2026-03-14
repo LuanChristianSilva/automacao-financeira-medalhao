@@ -139,3 +139,8 @@ body {
     outline: none;
     box-shadow: none;
 }
+
+.chart-grid {
+    --bs-gutter-x: 9px;
+    --bs-gutter-y: 9px;
+}
