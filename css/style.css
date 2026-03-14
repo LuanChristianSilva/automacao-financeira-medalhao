@@ -111,10 +111,15 @@ body {
 
 .metric-chart {
     width: 80px;
-    height: 30px;
+    height: 32px; /* Slightly taller for visibility */
     overflow: hidden;
     position: relative;
     flex-shrink: 0;
+}
+
+/* Prevent line breaks in metric values */
+.metric-card h2 {
+    white-space: nowrap;
 }
 
 .kpi-row-gap {
@@ -141,10 +146,17 @@ body {
 .light-dot { background: #e2e8f0; }
 
 .doughnut-legend {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
+    min-width: 100px;
 }
-.doughnut-legend span.dot { margin-right: 8px; }
+.doughnut-legend > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.doughnut-legend span.dot { margin-right: 6px; }
 
 /* Custom Search Input Outline removal */
 .search-bar input:focus {

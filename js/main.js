@@ -166,38 +166,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevMonthData = selectedIndex > 0 ? goldResumo[selectedIndex - 1] : null;
 
         // 1. Revenue
-        document.getElementById('metric-revenue-val').innerText = formatCurrency(currentMonthData.Total_Renda);
+        const revEl = document.getElementById('metric-revenue-val');
+        if (revEl) revEl.innerText = formatCurrency(currentMonthData.Total_Renda);
         const revHistory = last7MonthsData.map(d => d.Total_Renda);
         drawSparkline('sparklineRevenue', revHistory, chartDefaults.greenLine);
 
         // 2. Profit Margin
         const calculateMargin = (d) => d.Total_Renda > 0 ? (d.Saldo / d.Total_Renda) * 100 : 0;
         const currentMargin = calculateMargin(currentMonthData);
-        document.getElementById('metric-margin-val').innerText = `${currentMargin.toFixed(1)}%`;
+        const marginEl = document.getElementById('metric-margin-val');
+        if (marginEl) marginEl.innerText = `${currentMargin.toFixed(1)}%`;
         const marginHistory = last7MonthsData.map(d => calculateMargin(d));
         drawSparkline('sparklineProfit', marginHistory, chartDefaults.greenLine);
 
         // 3. Saldo Liquido (EBITDA override)
-        document.getElementById('metric-saldo-val').innerText = formatCurrency(currentMonthData.Saldo);
+        const saldoEl = document.getElementById('metric-saldo-val');
+        if (saldoEl) saldoEl.innerText = formatCurrency(currentMonthData.Saldo);
         const saldoHistory = last7MonthsData.map(d => d.Saldo);
         drawSparkline('sparklineEBITDA', saldoHistory, chartDefaults.redLine);
 
-        // 4. Growth Rate
-        let growth = 0;
-        if (prevMonthData && prevMonthData.Total_Renda > 0) {
-            growth = ((currentMonthData.Total_Renda - prevMonthData.Total_Renda) / prevMonthData.Total_Renda) * 100;
-        }
-        document.getElementById('metric-growth-val').innerText = `${growth > 0 ? '+' : ''}${growth.toFixed(1)}%`;
-        updateTrendIcon('metric-growth-icon', 'metric-growth-subtitle', currentMonthData.Total_Renda, prevMonthData ? prevMonthData.Total_Renda : null, false);
-        
-        // Growth Sparkline (Revenue difference)
-        const growthHistory = [];
-        for(let i=1; i<last7MonthsData.length; i++) {
-            let prev = last7MonthsData[i-1].Total_Renda;
-            let curr = last7MonthsData[i].Total_Renda;
-            growthHistory.push(prev > 0 ? ((curr - prev)/prev)*100 : 0);
-        }
-        drawSparkline('sparklineGrowth', growthHistory.length ? growthHistory : [0,0,0], chartDefaults.greenLine);
+        // 4. Growth Rate logic removed per user request
+
 
         // 5. Debt (Dívida Não Paga)
         const currentMonthPrefix = currentMonthData.Data_Competencia.substring(0, 7);
@@ -253,8 +242,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const drawSparkline = (id, data, color) => {
+        if (!document.getElementById(id)) return;
         if (charts.sparklines[id]) charts.sparklines[id].destroy();
         
+        const minVal = Math.min(...data);
+        const maxVal = Math.max(...data);
+        const range = maxVal - minVal;
+        const padding = range === 0 ? 1 : range * 0.15;
+
         charts.sparklines[id] = new Chart(document.getElementById(id), {
             type: 'line',
             data: {
@@ -265,17 +260,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     borderWidth: 2,
                     tension: 0.3,
                     pointRadius: 0,
+                    fill: false
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                animation: false,
                 plugins: { legend: { display: false }, tooltip: { enabled: false } },
                 scales: {
                     x: { display: false },
-                    y: { display: false, min: Math.min(...data) * 0.9, max: Math.max(...data) * 1.1 }
+                    y: { 
+                        display: false, 
+                        min: minVal - padding, 
+                        max: maxVal + padding 
+                    }
                 },
-                layout: { padding: 0 }
+                layout: { padding: { top: 2, bottom: 2, left: 2, right: 2 } }
             }
         });
     };
@@ -525,7 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // --- 7. Contribution Doughnut ---
+    // --- 7. Contribution (Bar Chart requested) ---
     const initDoughnutChart = () => {
         const rollingMonthsPrefixes = rolling12MonthsResumo.map(d => d.Data_Competencia.substring(0, 7));
         
@@ -548,55 +549,38 @@ document.addEventListener('DOMContentLoaded', () => {
             incomeMap[item] = (incomeMap[item] || 0) + inc.Valor;
         });
 
-        const sortedIncomes = Object.keys(incomeMap).sort((a,b) => incomeMap[b] - incomeMap[a]).slice(0, 4);
+        const sortedIncomes = Object.keys(incomeMap).sort((a,b) => incomeMap[b] - incomeMap[a]).slice(0, 5);
         const dataVals = sortedIncomes.map(key => incomeMap[key]);
 
-        const colors = [chartDefaults.colorMain, chartDefaults.greyLine, chartDefaults.blueLine, '#f8fafc'];
-        const dotClasses = ['dark-dot', 'grey-dot', 'blue-dot', 'light-dot'];
-
-        // Rebuild Legend HTML
         const container = document.getElementById('doughnut-container');
-        // Clear previous except canvas
-        container.querySelectorAll('.doughnut-legend').forEach(e => e.remove());
+        if (!container) return;
 
-        const leftLegend = document.createElement('div');
-        leftLegend.className = 'doughnut-legend left-legend d-flex flex-column gap-2 order-2 order-sm-1';
-        const rightLegend = document.createElement('div');
-        rightLegend.className = 'doughnut-legend right-legend d-flex flex-column gap-2 order-3 order-sm-3';
+        // User requested values in the chart, and specifically "grafico de barras"
+        // We will convert the doughnut container area to a clean horizontal ranked list or bar chart
+        container.innerHTML = `<div class="w-100 d-flex flex-column gap-2 py-2" id="income-distribution-bars"></div>`;
+        const barContainer = document.getElementById('income-distribution-bars');
+
+        const colors = [chartDefaults.colorMain, chartDefaults.greyLine, chartDefaults.blueLine, '#94a3b8', '#cbd5e1'];
 
         sortedIncomes.forEach((item, index) => {
+            const val = incomeMap[item];
+            const maxVal = Math.max(...dataVals);
+            const percentage = maxVal > 0 ? (val / maxVal) * 100 : 0;
+            
             const div = document.createElement('div');
-            div.innerHTML = `<span class="dot ${dotClasses[index]}"></span> ${item.substring(0, 15)}`;
-            if(index < 2) leftLegend.appendChild(div);
-            else rightLegend.appendChild(div);
-        });
-
-        const canvasWrapper = container.querySelector('.doughnut-canvas');
-        canvasWrapper.classList.add('order-1', 'order-sm-2', 'mb-3', 'mb-sm-0');
-
-        container.insertBefore(leftLegend, container.firstChild);
-        container.appendChild(rightLegend);
-
-
-        if (charts.contributionDoughnut) charts.contributionDoughnut.destroy();
-        charts.contributionDoughnut = new Chart(document.getElementById('contributionChart'), {
-            type: 'doughnut',
-            data: {
-                labels: sortedIncomes,
-                datasets: [{
-                    data: dataVals,
-                    backgroundColor: colors,
-                    borderWidth: 0,
-                    cutout: '75%'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } }
-            }
+            div.className = 'w-100 mb-1';
+            div.innerHTML = `
+                <div class="d-flex justify-content-between mb-1" style="font-size: 0.75rem;">
+                    <span class="text-truncate fw-medium" style="max-width: 140px;">${item}</span>
+                    <span class="text-muted">${formatCurrency(val)}</span>
+                </div>
+                <div class="progress" style="height: 6px; background-color: #f1f5f9;">
+                    <div class="progress-bar" role="progressbar" 
+                         style="width: ${percentage}%; background-color: ${colors[index % colors.length]}; border-radius: 3px;"></div>
+                </div>
+            `;
+            barContainer.appendChild(div);
         });
     };
-
     fetchGoldData();
 });
