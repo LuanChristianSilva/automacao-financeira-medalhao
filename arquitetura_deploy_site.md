@@ -1,4 +1,4 @@
-# Estrutura de Publicação e Execução do Site
+# Estrutura de Publicação e Execução do Dashboard
 
 ## Objetivo
 
