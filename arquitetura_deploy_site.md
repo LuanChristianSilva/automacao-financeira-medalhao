@@ -15,6 +15,23 @@ Esta documentação cobre:
 
 ---
 
+# 🚀 Estado Atual (v5.0 Implementado)
+
+Atualmente, o projeto já possui o motor de processamento e a interface visual totalmente funcionais localmente:
+
+### 1. Pipeline Medalhão (pipeline/)
+- **Bronze**: Extração via `extractor.py` com detecção dinâmica.
+- **Silver**: Transformação via `silver_transform.py` usando DuckDB SQL.
+- **Gold**: Geração de JSON via `gold_load.py` agregando histórico de 12 meses.
+- **Validação**: Verificação de integridade via `validate_results.py`.
+
+### 2. Dashboard Executivo
+- **UI**: Construída com **Bootstrap 5.3**, focada em KPIs (3 colunas) e layout responsivo.
+- **Gráficos**: Uso de Chart.js para sparklines e gráficos de barra/linha.
+- **Filtros**: Sistema de filtro por mês integrado que atualiza todos os componentes instantaneamente.
+
+---
+
 # Stack Utilizada
 
 ## Hospedagem
@@ -58,32 +75,32 @@ Para que o projeto funcione corretamente é necessário:
 
 ---
 
-# Estrutura do Repositório
+# Estrutura do Repositório (Atual vs Planejado)
 
 ```
-consumo_dados/
+teste_antgravity/          # (v5.0 Atual)
 │
-├── data/
-│   ├── input/
-│   │   └── dados.xlsx
-│   │
-│   └── gold/
-│       └── dados_site.json
+├── Dados/                 
+│   ├── 1_Bronze/          # CSVs consolidados
+│   ├── 2_Silver/          # Parquet refinado
+│   └── 3_Gold/            # resumo_mensal.json (Consumo site)
 │
 ├── pipeline/
-│   ├── main.py
-│   ├── extract.py
-│   ├── transform.py
-│   └── load.py
+│   ├── main.py            # Orquestrador local
+│   ├── extractor.py       # Extração Bronze
+│   ├── silver_transform.py # Transformação Silver
+│   ├── gold_load.py       # Carga Gold
+│   └── validate_results.py # Validação
 │
-├── site/
-│   ├── index.html
-│   ├── script.js
-│   └── style.css
+├── js/
+│   └── main.js            # Lógica do Dash e Fetch
+├── css/
+│   └── style.css          # Estilos customizados
+├── index.html             # Dashboard Principal
 │
-├── .github/
+├── .github/               # (Planejado - Próxima Fase)
 │   └── workflows/
-│       └── deploy_site.yml
+│       └── deploy.yml     
 │
 ├── requirements.txt
 ├── .gitignore
@@ -210,13 +227,13 @@ Responsável por:
 
 ---
 
-## JavaScript
+## JavaScript (js/main.js)
 
 Responsável por:
 
-* ler o JSON
-* renderizar tabelas ou gráficos
-* atualizar os dados exibidos no site
+* ler o JSON (`resumo_mensal.json`)
+* gerenciar o filtro de mês e recálculo de janelas móveis
+* renderizar gráficos dinâmicos e sparklines
 
 ---
 
