@@ -156,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
         initHorizontalBarChart();
         initProfitTrendChart();
         initRegionalChart();
-        updateTopIncomeList();
         initDoughnutChart();
     };
 

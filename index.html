@@ -238,8 +238,8 @@
                         </div>
                     </div>
 
-                    <!-- Bottom Row: 3 Charts -->
-                    <div class="col-12 col-lg-4">
+                    <!-- Bottom Row: 2 Charts Consolidated -->
+                    <div class="col-12 col-lg-6">
                         <div class="card chart-card h-100 p-3 border-0 shadow-sm rounded-4">
                             <h3 class="h6 fw-semibold mb-3">Receitas x Despesas Histórico</h3>
                             <div class="canvas-container w-100" style="min-height: 220px;">
@@ -248,29 +248,16 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-lg-4">
-                        <div class="card chart-card list-card h-100 p-3 border-0 shadow-sm rounded-4">
-                            <h3 class="h6 fw-semibold mb-3">Top Fontes de Renda</h3>
-                            <ul id="top-income-list"
-                                class="performance-list list-unstyled d-flex flex-column gap-3 mb-0">
-                                <!-- Populated dynamically -->
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-lg-4">
+                    <div class="col-12 col-lg-6">
                         <div class="card chart-card doughnut-card h-100 p-3 border-0 shadow-sm rounded-4">
                             <h3 class="h6 fw-semibold mb-3">Distribuição da Renda</h3>
                             <div class="doughnut-container d-flex flex-column flex-sm-row align-items-center justify-content-between h-100"
                                 id="doughnut-container">
-                                <!-- Legend and Chart populated dynamically via JS -->
-                                <div class="canvas-container doughnut-canvas"
-                                    style="max-width: 140px; min-height: 140px;">
-                                    <canvas id="contributionChart"></canvas>
-                                </div>
+                                <!-- Bars will be injected here by JS -->
                             </div>
                         </div>
                     </div>
+
 
                 </section>
 
