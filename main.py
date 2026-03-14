@@ -1,3 +1,4 @@
+import webbrowser
 from pipeline.extractor import main as run_bronze
 from pipeline.silver_transform import transform_silver as run_silver
 from pipeline.gold_load import load_gold as run_gold
@@ -29,7 +30,13 @@ def run_pipeline():
         print("PIPELINE EXECUTADO COM SUCESSO NA ÍNTEGRA")
         print("="*60)
         
+        # Abre o Dashboard no Navegador
+        url = "http://localhost:8000/index.html"
+        print(f"\nAbrindo Dashboard em: {url}")
+        webbrowser.open(url)
+        
     except Exception as e:
+
         print("\n" + "="*60)
         print(f"[ERRO CRÍTICO] O Pipeline foi interrompido na etapa atual.")
         print(f"Detalhe: {e}")

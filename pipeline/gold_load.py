@@ -91,6 +91,7 @@ def load_gold():
         COPY (
             SELECT 
                 Data_Referencia,
+                Data_Competencia,
                 Item,
                 Valor,
                 Status,
@@ -109,6 +110,7 @@ def load_gold():
         COPY (
             SELECT 
                 Data_Referencia,
+                Data_Competencia,
                 Item,
                 Valor
             FROM read_parquet('{silver_renda}')

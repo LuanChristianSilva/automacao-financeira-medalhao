@@ -65,7 +65,7 @@ def transform_silver():
         CREATE OR REPLACE TABLE silver_renda AS
         SELECT 
             Origem_Aba,
-            TRIM("Renda Mensal") AS Item,
+            TRIM(REGEXP_REPLACE("Renda Mensal", '^[0-9]+[^a-zA-Z\\s]*\\s*', '')) AS Item,
             COALESCE(
                 TRY_CAST(REPLACE(CAST(Real AS VARCHAR), ',', '.') AS DECIMAL(18,2)),
                 0

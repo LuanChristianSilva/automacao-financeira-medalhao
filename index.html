@@ -1,101 +1,318 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Financeiro</title>
-    <meta name="description" content="Dashboard financeiro pessoal com controle de receitas e despesas.">
+    <title>Executive Financial Overview</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Defer JS -->
     <script src="js/main.js" defer></script>
 </head>
-<body>
-    <div class="app-container">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="logo">
-                <h2>FinDash</h2>
-            </div>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#" class="active"><span class="icon">📊</span> Visão Geral</a></li>
-                    <li><a href="#"><span class="icon">💸</span> Transações</a></li>
-                    <li><a href="#"><span class="icon">📈</span> Investimentos</a></li>
-                    <li><a href="#"><span class="icon">⚙️</span> Configurações</a></li>
-                </ul>
-            </nav>
-        </aside>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Header -->
-            <header class="top-header">
-                <div>
-                    <h1>Olá, Luan!</h1>
-                    <p>Aqui está o resumo das suas finanças.</p>
-                </div>
-                <div class="header-actions">
-                    <select id="monthFilter" class="month-filter">
-                        <!-- Populated by JS -->
-                    </select>
-                    <div class="user-profile">
-                        <img src="https://ui-avatars.com/api/?name=Luan&background=random" alt="Avatar do usuário">
+<body class="bg-main text-main d-flex justify-content-center align-items-center min-vh-100 py-3 py-lg-5">
+
+    <!-- Wrapper simulating device/app frame on desktop, fluid on mobile -->
+    <div class="container-fluid container-xl device-frame g-0">
+        <div class="app-container row g-0">
+
+            <!-- Sidebar Navigation (Hidden on mobile, col-lg-auto on desktop) -->
+            <aside class="sidebar col-lg-auto d-none d-lg-flex flex-column align-items-center py-4">
+                <nav class="nav-menu">
+                    <ul class="nav flex-column gap-3">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link icon-link"><svg width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                </svg></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link icon-link active"><svg width="24" height="24"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link icon-link"><svg width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link icon-link"><svg width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                </svg></a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="main-content col pb-4 px-3 px-md-4 px-lg-5">
+
+                <!-- Header -->
+                <header class="top-header d-flex flex-wrap justify-content-between align-items-center py-4 mb-3 gap-3">
+                    <h1 class="h4 fw-bold mb-0">Executive Financial Overview</h1>
+                    <div class="header-actions d-flex align-items-center gap-3">
+                        <select id="monthFilter" class="form-select form-select-sm month-select">
+                            <option value="">Carregando...</option>
+                        </select>
+                        <div
+                            class="search-bar d-none d-md-flex align-items-center px-3 py-1 rounded-pill bg-white border">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b"
+                                stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input type="text" class="form-control border-0 shadow-none bg-transparent"
+                                placeholder="Search" style="width: 150px;">
+                        </div>
+                        <div class="user-profile">
+                            <img src="https://ui-avatars.com/api/?name=Luan&background=random" alt="User Avatar"
+                                class="rounded-circle" width="40" height="40">
+                        </div>
                     </div>
-                </div>
-            </header>
+                </header>
 
-            <!-- Dashboard Cards -->
-            <section class="overview-cards">
-                <article class="card balance-card">
-                    <h3>Saldo Total</h3>
-                    <p class="amount" id="overview-saldo">R$ 0,00</p>
-                    <span class="trend" id="trend-saldo">--</span>
-                </article>
-                <article class="card income-card">
-                    <h3>Receitas</h3>
-                    <p class="amount" id="overview-receitas">R$ 0,00</p>
-                    <span class="trend" id="trend-receitas">--</span>
-                </article>
-                <article class="card expense-card">
-                    <h3>Despesas</h3>
-                    <p class="amount" id="overview-despesas">R$ 0,00</p>
-                    <span class="trend" id="trend-despesas">--</span>
-                </article>
-                <article class="card saving-card">
-                    <h3>Economias (Saldo % Renda)</h3>
-                    <p class="amount" id="overview-economias">0%</p>
-                    <span class="trend" id="trend-economias">--</span>
-                </article>
-            </section>
-
-            <!-- Charts and Activity Area -->
-            <section class="dashboard-grid">
-                <!-- Data Chart -->
-                <article class="chart-container card">
-                    <h2>Fluxo de Caixa Mensal</h2>
-                    <div class="canvas-wrapper" style="position: relative; height: 300px; width: 100%;">
-                        <canvas id="cashflowChart"></canvas>
+                <!-- Top Metrics Cards (Bootstrap Grid) -->
+                <section class="row g-3 mb-4">
+                    <!-- Revenue Card -->
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <div class="card metric-card h-100 p-3 p-xl-4 border-0 shadow-sm rounded-4">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <div class="icon-bg positive"><svg width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="3">
+                                        <line x1="12" y1="19" x2="12" y2="5"></line>
+                                        <polyline points="5 12 12 5 19 12"></polyline>
+                                    </svg></div>
+                                <h3 class="h6 mb-0 fw-semibold">Receita</h3>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-end mt-auto">
+                                <div>
+                                    <h2 class="h3 fw-bold mb-1" id="metric-revenue-val">...</h2>
+                                    <span class="fs-7 text-muted">mês atual</span>
+                                </div>
+                                <div class="metric-chart">
+                                    <canvas id="sparklineRevenue"></canvas>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </article>
 
-                <!-- Recent Transactions -->
-                <article class="transactions-container card">
-                    <h2>Transações Recentes</h2>
-                    <div class="transaction-list" id="transactionList">
-                        <!-- Populated by JS -->
+                    <!-- Profit Margin Card -->
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <div class="card metric-card h-100 p-3 p-xl-4 border-0 shadow-sm rounded-4">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <div class="icon-bg positive"><svg width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="3">
+                                        <line x1="12" y1="19" x2="12" y2="5"></line>
+                                        <polyline points="5 12 12 5 19 12"></polyline>
+                                    </svg></div>
+                                <h3 class="h6 mb-0 fw-semibold">Margem de Lucro</h3>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-end mt-auto">
+                                <div>
+                                    <h2 class="h3 fw-bold mb-1" id="metric-margin-val">...</h2>
+                                    <span class="fs-7 text-muted">mês atual</span>
+                                </div>
+                                <div class="metric-chart">
+                                    <canvas id="sparklineProfit"></canvas>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <button class="btn-primary" id="addTransactionBtn">Nova Transação</button>
-                </article>
-            </section>
-        </main>
+
+                    <!-- EBITDA (Saldo Líquido) Card -->
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <div class="card metric-card h-100 p-3 p-xl-4 border-0 shadow-sm rounded-4">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <div class="icon-bg negative"><svg width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="3">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <polyline points="19 12 12 19 5 12"></polyline>
+                                    </svg></div>
+                                <h3 class="h6 mb-0 fw-semibold">Saldo Líquido</h3>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-end mt-auto">
+                                <div>
+                                    <h2 class="h3 fw-bold mb-1" id="metric-saldo-val">...</h2>
+                                    <span class="fs-7 text-muted">mês atual</span>
+                                </div>
+                                <div class="metric-chart">
+                                    <canvas id="sparklineEBITDA"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Growth Rate Card -->
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <div class="card metric-card h-100 p-3 p-xl-4 border-0 shadow-sm rounded-4">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <div class="icon-bg positive" id="metric-growth-icon"><svg width="14" height="14"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                        <line x1="12" y1="19" x2="12" y2="5"></line>
+                                        <polyline points="5 12 12 5 19 12"></polyline>
+                                    </svg></div>
+                                <h3 class="h6 mb-0 fw-semibold">Evolução da Receita</h3>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-end mt-auto">
+                                <div>
+                                    <h2 class="h3 fw-bold mb-1" id="metric-growth-val">...</h2>
+                                    <span class="fs-7 text-muted" id="metric-growth-subtitle">vs anterior</span>
+                                </div>
+                                <div class="metric-chart">
+                                    <canvas id="sparklineGrowth"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Secondary KPI Row: Debts -->
+                <section class="row g-3 mt-1">
+                    <!-- Debt (Dívida) Card -->
+                    <div class="col-12 col-md-6 col-xl-6">
+                        <div class="card metric-card h-100 p-3 p-xl-4 border-0 shadow-sm rounded-4">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <div class="icon-bg negative">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                    </svg>
+                                </div>
+                                <h3 class="h6 mb-0 fw-semibold">Dívida do Mês (Em Aberto)</h3>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-end mt-auto">
+                                <div>
+                                    <h2 class="h3 fw-bold mb-1 text-danger" id="metric-debt-val">...</h2>
+                                    <span class="fs-7 text-muted">Aberto/Não Pago</span>
+                                </div>
+                                <div class="metric-chart">
+                                    <canvas id="sparklineDebt"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paid Debt Card -->
+                    <div class="col-12 col-md-6 col-xl-6">
+                        <div class="card metric-card h-100 p-3 p-xl-4 border-0 shadow-sm rounded-4">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <div class="icon-bg positive">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </div>
+                                <h3 class="h6 mb-0 fw-semibold">Dívidas Pagas</h3>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-end mt-auto">
+                                <div>
+                                    <h2 class="h3 fw-bold mb-1 text-success" id="metric-paid-val">...</h2>
+                                    <span class="fs-7 text-muted">Pagas no Mês</span>
+                                </div>
+                                <div class="metric-chart">
+                                    <canvas id="sparklinePaid"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Dashboard Charts Grid (Bootstrap) -->
+                <section class="row g-3">
+
+                    <!-- Top Row: 3 Charts -->
+                    <div class="col-12 col-lg-4">
+                        <div class="card chart-card h-100 p-3 border-0 shadow-sm rounded-4">
+                            <h3 class="h6 fw-semibold mb-3">Receita x Despesa (Curva)</h3>
+                            <div class="canvas-container w-100" style="min-height: 200px;">
+                                <canvas id="revenueTargetChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-4">
+                        <div class="card chart-card h-100 p-3 border-0 shadow-sm rounded-4">
+                            <h3 class="h6 fw-semibold mb-3">Despesas por Categoria</h3>
+                            <div class="canvas-container w-100" style="min-height: 200px;">
+                                <canvas id="expenseChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-4">
+                        <div class="card chart-card h-100 p-3 border-0 shadow-sm rounded-4">
+                            <h3 class="h6 fw-semibold mb-3">Tendência de Margem de Lucro (% e Valor)</h3>
+                            <div class="canvas-container w-100" style="min-height: 200px;">
+                                <canvas id="profitTrendChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Row: 3 Charts -->
+                    <div class="col-12 col-lg-4">
+                        <div class="card chart-card h-100 p-3 border-0 shadow-sm rounded-4">
+                            <h3 class="h6 fw-semibold mb-3">Receitas x Despesas Histórico</h3>
+                            <div class="canvas-container w-100" style="min-height: 220px;">
+                                <canvas id="regionalChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-4">
+                        <div class="card chart-card list-card h-100 p-3 border-0 shadow-sm rounded-4">
+                            <h3 class="h6 fw-semibold mb-3">Top Fontes de Renda</h3>
+                            <ul id="top-income-list"
+                                class="performance-list list-unstyled d-flex flex-column gap-3 mb-0">
+                                <!-- Populated dynamically -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-4">
+                        <div class="card chart-card doughnut-card h-100 p-3 border-0 shadow-sm rounded-4">
+                            <h3 class="h6 fw-semibold mb-3">Distribuição da Renda</h3>
+                            <div class="doughnut-container d-flex flex-column flex-sm-row align-items-center justify-content-between h-100"
+                                id="doughnut-container">
+                                <!-- Legend and Chart populated dynamically via JS -->
+                                <div class="canvas-container doughnut-canvas"
+                                    style="max-width: 140px; min-height: 140px;">
+                                    <canvas id="contributionChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+            </main>
+        </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmxc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
-<!-- A estrutura HTML acima utiliza tags semânticas (header, nav, main, article, section, aside) e carrega o CSS/JS corretamente conforme as boas práticas. -->

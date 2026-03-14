@@ -1,282 +1,141 @@
-/* Variáveis CSS para um Dark Mode Premium */
 :root {
-    --bg-dark: #0f1115;
-    --bg-card: #1c1e26;
-    --bg-card-hover: #262933;
-    --text-primary: #f0f0f0;
-    --text-secondary: #9094a6;
-    --accent-color: #6366f1;
-    --accent-hover: #4f46e5;
-    --positive: #10b981;
+    --bg-main: #e8ecf1; /* Light grey-blue background */
+    --bg-card: #ffffff;
+    --bg-sidebar: #6b5cd1; /* Deep purple */
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #f1f5f9;
+    --positive: #22c55e;
+    --positive-bg: #dcfce7;
     --negative: #ef4444;
-    --border-color: rgba(255, 255, 255, 0.05);
-    --glass-bg: rgba(28, 30, 38, 0.7);
-    --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.4);
-}
-
-/* Reset Básico e Fontes */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --negative-bg: #fee2e2;
+    --blue-accent: #3b82f6;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.03);
+    
+    --chart-red: #ef4444;
+    --chart-blue: #3b82f6;
+    --chart-dark: #1e293b;
+    --chart-grey: #cbd5e1;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-primary);
-    -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
 }
 
-/* Layout Principal */
-.app-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+.bg-main { background-color: var(--bg-main); }
+.text-main { color: var(--text-main); }
+.text-muted { color: var(--text-muted) !important; }
+.fs-7 { font-size: 0.8rem; }
 
-@media (min-width: 768px) {
-    .app-container {
-        flex-direction: row;
-    }
-}
-
-/* Sidebar Estilo Glassmorphism */
-.sidebar {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    width: 100%;
-    padding: 2rem;
-    border-right: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-@media (min-width: 768px) {
-    .sidebar {
-        width: 280px;
-        min-height: 100vh;
-        position: fixed;
-    }
-}
-
-.logo h2 {
-    font-weight: 700;
-    font-size: 1.8rem;
-    background: linear-gradient(135deg, #a5b4fc, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.nav-menu ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+/* Simulated Device Frame to match image */
+.device-frame {
+    background: rgba(255, 255, 255, 0.4);
     padding: 1rem;
-    border-radius: 12px;
-    transition: all 0.3s ease;
+    border-radius: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
-.nav-menu a:hover, .nav-menu a.active {
-    background-color: rgba(99, 102, 241, 0.1);
-    color: var(--accent-color);
-}
-
-/* Conteúdo Principal */
-.main-content {
-    flex: 1;
-    padding: 2rem;
-}
-
-@media (min-width: 768px) {
-    .main-content {
-        margin-left: 280px;
-        padding: 3rem;
-    }
-}
-
-/* Header */
-.top-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.top-header h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.top-header p {
-    color: var(--text-secondary);
-}
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.month-filter {
+.app-container {
     background: var(--bg-card);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-    padding: 0.6rem 2rem 0.6rem 1rem;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 0.95rem;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.3s ease;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0f0f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 0.7rem center;
-    background-size: 1em;
+    border-radius: 32px;
+    overflow: hidden;
+    min-height: 800px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
 }
 
-.month-filter:hover {
-    border-color: var(--accent-color);
+/* Sidebar */
+.sidebar {
+    width: 100px; /* fixed width on desktop */
+    background: var(--bg-card);
 }
 
-.month-filter:focus {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+.nav-menu {
+    background: var(--bg-sidebar);
+    border-radius: 24px;
+    padding: 1.5rem 0.5rem;
+    height: 100%;
 }
 
-.user-profile img {
-    border-radius: 50%;
+.icon-link {
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 48px;
     height: 48px;
-    border: 2px solid var(--accent-color);
-    object-fit: cover;
+    border-radius: 16px;
+    transition: all 0.2s ease;
 }
 
-/* Cards de Resumo */
-.overview-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-}
-
-.card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-soft);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
-    background: var(--bg-card-hover);
-}
-
-.card h3 {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-    font-weight: 500;
-}
-
-.card .amount {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.trend {
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-.trend.positive { color: var(--positive); }
-.trend.negative { color: var(--negative); }
-.trend.neutral { color: var(--text-secondary); }
-
-/* Dashboard Grid: Chart + Transactions */
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-}
-
-@media (min-width: 1024px) {
-    .dashboard-grid {
-        grid-template-columns: 2fr 1fr;
-    }
-}
-
-.chart-container h2, .transactions-container h2 {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-}
-
-/* Transações Recentes */
-.transaction-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.transaction-item:last-child {
-    border-bottom: none;
-}
-
-.transaction-info p {
-    font-weight: 500;
-    margin-bottom: 0.25rem;
-}
-
-.transaction-info span {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-}
-
-.transaction-amount {
-    font-weight: 600;
-}
-
-.transaction-amount.positive { color: var(--positive); }
-.transaction-amount.negative { color: var(--negative); }
-
-.btn-primary {
-    width: 100%;
-    padding: 1rem;
-    margin-top: 1.5rem;
-    background-color: var(--accent-color);
+.icon-link:hover {
     color: white;
-    border: none;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-family: inherit;
+    background: rgba(255,255,255,0.1);
 }
 
-.btn-primary:hover {
-    background-color: var(--accent-hover);
+.icon-link.active {
+    color: var(--bg-sidebar);
+    background: white;
 }
 
-/* O código CSS acima estabelece um tema escuro luxuoso, responsividade mobile-first e utiliza animações sutis, de acordo com o padrão web moderno solicitado sem frameworks extras. */
+/* Main Content */
+.main-content {
+    background: #fafbfa; /* Very subtle off-white */
+    border-radius: 32px;
+    margin: 1rem 1rem 1rem 0; /* Add margin to detach from sidebar */
+}
+
+@media (max-width: 991.98px) {
+    .main-content { margin: 1rem; }
+    .device-frame { padding: 0.5rem; border-radius: 20px;}
+    .app-container { border-radius: 16px; }
+}
+
+/* Metric Cards Specific */
+.icon-bg {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-bg.positive { background: var(--positive-bg); color: var(--positive); }
+.icon-bg.negative { background: var(--negative-bg); color: var(--negative); }
+.icon-bg.neutral { background: #e2e8f0; color: #64748b; }
+
+.metric-chart {
+    width: 80px;
+    height: 30px;
+}
+
+/* List Item Formatting */
+.list-item-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.dark-dot { background: var(--chart-dark); }
+.grey-dot { background: var(--chart-grey); }
+.blue-dot { background: var(--chart-blue); }
+.light-dot { background: #e2e8f0; }
+
+.doughnut-legend {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+.doughnut-legend span.dot { margin-right: 8px; }
+
+/* Custom Search Input Outline removal */
+.search-bar input:focus {
+    outline: none;
+    box-shadow: none;
+}

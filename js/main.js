@@ -1,210 +1,450 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Configurações do ChartJS (cores que combinam com o CSS)
-    const CHART_COLORS = {
-        income: '#6366f1',  // var(--accent-color)
-        expense: '#ef4444', // var(--negative)
-        gridLines: 'rgba(255, 255, 255, 0.05)',
-        text: '#9094a6'     // var(--text-secondary)
+
+    // --- Configuration & Styling ---
+    const chartDefaults = {
+        fontFamily: "'Inter', sans-serif",
+        colorMain: '#1e293b',
+        colorMuted: '#94a3b8',
+        colorGrid: '#f1f5f9',
+        blueLine: '#3b82f6',
+        redLine: '#ef4444',
+        greyLine: '#cbd5e1',
+        blueFill: 'rgba(59, 130, 246, 0.1)',
+        greenLine: '#22c55e',
+        darkPurple: '#1e1b4b'
     };
 
-    let globalResumoData = [];
-    let globalDespesasData = [];
-    let cashflowChartInstance = null;
+    Chart.defaults.font.family = chartDefaults.fontFamily;
+    Chart.defaults.color = chartDefaults.colorMuted;
+    Chart.defaults.scale.grid.color = chartDefaults.colorGrid;
+
+    // --- Global Data Store ---
+    let goldResumo = [];
+    let goldDespesas = [];
+    let goldRenda = [];
+    let currentMonthData = null; // Currently filtered month
+    let last7MonthsData = [];    // Ending at selected month (used for trends/sparklines)
+    let rolling12MonthsResumo = []; // Strictly less than selected month (12 bars)
+
+    // --- DOM Elements ---
     const monthFilter = document.getElementById('monthFilter');
 
-    // Função auxiliar formato moeda
+    // --- Chart Instances ---
+    let charts = {
+        revenueTarget: null,
+        expenseCategory: null,
+        profitTrend: null,
+        regionalComparison: null,
+        contributionDoughnut: null,
+        sparklines: {}
+    };
+
+    // --- Utility Functions ---
     const formatCurrency = (value) => {
         return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
     };
 
-    // 1. Fetching dos dados Gold JSON
-    const fetchGoldData = async () => {
-        try {
-            const resumoReq = await fetch('Dados/3_Gold/resumo_mensal.json');
-            const despesasReq = await fetch('Dados/3_Gold/detalhado_despesa.json');
+    const updateTrendIcon = (elementId, subtitleId, currentVal, previousVal, inverseLogic = false) => {
+        const iconContainer = document.getElementById(elementId);
+        const subtitleEl = document.getElementById(subtitleId);
+        if (!iconContainer || !subtitleEl) return;
 
-            if (!resumoReq.ok || !despesasReq.ok) {
-                throw new Error("Não foi possível carregar os arquivos JSON.");
-            }
-
-            globalResumoData = await resumoReq.json();
-            globalDespesasData = await despesasReq.json();
-
-            if(globalResumoData.length > 0) {
-                populateMonthFilter();
-                // O último mês é renderizado por padrão
-                const lastIndex = globalResumoData.length - 1;
-                renderDashboard(lastIndex);
-            }
-
-        } catch (error) {
-            console.error("Erro ao consumir a camada Gold:", error);
-            document.getElementById('overview-saldo').innerText = "Erro no Carregamento";
-        }
-    };
-
-    // Popula o dropdown com os meses
-    const populateMonthFilter = () => {
-        monthFilter.innerHTML = '';
-        globalResumoData.forEach((monthData, index) => {
-            const option = document.createElement('option');
-            option.value = index;
-            // Ex: "MAR 2026"
-            option.text = `${monthData.Mes_Sigla} ${monthData.Ano}`;
-            // Seleciona o último mês por padrão
-            if (index === globalResumoData.length - 1) {
-                option.selected = true;
-            }
-            monthFilter.appendChild(option);
-        });
-
-        // Event listener para quando o usuário trocar o mês no dropdown
-        monthFilter.addEventListener('change', (e) => {
-            const selectedIndex = parseInt(e.target.value);
-            renderDashboard(selectedIndex);
-        });
-    };
-
-    // Agrupa as chamadas de renderização baseadas no índice
-    const renderDashboard = (index) => {
-        updateOverviewCards(index);
-        renderChart(index);
-        
-        // Pega o Ano-Mes selecionado para filtrar a lista de transações
-        const selectedMonthData = globalResumoData[index];
-        // Data_Competencia vem como YYYY-MM-DD. Queremos apenas YYYY-MM
-        const prefixoAnoMes = selectedMonthData.Data_Competencia.substring(0, 7); 
-        renderTransactions(prefixoAnoMes);
-    };
-
-    // 2. Atualização dos Overview Cards (Saldo Cima)
-    const updateOverviewCards = (index) => {
-        const currentMonth = globalResumoData[index];
-        const previousMonth = index > 0 ? globalResumoData[index - 1] : null;
-
-        document.getElementById('overview-saldo').innerText = formatCurrency(currentMonth.Saldo);
-        document.getElementById('overview-receitas').innerText = formatCurrency(currentMonth.Total_Renda);
-        document.getElementById('overview-despesas').innerText = formatCurrency(currentMonth.Total_Despesa);
-        
-        const economiaPerc = currentMonth.Total_Renda > 0 
-            ? ((currentMonth.Saldo / currentMonth.Total_Renda) * 100).toFixed(1) 
-            : 0;
-        document.getElementById('overview-economias').innerText = `${economiaPerc}%`;
-
-        const applyTrend = (currValue, prevValue, elementId, targetId, inverseLogic = false) => {
-            const el = document.getElementById(targetId);
-            if (!prevValue || prevValue === 0) {
-                el.innerText = "Sem histórico passado";
-                el.className = "trend neutral";
-                return;
-            }
-            
-            const diff = currValue - prevValue;
-            let perc = (Math.abs(diff) / prevValue) * 100;
-            perc = perc.toFixed(1);
-
-            if (diff > 0) {
-                let isPositiveTrend = inverseLogic ? false : true;
-                el.innerText = `↑ ${perc}% vs anterior`;
-                el.className = isPositiveTrend ? "trend positive" : "trend negative";
-            } else if (diff < 0) {
-                 let isPositiveTrend = inverseLogic ? true : false;
-                 el.innerText = `↓ ${perc}% vs anterior`;
-                 el.className = isPositiveTrend ? "trend positive" : "trend negative";
-            } else {
-                 el.innerText = `0% vs anterior`;
-                 el.className = "trend neutral";
-            }
-        };
-
-        if(previousMonth) {
-             applyTrend(currentMonth.Saldo, previousMonth.Saldo, 'overview-saldo', 'trend-saldo');
-             applyTrend(currentMonth.Total_Renda, previousMonth.Total_Renda, 'overview-receitas', 'trend-receitas');
-             applyTrend(currentMonth.Total_Despesa, previousMonth.Total_Despesa, 'overview-despesas', 'trend-despesas', true);
-             
-             const prevPerc = previousMonth.Total_Renda > 0 ? (previousMonth.Saldo / previousMonth.Total_Renda) * 100 : 0;
-             const diffPerc = (economiaPerc - prevPerc).toFixed(1);
-             const elEcon = document.getElementById('trend-economias');
-             if(diffPerc > 0) {
-                elEcon.innerText = `↑ ${diffPerc} p.p`;
-                elEcon.className = "trend positive";
-             } else if (diffPerc < 0) {
-                elEcon.innerText = `↓ ${Math.abs(diffPerc)} p.p`;
-                elEcon.className = "trend negative";
-             } else {
-                elEcon.innerText = `Manteve`;
-                elEcon.className = "trend neutral";
-             }
-        } else {
-             document.getElementById('trend-saldo').innerText = "--";
-             document.getElementById('trend-saldo').className = "trend neutral";
-             document.getElementById('trend-receitas').innerText = "--";
-             document.getElementById('trend-receitas').className = "trend neutral";
-             document.getElementById('trend-despesas').innerText = "--";
-             document.getElementById('trend-despesas').className = "trend neutral";
-             document.getElementById('trend-economias').innerText = "--";
-             document.getElementById('trend-economias').className = "trend neutral";
-        }
-    };
-
-    // 3. Renderização Dinâmica das Transações Recentes baseada no mês
-    const renderTransactions = (prefixoAnoMes) => {
-        const transactionList = document.getElementById('transactionList');
-        transactionList.innerHTML = '';
-
-        // Filtra despesas apenas do mês/ano correspondente (ex: '2026-03') e ignora nulos
-        const monthTransactions = globalDespesasData.filter(t => t.Data_Referencia && t.Data_Referencia.startsWith(prefixoAnoMes));
-        
-        // Pega as top 5 desse mes
-        const recentTrans = monthTransactions.slice(0, 5);
-
-        if (recentTrans.length === 0) {
-            transactionList.innerHTML = "<p>Nenhuma transação registrada neste mês.</p>";
+        if (!previousVal || previousVal === 0) {
+            iconContainer.className = "icon-bg neutral";
+            iconContainer.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="5" y1="12" x2="19" y2="12"></line></svg>`;
+            subtitleEl.innerText = "Sem histórico";
             return;
         }
 
-        recentTrans.forEach(trans => {
-            const item = document.createElement('div');
-            item.className = 'transaction-item';
-            
-            const amount = parseFloat(trans.Valor);
-            const dateObj = new Date(trans.Data_Referencia + "T00:00:00"); 
-            const formattedDate = dateObj.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+        const diff = currentVal - previousVal;
+        let perc = ((diff) / Math.abs(previousVal)) * 100;
+        
+        let isPositiveTrend = diff > 0;
+        if (inverseLogic) {
+            isPositiveTrend = diff < 0; // for expenses, less is better
+        }
 
-            item.innerHTML = `
-                <div class="transaction-info">
-                    <p>${trans.Item} ${trans.Credor ? `(${trans.Credor})` : ''}</p>
-                    <span>${formattedDate} - ${trans.Tipo_Pagamento}</span>
-                </div>
-                <div class="transaction-amount negative">
-                    - ${formatCurrency(amount)}
-                </div>
-            `;
-            transactionList.appendChild(item);
+        if (diff === 0) {
+            iconContainer.className = "icon-bg neutral";
+            iconContainer.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="5" y1="12" x2="19" y2="12"></line></svg>`;
+            subtitleEl.innerText = "0% vs anterior";
+        } else if (isPositiveTrend) {
+            iconContainer.className = "icon-bg positive";
+            iconContainer.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>`;
+            subtitleEl.innerText = `+${Math.abs(perc).toFixed(1)}% vs anterior`;
+        } else {
+            iconContainer.className = "icon-bg negative";
+            iconContainer.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>`;
+            subtitleEl.innerText = `-${Math.abs(perc).toFixed(1)}% vs anterior`;
+        }
+    };
+
+    // --- Data Fetching ---
+    const fetchGoldData = async () => {
+        try {
+            const reqResumo = fetch('Dados/3_Gold/resumo_mensal.json');
+            const reqDespesa = fetch('Dados/3_Gold/detalhado_despesa.json');
+            const reqRenda = fetch('Dados/3_Gold/detalhado_renda.json');
+
+            const [resResumo, resDespesa, resRenda] = await Promise.all([reqResumo, reqDespesa, reqRenda]);
+            
+            if (!resResumo.ok || !resDespesa.ok || !resRenda.ok) throw new Error("Erro arquivos JSON");
+
+            goldResumo = await resResumo.json();
+            goldDespesas = await resDespesa.json();
+            goldRenda = await resRenda.json();
+
+            if (goldResumo.length > 0) {
+                // Populate the Month Filter Dropdown
+                populateMonthFilter();
+                
+                // Set default to current month if exists, else latest available
+                const now = new Date();
+                const currentMonthStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-01`;
+                const hasCurrentMonth = goldResumo.some(d => d.Data_Competencia === currentMonthStr);
+                
+                monthFilter.value = hasCurrentMonth ? currentMonthStr : goldResumo[goldResumo.length - 1].Data_Competencia;
+                
+                updateFilteredData();
+                initDashboard();
+
+                // Add Event Listener for future changes
+                monthFilter.addEventListener('change', () => {
+                    updateFilteredData();
+                    initDashboard();
+                });
+            }
+
+        } catch (error) {
+            console.error("Erro na leitura Gold:", error);
+        }
+    };
+
+    const populateMonthFilter = () => {
+        monthFilter.innerHTML = '';
+        // Add options in reverse order (newest first)
+        [...goldResumo].reverse().forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.Data_Competencia; // ex: 2024-11-01
+            option.textContent = `${item.Mes_Sigla} - ${item.Ano}`;
+            monthFilter.appendChild(option);
         });
     };
 
-    // 4. Renderização Dinâmica do Gráfico (Chart.js) retroativa
-    const renderChart = (index) => {
-        // Corta os dados a partir do início até o mês selecionado
-        const historicalData = globalResumoData.slice(0, index + 1);
+    const updateFilteredData = () => {
+        const selectedDate = monthFilter.value;
+        const selectedIndex = goldResumo.findIndex(d => d.Data_Competencia === selectedDate);
         
-        // Limitamos aos 8 meses mais recentes DENTRO desse recorte histórico para caber no gráfico
-        const chartDataArray = historicalData.slice(-8);
+        if (selectedIndex !== -1) {
+            currentMonthData = goldResumo[selectedIndex];
+            
+            // 7 Months ending at selected month (inclusive)
+            let startIdx7 = Math.max(0, selectedIndex - 6);
+            last7MonthsData = goldResumo.slice(startIdx7, selectedIndex + 1);
 
-        const labels = chartDataArray.map(d => `${d.Mes_Sigla} ${d.Ano}`);
-        const incomes = chartDataArray.map(d => d.Total_Renda);
-        const expenses = chartDataArray.map(d => d.Total_Despesa);
+            // 12 Months strictly LESS than selected month
+            let startIdx12 = Math.max(0, selectedIndex - 12);
+            rolling12MonthsResumo = goldResumo.slice(startIdx12, selectedIndex);
+        }
+    };
 
-        const ctx = document.getElementById('cashflowChart').getContext('2d');
+    // --- Initialization Coordinator ---
+    const initDashboard = () => {
+        if (!currentMonthData) return;
+        updateTopMetrics();
+        initLineChart();
+        initHorizontalBarChart();
+        initProfitTrendChart();
+        initRegionalChart();
+        updateTopIncomeList();
+        initDoughnutChart();
+    };
+
+    // --- 1. Top Metrics ---
+    const updateTopMetrics = () => {
+        const selectedIndex = goldResumo.findIndex(d => d.Data_Competencia === currentMonthData.Data_Competencia);
+        const prevMonthData = selectedIndex > 0 ? goldResumo[selectedIndex - 1] : null;
+
+        // 1. Revenue
+        document.getElementById('metric-revenue-val').innerText = formatCurrency(currentMonthData.Total_Renda);
+        const revHistory = last7MonthsData.map(d => d.Total_Renda);
+        drawSparkline('sparklineRevenue', revHistory, chartDefaults.greenLine);
+
+        // 2. Profit Margin
+        const calculateMargin = (d) => d.Total_Renda > 0 ? (d.Saldo / d.Total_Renda) * 100 : 0;
+        const currentMargin = calculateMargin(currentMonthData);
+        document.getElementById('metric-margin-val').innerText = `${currentMargin.toFixed(1)}%`;
+        const marginHistory = last7MonthsData.map(d => calculateMargin(d));
+        drawSparkline('sparklineProfit', marginHistory, chartDefaults.greenLine);
+
+        // 3. Saldo Liquido (EBITDA override)
+        document.getElementById('metric-saldo-val').innerText = formatCurrency(currentMonthData.Saldo);
+        const saldoHistory = last7MonthsData.map(d => d.Saldo);
+        drawSparkline('sparklineEBITDA', saldoHistory, chartDefaults.redLine);
+
+        // 4. Growth Rate
+        let growth = 0;
+        if (prevMonthData && prevMonthData.Total_Renda > 0) {
+            growth = ((currentMonthData.Total_Renda - prevMonthData.Total_Renda) / prevMonthData.Total_Renda) * 100;
+        }
+        document.getElementById('metric-growth-val').innerText = `${growth > 0 ? '+' : ''}${growth.toFixed(1)}%`;
+        updateTrendIcon('metric-growth-icon', 'metric-growth-subtitle', currentMonthData.Total_Renda, prevMonthData ? prevMonthData.Total_Renda : null, false);
         
-        // Destroi o chart anterior caso já exista para recriar as barras
-        if (cashflowChartInstance) {
-            cashflowChartInstance.destroy();
+        // Growth Sparkline (Revenue difference)
+        const growthHistory = [];
+        for(let i=1; i<last7MonthsData.length; i++) {
+            let prev = last7MonthsData[i-1].Total_Renda;
+            let curr = last7MonthsData[i].Total_Renda;
+            growthHistory.push(prev > 0 ? ((curr - prev)/prev)*100 : 0);
+        }
+        drawSparkline('sparklineGrowth', growthHistory.length ? growthHistory : [0,0,0], chartDefaults.greenLine);
+
+        // 5. Debt (Dívida Não Paga)
+        const currentMonthPrefix = currentMonthData.Data_Competencia.substring(0, 7);
+        const currentMonthExpenses = goldDespesas.filter(d => {
+            const dateStr = d.Data_Referencia || d.Data_Competencia;
+            return dateStr && dateStr.startsWith(currentMonthPrefix);
+        });
+        
+        const currentDebt = currentMonthExpenses.filter(d => d.Status === "Não Pago" || d.Status === "N\u00e3o Pago").reduce((sum, d) => sum + d.Valor, 0);
+        
+        const debtValEl = document.getElementById('metric-debt-val');
+        if (debtValEl) {
+            debtValEl.innerText = formatCurrency(currentDebt);
+        }
+        
+        // Debt Sparkline history
+        const debtHistory = last7MonthsData.map(resumoObj => {
+            const prefix = resumoObj.Data_Competencia.substring(0, 7);
+            const monthExps = goldDespesas.filter(d => {
+                const dateStr = d.Data_Referencia || d.Data_Competencia;
+                return dateStr && dateStr.startsWith(prefix);
+            });
+            return monthExps.filter(d => d.Status === "Não Pago" || d.Status === "N\u00e3o Pago").reduce((sum, d) => sum + d.Valor, 0);
+        });
+        
+        const sparkDebtEl = document.getElementById('sparklineDebt');
+        if (sparkDebtEl) {
+            drawSparkline('sparklineDebt', debtHistory.length > 1 ? debtHistory : [0,0,0], chartDefaults.redLine);
         }
 
-        cashflowChartInstance = new Chart(ctx, {
+        // 6. Paid Debt (Dívida Paga no Mês)
+        const currentPaid = currentMonthExpenses.filter(d => d.Status === "Pago").reduce((sum, d) => sum + d.Valor, 0);
+        
+        const paidValEl = document.getElementById('metric-paid-val');
+        if (paidValEl) {
+            paidValEl.innerText = formatCurrency(currentPaid);
+        }
+        
+        // Paid Debt Sparkline history
+        const paidHistory = last7MonthsData.map(resumoObj => {
+            const prefix = resumoObj.Data_Competencia.substring(0, 7);
+            const monthExps = goldDespesas.filter(d => {
+                const dateStr = d.Data_Referencia || d.Data_Competencia;
+                return dateStr && dateStr.startsWith(prefix);
+            });
+            return monthExps.filter(d => d.Status === "Pago").reduce((sum, d) => sum + d.Valor, 0);
+        });
+        
+        const sparkPaidEl = document.getElementById('sparklinePaid');
+        if (sparkPaidEl) {
+            drawSparkline('sparklinePaid', paidHistory.length > 1 ? paidHistory : [0,0,0], chartDefaults.greenLine);
+        }
+    };
+
+    const drawSparkline = (id, data, color) => {
+        if (charts.sparklines[id]) charts.sparklines[id].destroy();
+        
+        charts.sparklines[id] = new Chart(document.getElementById(id), {
+            type: 'line',
+            data: {
+                labels: Array(data.length).fill(''),
+                datasets: [{
+                    data: data,
+                    borderColor: color,
+                    borderWidth: 2,
+                    tension: 0.3,
+                    pointRadius: 0,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: { enabled: false } },
+                scales: {
+                    x: { display: false },
+                    y: { display: false, min: Math.min(...data) * 0.9, max: Math.max(...data) * 1.1 }
+                },
+                layout: { padding: 0 }
+            }
+        });
+    };
+
+    // --- 2. Revenue vs Target ---
+    // User requested last 12 months strictly less than filtered month
+    const initLineChart = () => {
+        const labels = rolling12MonthsResumo.map(d => `${d.Mes_Sigla} - ${d.Ano}`);
+        const actual = rolling12MonthsResumo.map(d => d.Total_Renda);
+        const expenses = rolling12MonthsResumo.map(d => d.Total_Despesa);
+        
+        // Mock target values = previous month's revenue * 1.05
+        const projected = [];
+        // Look back one more month for the initial target base if available
+        let firstIdx = goldResumo.findIndex(d => 
+            rolling12MonthsResumo.length > 0 && 
+            rolling12MonthsResumo[0] && 
+            d.Data_Competencia === rolling12MonthsResumo[0].Data_Competencia
+        );
+        let prev = firstIdx > 0 ? goldResumo[firstIdx - 1].Total_Renda : 0;
+        
+        rolling12MonthsResumo.forEach(d => {
+            if (d) {
+                projected.push(prev * 1.05);
+                prev = d.Total_Renda;
+            }
+        });
+
+        if (charts.revenueTarget) charts.revenueTarget.destroy();
+        charts.revenueTarget = new Chart(document.getElementById('revenueTargetChart'), {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Receita',
+                        data: actual,
+                        borderColor: chartDefaults.colorMain,
+                        borderWidth: 2,
+                        tension: 0.3,
+                        pointRadius: 2
+                    },
+                    {
+                        label: 'Despesa',
+                        data: expenses,
+                        borderColor: chartDefaults.redLine,
+                        borderWidth: 2,
+                        tension: 0.3,
+                        pointRadius: 2
+                    },
+                    {
+                        label: 'Meta Projetada',
+                        data: projected,
+                        borderColor: chartDefaults.greyLine,
+                        borderWidth: 2,
+                        tension: 0.3,
+                        pointRadius: 0,
+                        borderDash: [5, 5]
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+    };
+
+    // --- 3. Expense Breakdown (Tipo_Pagamento) ---
+    // User requested last 12 months strictly less than filtered month
+    const initHorizontalBarChart = () => {
+        const rollingMonthsPrefixes = rolling12MonthsResumo.map(d => d.Data_Competencia ? d.Data_Competencia.substring(0, 7) : "");
+        const rollingExpenses = goldDespesas.filter(d => {
+            const dateStr = d.Data_Referencia || d.Data_Competencia;
+            return dateStr && rollingMonthsPrefixes.includes(dateStr.substring(0, 7));
+        });
+        
+        let typeMap = {};
+        rollingExpenses.forEach(exp => {
+            const type = exp.Tipo_Pagamento || "Outros";
+            typeMap[type] = (typeMap[type] || 0) + exp.Valor;
+        });
+
+        // if empty window OR no data found in window, fallback to current month
+        if(Object.keys(typeMap).length === 0) {
+            const currentPrefix = currentMonthData ? currentMonthData.Data_Competencia.substring(0, 7) : "";
+            const currentMonthExpenses = goldDespesas.filter(d => {
+                const dateStr = d.Data_Referencia || d.Data_Competencia;
+                return dateStr && dateStr.startsWith(currentPrefix);
+            });
+            currentMonthExpenses.forEach(exp => {
+                const type = exp.Tipo_Pagamento || "Outros";
+                typeMap[type] = (typeMap[type] || 0) + exp.Valor;
+            });
+        }
+
+        const sortedTypes = Object.keys(typeMap).sort((a,b) => typeMap[b] - typeMap[a]).slice(0, 5); // top 5
+        const vals = sortedTypes.map(t => typeMap[t]);
+
+        if (charts.expenseCategory) charts.expenseCategory.destroy();
+        charts.expenseCategory = new Chart(document.getElementById('expenseChart'), {
+            type: 'bar',
+            data: {
+                labels: sortedTypes,
+                datasets: [{
+                    data: vals,
+                    backgroundColor: chartDefaults.colorMain,
+                    barPercentage: 0.4,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { display: false },
+                    y: { grid: { display: false }, ticks: { color: chartDefaults.colorMain, font: { weight: 500 } } }
+                }
+            }
+        });
+    };
+
+    // --- 4. Profit Margin Trend ---
+    // User requested last 12 months strictly less than filtered month
+    const initProfitTrendChart = () => {
+        const labels = rolling12MonthsResumo.map(d => `${d.Mes_Sigla} - ${d.Ano}`);
+        const margins = rolling12MonthsResumo.map(d => d.Total_Renda > 0 ? (d.Saldo / d.Total_Renda) * 100 : 0);
+
+        if (charts.profitTrend) charts.profitTrend.destroy();
+        charts.profitTrend = new Chart(document.getElementById('profitTrendChart'), {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: margins,
+                    label: 'Margem %',
+                    borderColor: chartDefaults.colorMain,
+                    borderWidth: 2,
+                    tension: 0.3,
+                    pointRadius: 3,
+                    backgroundColor: chartDefaults.blueFill,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: false },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    };
+
+    // --- 5. Regional Comparison -> Income Vs Expense History (Bar) ---
+    // User requested last 12 months strictly less than filtered month
+    const initRegionalChart = () => {
+        const labels = rolling12MonthsResumo.map(d => `${d.Mes_Sigla} - ${d.Ano}`);
+        const incomes = rolling12MonthsResumo.map(d => d.Total_Renda);
+        const expenses = rolling12MonthsResumo.map(d => d.Total_Despesa);
+
+        if (charts.regionalComparison) charts.regionalComparison.destroy();
+        charts.regionalComparison = new Chart(document.getElementById('regionalChart'), {
             type: 'bar',
             data: {
                 labels: labels,
@@ -212,70 +452,151 @@ document.addEventListener('DOMContentLoaded', () => {
                     {
                         label: 'Receitas',
                         data: incomes,
-                        backgroundColor: CHART_COLORS.income,
-                        borderRadius: 6,
+                        backgroundColor: chartDefaults.greyLine,
                         barPercentage: 0.6,
-                        categoryPercentage: 0.8
+                        categoryPercentage: 0.6,
+                        borderRadius: 4
                     },
                     {
                         label: 'Despesas',
                         data: expenses,
-                        backgroundColor: CHART_COLORS.expense,
-                        borderRadius: 6,
+                        backgroundColor: chartDefaults.colorMain,
                         barPercentage: 0.6,
-                        categoryPercentage: 0.8
+                        categoryPercentage: 0.6,
+                        borderRadius: 4
                     }
                 ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: CHART_COLORS.text,
-                            font: { family: 'Inter' }
-                        }
-                    },
-                    tooltip: {
-                        mode: 'index',
-                        intersect: false,
-                        backgroundColor: 'rgba(28, 30, 38, 0.9)',
-                        titleColor: '#fff',
-                        bodyColor: CHART_COLORS.text,
-                        borderColor: 'rgba(255, 255, 255, 0.1)',
-                        borderWidth: 1,
-                        callbacks: {
-                            label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) label += ': ';
-                                if (context.parsed.y !== null) label += formatCurrency(context.parsed.y);
-                                return label;
-                            }
-                        }
-                    }
-                },
+                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
                 scales: {
-                    y: {
-                        ticks: {
-                            color: CHART_COLORS.text,
-                            callback: function(value) { return 'R$ ' + value; }
-                        },
-                        grid: { color: CHART_COLORS.gridLines }
-                    },
-                    x: {
-                        ticks: { color: CHART_COLORS.text },
-                        grid: { display: false }
-                    }
+                    y: { beginAtZero: true },
+                    x: { grid: { display: false } }
                 }
             }
         });
     };
 
-    // Botão Adicional mock
-    const btn = document.getElementById('addTransactionBtn');
-    if (btn) btn.addEventListener('click', () => { alert('Integração de Escrita de Novas Transações em planejamento!'); });
+    // --- 6. Top Income Sources List ---
+    // Filtered by 12 months rolling strictly less than selected month
+    const updateTopIncomeList = () => {
+        const rollingMonthsPrefixes = rolling12MonthsResumo.map(d => d.Data_Competencia.substring(0, 7));
+        
+        let monthIncomes = goldRenda.filter(d => {
+            const dateStr = d.Data_Referencia || d.Data_Competencia;
+            return dateStr && rollingMonthsPrefixes.some(p => dateStr.startsWith(p));
+        });
+        
+        // If empty fallback to current month to avoid blank UI
+        if (monthIncomes.length === 0) {
+           const currentPrefix = currentMonthData.Data_Competencia.substring(0, 7);
+           monthIncomes = goldRenda.filter(d => {
+               const dateStr = d.Data_Referencia || d.Data_Competencia;
+               return dateStr && dateStr.startsWith(currentPrefix);
+           });
+        }
 
-    // Dispara a coleta e carregamento da primeira página
+        const incomeMap = {};
+        monthIncomes.forEach(inc => {
+            const item = inc.Item || "Vários";
+            incomeMap[item] = (incomeMap[item] || 0) + inc.Valor;
+        });
+
+        const sortedIncomes = Object.keys(incomeMap).sort((a,b) => incomeMap[b] - incomeMap[a]).slice(0, 4);
+
+        const listEl = document.getElementById('top-income-list');
+        listEl.innerHTML = '';
+        
+        const dotClasses = ['grey-dot', 'dark-dot', 'blue-dot', 'light-dot'];
+
+        sortedIncomes.forEach((item, index) => {
+            const val = incomeMap[item];
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <div class="list-item-left">
+                    <span class="dot ${dotClasses[index % dotClasses.length]}"></span>
+                    <span>${item}</span>
+                </div>
+                <span class="list-value">${formatCurrency(val)}</span>
+            `;
+            listEl.appendChild(li);
+        });
+    };
+
+    // --- 7. Contribution Doughnut ---
+    const initDoughnutChart = () => {
+        const rollingMonthsPrefixes = rolling12MonthsResumo.map(d => d.Data_Competencia.substring(0, 7));
+        
+        let monthIncomes = goldRenda.filter(d => {
+            const dateStr = d.Data_Referencia || d.Data_Competencia;
+            return dateStr && rollingMonthsPrefixes.some(p => dateStr.startsWith(p));
+        });
+        
+        if (monthIncomes.length === 0) {
+            const currentPrefix = currentMonthData.Data_Competencia.substring(0, 7);
+            monthIncomes = goldRenda.filter(d => {
+                const dateStr = d.Data_Referencia || d.Data_Competencia;
+                return dateStr && dateStr.startsWith(currentPrefix);
+            });
+        }
+
+        const incomeMap = {};
+        monthIncomes.forEach(inc => {
+            const item = inc.Item || "Vários";
+            incomeMap[item] = (incomeMap[item] || 0) + inc.Valor;
+        });
+
+        const sortedIncomes = Object.keys(incomeMap).sort((a,b) => incomeMap[b] - incomeMap[a]).slice(0, 4);
+        const dataVals = sortedIncomes.map(key => incomeMap[key]);
+
+        const colors = [chartDefaults.colorMain, chartDefaults.greyLine, chartDefaults.blueLine, '#f8fafc'];
+        const dotClasses = ['dark-dot', 'grey-dot', 'blue-dot', 'light-dot'];
+
+        // Rebuild Legend HTML
+        const container = document.getElementById('doughnut-container');
+        // Clear previous except canvas
+        container.querySelectorAll('.doughnut-legend').forEach(e => e.remove());
+
+        const leftLegend = document.createElement('div');
+        leftLegend.className = 'doughnut-legend left-legend d-flex flex-column gap-2 order-2 order-sm-1';
+        const rightLegend = document.createElement('div');
+        rightLegend.className = 'doughnut-legend right-legend d-flex flex-column gap-2 order-3 order-sm-3';
+
+        sortedIncomes.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.innerHTML = `<span class="dot ${dotClasses[index]}"></span> ${item.substring(0, 15)}`;
+            if(index < 2) leftLegend.appendChild(div);
+            else rightLegend.appendChild(div);
+        });
+
+        const canvasWrapper = container.querySelector('.doughnut-canvas');
+        canvasWrapper.classList.add('order-1', 'order-sm-2', 'mb-3', 'mb-sm-0');
+
+        container.insertBefore(leftLegend, container.firstChild);
+        container.appendChild(rightLegend);
+
+
+        if (charts.contributionDoughnut) charts.contributionDoughnut.destroy();
+        charts.contributionDoughnut = new Chart(document.getElementById('contributionChart'), {
+            type: 'doughnut',
+            data: {
+                labels: sortedIncomes,
+                datasets: [{
+                    data: dataVals,
+                    backgroundColor: colors,
+                    borderWidth: 0,
+                    cutout: '75%'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } }
+            }
+        });
+    };
+
     fetchGoldData();
 });
