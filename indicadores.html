@@ -197,13 +197,13 @@
                     <div class="col-12 col-md-6">
                         <div class="card metric-card p-4 border-0 shadow-sm rounded-4 h-100">
                             <h3 class="h6 mb-3 text-muted">Impacto das Dívidas</h3>
-                            <div class="d-flex align-items-center gap-4">
-                                <div class="chart-container" style="width: 100px;">
+                            <div class="d-flex flex-column align-items-center justify-content-center flex-grow-1 text-center py-2">
+                                <div class="chart-container mb-3" style="width: 180px; height: 100px;">
                                     <canvas id="debtImpactGauge"></canvas>
                                 </div>
                                 <div>
-                                    <h2 class="h3 fw-bold mb-1" id="action-debt-pct">35%</h2>
-                                    <span class="fs-7 text-danger fw-medium">da sua renda comprometida</span>
+                                    <h2 class="h1 fw-bold mb-1" id="action-debt-pct">35%</h2>
+                                    <span class="fs-7 text-danger fw-medium d-block">da sua renda comprometida</span>
                                 </div>
                             </div>
                         </div>
@@ -212,13 +212,10 @@
                     <div class="col-12 col-md-6">
                         <div class="card metric-card p-4 border-0 shadow-sm rounded-4 h-100">
                             <h3 class="h6 mb-3 text-muted">Tempo para Quitar tudo</h3>
-                            <div class="d-flex align-items-end justify-content-between">
-                                <div>
-                                    <h2 class="h1 fw-bold mb-0" id="action-debt-time">14 <span class="h4">meses</span></h2>
+                            <div class="d-flex flex-column align-items-center justify-content-center flex-grow-1 text-center py-3">
+                                <div class="mb-2">
+                                    <h2 class="display-5 fw-bold mb-0" id="action-debt-time">14 <span class="h4">meses</span></h2>
                                     <p class="fs-7 text-muted mt-2 mb-0">Manter ritmo atual de pagamentos.</p>
-                                </div>
-                                <div class="pb-2">
-                                     <span class="badge bg-primary-soft text-primary rounded-pill px-3 py-2">Projeção</span>
                                 </div>
                             </div>
                         </div>
