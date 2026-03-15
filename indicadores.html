@@ -45,7 +45,7 @@
                             </svg></a>
                     </li>
                     <li class="nav-item">
-                        <a href="poupanca.html" class="nav-link icon-link"><svg width="24" height="24" viewBox="0 0 24 24"
+                        <a href="javascript:void(0)" class="nav-link icon-link disabled-link"><svg width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="18" y1="20" x2="18" y2="10"></line>
                                 <line x1="12" y1="20" x2="12" y2="4"></line>
@@ -83,7 +83,7 @@
                                 </svg></a>
                         </li>
                         <li class="nav-item">
-                            <a href="poupanca.html" class="nav-link icon-link"><svg width="24" height="24" viewBox="0 0 24 24"
+                            <a href="javascript:void(0)" class="nav-link icon-link disabled-link"><svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2">
                                     <line x1="18" y1="20" x2="18" y2="10"></line>
                                     <line x1="12" y1="20" x2="12" y2="4"></line>
@@ -238,6 +238,14 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('.disabled-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Esta página ainda não está disponível');
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -19,6 +19,40 @@
 </head>
 
 <body class="bg-main text-main d-flex justify-content-center align-items-center min-vh-100 py-3 py-lg-5">
+    
+    <!-- Bloqueio de Acesso Directo -->
+    <style>
+        .page-lock-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            alert('Esta página ainda não está disponível');
+            window.location.href = 'index.html';
+        };
+    </script>
+    <div class="page-lock-overlay text-white text-center p-4">
+        <div>
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mb-4 text-warning">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <h2 class="h3 fw-bold mb-3">Página em Desenvolvimento</h2>
+            <p class="opacity-75">Redirecionando para a página principal...</p>
+        </div>
+    </div>
 
     <!-- Offcanvas for Mobile Sidebar -->
     <div class="offcanvas offcanvas-start sidebar-offcanvas" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">

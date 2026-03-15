@@ -5,15 +5,14 @@ import tkinter as tk
 from tkinter import ttk
 
 caminho = r'C:\Users\luanc\Documents\Estudos\teste_antgravity\Dados\2_Silver'
+silver_renda = os.path.join(caminho, 'fato_renda.parquet')
 silver_despesa = os.path.join(caminho, 'fato_despesa.parquet')
 
 df = duckdb.sql(f"""
-    SELECT
-        Data_Competencia,
-        SUM(Valor) AS Total_Despesa,
-        SUM(CASE WHEN Tipo_Pagamento LIKE 'Cred%' THEN Valor ELSE 0 END) AS Divida_Cartao
+   SELECT 
+        *
     FROM read_parquet('{silver_despesa}')
-    GROUP BY 1
+    LIMIT 100
 """).df()
 
 # janela
