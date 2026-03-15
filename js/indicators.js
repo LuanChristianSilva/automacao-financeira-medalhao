@@ -93,10 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Alerts
-        const alertNegative = document.getElementById('alert-negative-risk');
-        if (alertNegative) {
-            data.Receita_Disponivel < 500 ? alertNegative.classList.remove('d-none') : alertNegative.classList.add('d-none');
-        }
+        renderActionAlerts(data);
 
         // Top Expenses
         const expensesContainer = document.getElementById('action-top-expenses');
@@ -124,6 +121,69 @@ document.addEventListener('DOMContentLoaded', () => {
                 timeEl.innerHTML = `${data.Meses_Para_Quitar.toFixed(1)} <span class="h4">meses</span>`;
             }
         }
+    };
+
+    const renderActionAlerts = (data) => {
+        const container = document.getElementById('action-alerts-container');
+        if (!container) return;
+
+        let alertHtml = '';
+        const saldo = data.Receita_Disponivel;
+
+        if (saldo < 0) {
+            // CRITICAL STATE
+            alertHtml = `
+                <div class="alert alert-danger b-alert rounded-4 p-4 border-0 d-flex align-items-start gap-3 shadow-sm">
+                    <div class="alert-icon-circle bg-danger text-white p-2 rounded-circle">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="h6 fw-bold mb-1">Estado Crítico: Déficit Financeiro</h5>
+                        <p class="mb-0 fs-7 opacity-75">Suas despesas superaram sua renda. Priorize o pagamento de contas essenciais e evite qualquer novo gasto no cartão.</p>
+                    </div>
+                    <button class="btn btn-sm btn-outline-danger rounded-pill px-3">Plano de Contingência</button>
+                </div>
+            `;
+        } else if (saldo < 1000) {
+            // WARNING STATE
+            alertHtml = `
+                <div class="alert alert-warning b-alert rounded-4 p-4 border-0 d-flex align-items-start gap-3 shadow-sm">
+                    <div class="alert-icon-circle bg-warning text-dark p-2 rounded-circle">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="h6 fw-bold mb-1">Atenção: Margem Reduzida</h5>
+                        <p class="mb-0 fs-7 opacity-75">Seu saldo disponível está abaixo da margem de segurança. Evite compras supérfluas até o próximo ciclo.</p>
+                    </div>
+                    <button class="btn btn-sm btn-outline-dark rounded-pill px-3">Monitorar</button>
+                </div>
+            `;
+        } else {
+            // HEALTHY STATE
+            alertHtml = `
+                <div class="alert alert-success b-alert rounded-4 p-4 border-0 d-flex align-items-start gap-3 shadow-sm" style="background-color: #f0fDF4; color: #166534;">
+                    <div class="alert-icon-circle bg-success text-white p-2 rounded-circle">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="h6 fw-bold mb-1" style="color: #166534;">Saúde Financeira Excelente</h5>
+                        <p class="mb-0 fs-7 opacity-75">Parabéns! Você tem uma boa sobra este mês. Considere adiantar uma parcela de dívida ou reforçar sua reserva.</p>
+                    </div>
+                    <button class="btn btn-sm btn-success rounded-pill px-3 border-0" style="background-color: #166534;">Investir Sobra</button>
+                </div>
+            `;
+        }
+
+        container.innerHTML = alertHtml;
     };
 
     const renderDebtGauge = (value) => {
