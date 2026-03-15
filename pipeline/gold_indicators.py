@@ -97,7 +97,6 @@ def load_indicators():
                     m.Total_Renda as Renda_Base,
                     m.Divida_Cartao as Valor_Comprometido,
                     CASE 
-                        WHEN (m.Total_Renda - m.Total_Despesa) < 0 THEN 100
                         WHEN m.Total_Renda > 0 THEN (m.Divida_Cartao / m.Total_Renda) * 100 
                         ELSE 0 
                     END AS Impacto_Divida_Pct

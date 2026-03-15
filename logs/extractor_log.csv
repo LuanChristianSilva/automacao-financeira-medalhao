@@ -167,3 +167,10 @@ be7b43bd-f4b4-43ff-b285-8286aef24617,5925b151-9294-4b30-be91-f8d107d7ea59,2026-0
 650eb3a3-af90-48fa-9ef5-ff38164699a2,5925b151-9294-4b30-be91-f8d107d7ea59,2026-03-15T09:55:16-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,70ac949,,,Consolidate Output,rows_extracted_renda,102,rows,102,,,,,
 47b84c52-cd80-4323-8d70-0b09376227c0,5925b151-9294-4b30-be91-f8d107d7ea59,2026-03-15T09:55:16-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,70ac949,,,Consolidate Output,rows_extracted_despesa,1238,rows,1238,,,,,
 85a63822-313b-4458-bc61-8169c19ccfa1,5925b151-9294-4b30-be91-f8d107d7ea59,2026-03-15T09:55:16-03:00,Bronze,extractor.py,FINISHED,INFO,local,main,70ac949,,,,,,,,,,,2357,
+5fc96161-d5fa-44c1-953b-e2b847596e58,17c8609b-d4a9-4416-9963-51456247c093,2026-03-15T10:04:41-03:00,Bronze,extractor.py,STARTED,INFO,local,main,a8ad391,,,,,,,,,,,,Iniciando varredura e extração de planilhas locais.
+332a41df-c151-4e72-9336-9d7261ed392d,17c8609b-d4a9-4416-9963-51456247c093,2026-03-15T10:04:42-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,a8ad391,,,Excel Tabs,total_tabs,38,count,,,,,,
+2fc793ac-c269-4156-b512-607484fa3497,17c8609b-d4a9-4416-9963-51456247c093,2026-03-15T10:04:42-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,a8ad391,,,Excel Tabs,eligible_tabs,34,count,,,,,,
+ed31a500-1e84-44b7-9400-76132ffca82e,17c8609b-d4a9-4416-9963-51456247c093,2026-03-15T10:04:44-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,a8ad391,,,Extraction Data,processed_tabs,34,count,,,,,,
+7632c781-ed09-40a5-b612-35b03bf22d4a,17c8609b-d4a9-4416-9963-51456247c093,2026-03-15T10:04:44-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,a8ad391,,,Consolidate Output,rows_extracted_renda,102,rows,102,,,,,
+c6a7b580-8b68-4a58-b3a5-50795192da84,17c8609b-d4a9-4416-9963-51456247c093,2026-03-15T10:04:44-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,a8ad391,,,Consolidate Output,rows_extracted_despesa,1238,rows,1238,,,,,
+c63f7cb4-5b73-4250-a115-bec3586a44f6,17c8609b-d4a9-4416-9963-51456247c093,2026-03-15T10:04:44-03:00,Bronze,extractor.py,FINISHED,INFO,local,main,a8ad391,,,,,,,,,,,2277,

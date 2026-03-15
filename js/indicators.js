@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
             type: 'doughnut',
             data: {
                 datasets: [{
-                    data: [value, 100 - value],
+                    data: [Math.min(value, 100), Math.max(0, 100 - value)],
                     backgroundColor: [value >= 100 ? '#ef4444' : (value > 70 ? '#f59e0b' : '#3b82f6'), '#f1f5f9'],
                     borderWidth: 0,
                     circumference: 180,
