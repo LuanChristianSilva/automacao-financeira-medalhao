@@ -2,6 +2,7 @@ import webbrowser
 from pipeline.extractor import main as run_bronze
 from pipeline.silver_transform import transform_silver as run_silver
 from pipeline.gold_load import load_gold as run_gold
+from pipeline.gold_indicators import load_indicators as run_indicators
 from pipeline.validate_results import validate
 
 def run_pipeline():
@@ -21,6 +22,7 @@ def run_pipeline():
         # Camada Gold
         print("\n[3/4] Executando Camada Gold (Agregação para Consumo JSON)...")
         run_gold()
+        run_indicators()
 
         # Validação
         print("\n[4/4] Executando Validação de Consistência e Qualidade...")
