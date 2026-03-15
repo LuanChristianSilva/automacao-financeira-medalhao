@@ -1,12 +1,132 @@
 [
     {
-        "Data_Competencia": "2026-03-01",
-        "Item": "Salário Mock",
+        "Data_Competencia": "2025-01-01",
+        "Item": "Salário",
         "Valor": 5000.0
     },
     {
-        "Data_Competencia": "2026-03-01",
-        "Item": "Extra Mock",
-        "Valor": 500.0
+        "Data_Competencia": "2025-01-01",
+        "Item": "Extra",
+        "Valor": 520.0
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Item": "Salário",
+        "Valor": 5000.0
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Item": "Extra",
+        "Valor": 540.0
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Item": "Salário",
+        "Valor": 5000.0
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Item": "Extra",
+        "Valor": 560.0
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Item": "Salário",
+        "Valor": 5000.0
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Item": "Extra",
+        "Valor": 580.0
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Item": "Salário",
+        "Valor": 5000.0
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Item": "Extra",
+        "Valor": 600.0
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Item": "Salário",
+        "Valor": 5000.0
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Item": "Extra",
+        "Valor": 620.0
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Item": "Salário",
+        "Valor": 5000.0
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Item": "Extra",
+        "Valor": 640.0
+    },
+    {
+        "Data_Competencia": "2025-08-01",
+        "Item": "Salário",
+        "Valor": 5000.0
+    },
+    {
+        "Data_Competencia": "2025-08-01",
+        "Item": "Extra",
+        "Valor": 660.0
+    },
+    {
+        "Data_Competencia": "2025-09-01",
+        "Item": "Salário",
+        "Valor": 5000.0
+    },
+    {
+        "Data_Competencia": "2025-09-01",
+        "Item": "Extra",
+        "Valor": 680.0
+    },
+    {
+        "Data_Competencia": "2025-10-01",
+        "Item": "Salário",
+        "Valor": 5000.0
+    },
+    {
+        "Data_Competencia": "2025-10-01",
+        "Item": "Extra",
+        "Valor": 700.0
+    },
+    {
+        "Data_Competencia": "2026-11-01",
+        "Item": "Salário",
+        "Valor": 5000.0
+    },
+    {
+        "Data_Competencia": "2026-11-01",
+        "Item": "Extra",
+        "Valor": 720.0
+    },
+    {
+        "Data_Competencia": "2026-12-01",
+        "Item": "Salário",
+        "Valor": 5000.0
+    },
+    {
+        "Data_Competencia": "2026-12-01",
+        "Item": "Extra",
+        "Valor": 740.0
+    },
+    {
+        "Data_Competencia": "2026-01-01",
+        "Item": "Salário",
+        "Valor": 5000.0
+    },
+    {
+        "Data_Competencia": "2026-01-01",
+        "Item": "Extra",
+        "Valor": 760.0
     }
 ]

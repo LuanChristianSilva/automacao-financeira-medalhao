@@ -1,92 +1,587 @@
 [
     {
-        "Data_Competencia": "2026-03-01",
-        "Data_Referencia": "2026-03-01",
-        "Item": "Despesa Mock 1",
-        "Valor": 50.0,
-        "Status": "Aberto",
-        "Credor": "Empresa XPTO",
-        "Tipo_Pagamento": "Cartão"
-    },
-    {
-        "Data_Competencia": "2026-03-01",
-        "Data_Referencia": "2026-03-02",
-        "Item": "Despesa Mock 2",
+        "Data_Competencia": "2025-01-01",
+        "Data_Referencia": "2025-01-01",
+        "Item": "Gasto JAN 1",
         "Valor": 100.0,
-        "Status": "Pago",
-        "Credor": "Empresa XPTO",
-        "Tipo_Pagamento": "Cartão"
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
     },
     {
-        "Data_Competencia": "2026-03-01",
-        "Data_Referencia": "2026-03-03",
-        "Item": "Despesa Mock 3",
-        "Valor": 150.0,
-        "Status": "Aberto",
-        "Credor": "Empresa XPTO",
-        "Tipo_Pagamento": "Cartão"
-    },
-    {
-        "Data_Competencia": "2026-03-01",
-        "Data_Referencia": "2026-03-04",
-        "Item": "Despesa Mock 4",
+        "Data_Competencia": "2025-01-01",
+        "Data_Referencia": "2025-01-02",
+        "Item": "Gasto JAN 2",
         "Valor": 200.0,
         "Status": "Pago",
-        "Credor": "Empresa XPTO",
+        "Credor": "Loja Exemplo",
         "Tipo_Pagamento": "Cartão"
     },
     {
-        "Data_Competencia": "2026-03-01",
-        "Data_Referencia": "2026-03-05",
-        "Item": "Despesa Mock 5",
-        "Valor": 250.0,
-        "Status": "Aberto",
-        "Credor": "Empresa XPTO",
-        "Tipo_Pagamento": "Cartão"
-    },
-    {
-        "Data_Competencia": "2026-03-01",
-        "Data_Referencia": "2026-03-06",
-        "Item": "Despesa Mock 6",
+        "Data_Competencia": "2025-01-01",
+        "Data_Referencia": "2025-01-03",
+        "Item": "Gasto JAN 3",
         "Valor": 300.0,
-        "Status": "Pago",
-        "Credor": "Empresa XPTO",
-        "Tipo_Pagamento": "Cartão"
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
     },
     {
-        "Data_Competencia": "2026-03-01",
-        "Data_Referencia": "2026-03-07",
-        "Item": "Despesa Mock 7",
-        "Valor": 350.0,
-        "Status": "Aberto",
-        "Credor": "Empresa XPTO",
-        "Tipo_Pagamento": "Cartão"
-    },
-    {
-        "Data_Competencia": "2026-03-01",
-        "Data_Referencia": "2026-03-08",
-        "Item": "Despesa Mock 8",
+        "Data_Competencia": "2025-01-01",
+        "Data_Referencia": "2025-01-04",
+        "Item": "Gasto JAN 4",
         "Valor": 400.0,
         "Status": "Pago",
-        "Credor": "Empresa XPTO",
+        "Credor": "Loja Exemplo",
         "Tipo_Pagamento": "Cartão"
     },
     {
-        "Data_Competencia": "2026-03-01",
-        "Data_Referencia": "2026-03-09",
-        "Item": "Despesa Mock 9",
-        "Valor": 450.0,
-        "Status": "Aberto",
-        "Credor": "Empresa XPTO",
-        "Tipo_Pagamento": "Cartão"
-    },
-    {
-        "Data_Competencia": "2026-03-01",
-        "Data_Referencia": "2026-03-10",
-        "Item": "Despesa Mock 10",
+        "Data_Competencia": "2025-01-01",
+        "Data_Referencia": "2025-01-05",
+        "Item": "Gasto JAN 5",
         "Valor": 500.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-01",
+        "Item": "Gasto FEV 1",
+        "Valor": 100.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-02",
+        "Item": "Gasto FEV 2",
+        "Valor": 200.0,
         "Status": "Pago",
-        "Credor": "Empresa XPTO",
+        "Credor": "Loja Exemplo",
         "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-03",
+        "Item": "Gasto FEV 3",
+        "Valor": 300.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-04",
+        "Item": "Gasto FEV 4",
+        "Valor": 400.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-05",
+        "Item": "Gasto FEV 5",
+        "Valor": 500.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-01",
+        "Item": "Gasto MAR 1",
+        "Valor": 100.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-02",
+        "Item": "Gasto MAR 2",
+        "Valor": 200.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-03",
+        "Item": "Gasto MAR 3",
+        "Valor": 300.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-04",
+        "Item": "Gasto MAR 4",
+        "Valor": 400.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-05",
+        "Item": "Gasto MAR 5",
+        "Valor": 500.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Data_Referencia": "2025-04-01",
+        "Item": "Gasto ABR 1",
+        "Valor": 100.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Data_Referencia": "2025-04-02",
+        "Item": "Gasto ABR 2",
+        "Valor": 200.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Data_Referencia": "2025-04-03",
+        "Item": "Gasto ABR 3",
+        "Valor": 300.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Data_Referencia": "2025-04-04",
+        "Item": "Gasto ABR 4",
+        "Valor": 400.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Data_Referencia": "2025-04-05",
+        "Item": "Gasto ABR 5",
+        "Valor": 500.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Data_Referencia": "2025-05-01",
+        "Item": "Gasto MAI 1",
+        "Valor": 100.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Data_Referencia": "2025-05-02",
+        "Item": "Gasto MAI 2",
+        "Valor": 200.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Data_Referencia": "2025-05-03",
+        "Item": "Gasto MAI 3",
+        "Valor": 300.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Data_Referencia": "2025-05-04",
+        "Item": "Gasto MAI 4",
+        "Valor": 400.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Data_Referencia": "2025-05-05",
+        "Item": "Gasto MAI 5",
+        "Valor": 500.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Data_Referencia": "2025-06-01",
+        "Item": "Gasto JUN 1",
+        "Valor": 100.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Data_Referencia": "2025-06-02",
+        "Item": "Gasto JUN 2",
+        "Valor": 200.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Data_Referencia": "2025-06-03",
+        "Item": "Gasto JUN 3",
+        "Valor": 300.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Data_Referencia": "2025-06-04",
+        "Item": "Gasto JUN 4",
+        "Valor": 400.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Data_Referencia": "2025-06-05",
+        "Item": "Gasto JUN 5",
+        "Valor": 500.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-01",
+        "Item": "Gasto JUL 1",
+        "Valor": 100.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-02",
+        "Item": "Gasto JUL 2",
+        "Valor": 200.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-03",
+        "Item": "Gasto JUL 3",
+        "Valor": 300.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-04",
+        "Item": "Gasto JUL 4",
+        "Valor": 400.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-05",
+        "Item": "Gasto JUL 5",
+        "Valor": 500.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-08-01",
+        "Data_Referencia": "2025-08-01",
+        "Item": "Gasto AGO 1",
+        "Valor": 100.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-08-01",
+        "Data_Referencia": "2025-08-02",
+        "Item": "Gasto AGO 2",
+        "Valor": 200.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-08-01",
+        "Data_Referencia": "2025-08-03",
+        "Item": "Gasto AGO 3",
+        "Valor": 300.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-08-01",
+        "Data_Referencia": "2025-08-04",
+        "Item": "Gasto AGO 4",
+        "Valor": 400.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-08-01",
+        "Data_Referencia": "2025-08-05",
+        "Item": "Gasto AGO 5",
+        "Valor": 500.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-09-01",
+        "Data_Referencia": "2025-09-01",
+        "Item": "Gasto SET 1",
+        "Valor": 100.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-09-01",
+        "Data_Referencia": "2025-09-02",
+        "Item": "Gasto SET 2",
+        "Valor": 200.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-09-01",
+        "Data_Referencia": "2025-09-03",
+        "Item": "Gasto SET 3",
+        "Valor": 300.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-09-01",
+        "Data_Referencia": "2025-09-04",
+        "Item": "Gasto SET 4",
+        "Valor": 400.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-09-01",
+        "Data_Referencia": "2025-09-05",
+        "Item": "Gasto SET 5",
+        "Valor": 500.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-10-01",
+        "Data_Referencia": "2025-10-01",
+        "Item": "Gasto OUT 1",
+        "Valor": 100.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-10-01",
+        "Data_Referencia": "2025-10-02",
+        "Item": "Gasto OUT 2",
+        "Valor": 200.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-10-01",
+        "Data_Referencia": "2025-10-03",
+        "Item": "Gasto OUT 3",
+        "Valor": 300.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-10-01",
+        "Data_Referencia": "2025-10-04",
+        "Item": "Gasto OUT 4",
+        "Valor": 400.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2025-10-01",
+        "Data_Referencia": "2025-10-05",
+        "Item": "Gasto OUT 5",
+        "Valor": 500.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2026-11-01",
+        "Data_Referencia": "2026-11-01",
+        "Item": "Gasto NOV 1",
+        "Valor": 100.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2026-11-01",
+        "Data_Referencia": "2026-11-02",
+        "Item": "Gasto NOV 2",
+        "Valor": 200.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2026-11-01",
+        "Data_Referencia": "2026-11-03",
+        "Item": "Gasto NOV 3",
+        "Valor": 300.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2026-11-01",
+        "Data_Referencia": "2026-11-04",
+        "Item": "Gasto NOV 4",
+        "Valor": 400.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2026-11-01",
+        "Data_Referencia": "2026-11-05",
+        "Item": "Gasto NOV 5",
+        "Valor": 500.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2026-12-01",
+        "Data_Referencia": "2026-12-01",
+        "Item": "Gasto DEZ 1",
+        "Valor": 100.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2026-12-01",
+        "Data_Referencia": "2026-12-02",
+        "Item": "Gasto DEZ 2",
+        "Valor": 200.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2026-12-01",
+        "Data_Referencia": "2026-12-03",
+        "Item": "Gasto DEZ 3",
+        "Valor": 300.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2026-12-01",
+        "Data_Referencia": "2026-12-04",
+        "Item": "Gasto DEZ 4",
+        "Valor": 400.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2026-12-01",
+        "Data_Referencia": "2026-12-05",
+        "Item": "Gasto DEZ 5",
+        "Valor": 500.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2026-01-01",
+        "Data_Referencia": "2026-01-01",
+        "Item": "Gasto JAN 1",
+        "Valor": 100.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2026-01-01",
+        "Data_Referencia": "2026-01-02",
+        "Item": "Gasto JAN 2",
+        "Valor": 200.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2026-01-01",
+        "Data_Referencia": "2026-01-03",
+        "Item": "Gasto JAN 3",
+        "Valor": 300.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2026-01-01",
+        "Data_Referencia": "2026-01-04",
+        "Item": "Gasto JAN 4",
+        "Valor": 400.0,
+        "Status": "Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Cartão"
+    },
+    {
+        "Data_Competencia": "2026-01-01",
+        "Data_Referencia": "2026-01-05",
+        "Item": "Gasto JAN 5",
+        "Valor": 500.0,
+        "Status": "Não Pago",
+        "Credor": "Loja Exemplo",
+        "Tipo_Pagamento": "Boleto"
     }
 ]
