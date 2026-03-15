@@ -9,9 +9,8 @@ ENV/
 
 # Dados (Seguindo arquitetura medalhão)
 # Ignoramos os arquivos de dados para não subir arquivos pesados ou sensíveis
-Dados/1_Bronze/*.csv
-Dados/2_Silver/*.parquet
-Dados/3_Gold/
+Dados/
+logs/
 
 # Excel de origem
 Mensal.xlsx
