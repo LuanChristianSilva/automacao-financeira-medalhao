@@ -10,16 +10,32 @@ document.addEventListener('DOMContentLoaded', () => {
         isLoading ? loader.classList.remove('d-none') : loader.classList.add('d-none');
     };
 
+    const populateFilter = (data) => {
+        const filter = document.getElementById('monthFilter');
+        if (!filter) return;
+
+        filter.innerHTML = data.map(item => {
+            const parts = item.Mes_Referencia.split('-');
+            const date = new Date(parts[0], parts[1] - 1, parts[2]);
+            const label = date.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
+            return `<option value="${item.Mes_Referencia}">${label.charAt(0).toUpperCase() + label.slice(1)}</option>`;
+        }).join('');
+    };
+
     const loadData = async () => {
         toggleLoading(true);
         try {
-            const response = await fetch('Dados/3_Gold/metas_poupanca.json');
-            const data = await response.json();
-            const goal = data[0];
+            const [respGoal, respAction] = await Promise.all([
+                fetch('Dados/3_Gold/metas_poupanca.json'),
+                fetch('Dados/3_Gold/indicadores_acao.json')
+            ]);
+            
+            const goalData = await respGoal.json();
+            const actionData = await respAction.json();
 
-            if (goal) {
-                renderGoal(goal);
-            }
+            if (actionData.length > 0) populateFilter(actionData);
+            if (goalData.length > 0) renderGoal(goalData[0]);
+            
         } catch (error) {
             console.error('Erro ao carregar metas:', error);
         } finally {
@@ -28,18 +44,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const renderGoal = (data) => {
-        // Main Values
         document.getElementById('goal-accumulated').textContent = formatCurrency(data.Valor_Acumulado);
         document.getElementById('goal-remaining').textContent = formatCurrency(data.Necessidade_Restante);
         document.getElementById('goal-pct-text').textContent = `${Math.round(data.Percentual)}%`;
         
-        // Progress Bar
         const progressEl = document.getElementById('goal-remaining-progress');
         if (progressEl) progressEl.style.width = `${data.Percentual}%`;
 
-        // Pace & Projection
-        document.getElementById('goal-monthly-pace').textContent = formatCurrency(data.Necessidade_Restante / 12); // Mock: 12 months remaining
-        document.getElementById('goal-projected-date').textContent = new Date(data.Data_Alvo).toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
+        document.getElementById('goal-monthly-pace').textContent = formatCurrency(data.Necessidade_Restante / 12);
+        
+        const dateObj = new Date(data.Data_Alvo + 'T00:00:00');
+        document.getElementById('goal-projected-date').textContent = dateObj.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
 
         renderMainGauge(data.Percentual);
         renderEvolutionChart();
@@ -82,7 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     borderColor: '#3b82f6',
                     backgroundColor: 'rgba(59, 130, 246, 0.1)',
                     fill: true,
-                    tension: 0.4
+                    tension: 0.4,
+                    pointRadius: 0
                 }]
             },
             options: {

@@ -139,6 +139,34 @@ h6, .h6 { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter
 
 .metric-card {
     overflow: hidden;
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.metric-card h2, 
+.metric-card .display-5, 
+.metric-card .display-4 {
+    color: inherit !important; /* Forces inheritance from the card's color */
+}
+
+/* Gradient Override */
+.bg-gradient-purple {
+    background: #6b5cd1 !important; /* Fallback */
+    background: linear-gradient(135deg, #6b5cd1 0%, #8e7dff 100%) !important;
+    color: #ffffff !important;
+}
+
+.bg-gradient-purple h2, 
+.bg-gradient-purple .display-5, 
+.bg-gradient-purple .display-4,
+.bg-gradient-purple .text-white-50 {
+    color: #ffffff !important;
+}
+
+.bg-gradient-purple .text-white-50 {
+    opacity: 0.8;
 }
 
 .metric-chart {
@@ -199,4 +227,13 @@ h6, .h6 { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter
 .chart-grid {
     --bs-gutter-x: 9px;
     --bs-gutter-y: 9px;
+}
+
+/* Gauge specific colors */
+.bg-success-soft { background-color: rgba(34, 197, 94, 0.1); }
+.bg-danger-soft { background-color: rgba(239, 68, 68, 0.1); }
+
+.text-negative-highlight {
+    color: #fca5a5 !important;
+    font-weight: 800;
 }

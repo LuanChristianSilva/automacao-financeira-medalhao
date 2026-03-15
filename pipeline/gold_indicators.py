@@ -15,7 +15,7 @@ def load_indicators():
         script_name="gold_indicators.py",
         log_file_path=os.path.join("logs", "gold_indicators_log.csv")
     )
-    logger.start("Iniciando geração de indicadores acionáveis e metas.")
+    logger.start("Iniciando geração de indicadores acionáveis e metas com suporte a filtros.")
 
     try:
         if not os.path.exists(PATHS["GOLD"]):
@@ -30,47 +30,71 @@ def load_indicators():
              logger.log_error("Arquivos Parquet não encontrados na camada Silver.")
              return
 
-        # --- Indicator 1: Actionable Metrics ---
-        # Calculation: Available Income, Days to Last, Debt Impact
+        # --- Indicator 1: Actionable Metrics by Month ---
         output_indicators = os.path.join(PATHS["GOLD"], "indicadores_acao.json")
         query_indicators = f"""
         COPY (
-            WITH current_month AS (
-                SELECT 
-                    MAX(Data_Competencia) as latest_month
-                FROM read_parquet('{silver_renda}')
-            ),
-            data_resumo AS (
-                SELECT 
-                    r.Data_Competencia,
-                    SUM(COALESCE(r.Valor, 0)) as Renda,
-                    (SELECT SUM(Valor) FROM read_parquet('{silver_despesa}') d WHERE d.Data_Competencia = r.Data_Competencia) as Despesa
-                FROM read_parquet('{silver_renda}') r
-                WHERE r.Data_Competencia = (SELECT latest_month FROM current_month)
+            WITH despesas AS (
+                SELECT Data_Competencia, SUM(Valor) as Total_Despesa,
+                       SUM(CASE WHEN Item LIKE 'Cartão%' THEN Valor ELSE 0 END) as Divida_Cartao
+                FROM read_parquet('{silver_despesa}')
                 GROUP BY 1
+            ),
+            rendas AS (
+                SELECT Data_Competencia, SUM(COALESCE(Valor, 0)) as Total_Renda
+                FROM read_parquet('{silver_renda}')
+                GROUP BY 1
+            ),
+            meses_base AS (
+                SELECT r.Data_Competencia, r.Total_Renda, COALESCE(d.Total_Despesa, 0) as Total_Despesa,
+                       COALESCE(d.Divida_Cartao, 0) as Divida_Cartao
+                FROM rendas r
+                LEFT JOIN despesas d ON r.Data_Competencia = d.Data_Competencia
             ),
             top_expenses AS (
                 SELECT 
+                    Data_Competencia,
                     Item, 
-                    SUM(Valor) as Valor
+                    SUM(Valor) as Total_Valor
                 FROM read_parquet('{silver_despesa}')
-                WHERE Data_Competencia = (SELECT latest_month FROM current_month)
+                GROUP BY 1, 2
+            ),
+            top_3_per_month AS (
+                SELECT 
+                    Data_Competencia,
+                    list(json_object('item', Item, 'valor', Total_Valor)) as Gastos
+                FROM (
+                    SELECT Data_Competencia, Item, Total_Valor,
+                           row_number() OVER (PARTITION BY Data_Competencia ORDER BY Total_Valor DESC) as rn
+                    FROM top_expenses
+                )
+                WHERE rn <= 3
                 GROUP BY 1
-                ORDER BY 2 DESC
-                LIMIT 3
             )
             SELECT 
-                Renda - Despesa AS Receita_Disponivel,
-                CASE WHEN Despesa > 0 THEN (Renda - Despesa) / (Despesa / 30) ELSE 30 END AS Dias_Restantes,
-                CASE WHEN (Renda - Despesa) < 500 THEN 'Alto' ELSE 'Baixo' END AS Risco_Saldo_Negativo,
-                (SELECT list(json_object('item', Item, 'valor', Valor)) FROM top_expenses) AS Top_Gastos
-            FROM data_resumo
+                m.Data_Competencia as Mes_Referencia,
+                m.Total_Renda - m.Total_Despesa AS Receita_Disponivel,
+                CASE WHEN m.Total_Despesa > 0 THEN (m.Total_Renda - m.Total_Despesa) / (m.Total_Despesa / 30) ELSE 30 END AS Dias_Restantes,
+                CASE WHEN (m.Total_Renda - m.Total_Despesa) < 500 THEN 'Alto' ELSE 'Baixo' END AS Risco_Saldo_Negativo,
+                CASE 
+                    WHEN (m.Total_Renda - m.Total_Despesa) < 0 THEN 100
+                    WHEN m.Total_Renda > 0 THEN (m.Divida_Cartao / m.Total_Renda) * 100 
+                    ELSE 0 
+                END AS Impacto_Divida_Pct,
+                CASE 
+                    WHEN m.Divida_Cartao = 0 THEN 0
+                    WHEN (m.Total_Renda - m.Total_Despesa) > 0 THEN m.Divida_Cartao / (m.Total_Renda - m.Total_Despesa)
+                    ELSE -1 
+                END AS Meses_Para_Quitar,
+                COALESCE(t.Gastos, []) AS Top_Gastos
+            FROM meses_base m
+            LEFT JOIN top_3_per_month t ON m.Data_Competencia = t.Data_Competencia
+            ORDER BY Mes_Referencia DESC
         ) TO '{output_indicators}' (FORMAT JSON, ARRAY TRUE);
         """
         con.execute(query_indicators)
 
-        # --- Indicator 2: Savings Goal (Hypothetical goal for demonstration) ---
-        # Goal: R$ 50.000,00
+        # --- Indicator 2: Savings Goal (Constant across months for now) ---
         output_goals = os.path.join(PATHS["GOLD"], "metas_poupanca.json")
         query_goals = f"""
         COPY (
@@ -78,7 +102,7 @@ def load_indicators():
                 SELECT SUM(Total_Renda - Total_Despesa) as Acumulado
                 FROM (
                     SELECT 
-                        Data_Competencia,
+                        r.Data_Competencia,
                         SUM(COALESCE(r.Valor, 0)) as Total_Renda,
                         (SELECT SUM(Valor) FROM read_parquet('{silver_despesa}') d WHERE d.Data_Competencia = r.Data_Competencia) as Total_Despesa
                     FROM read_parquet('{silver_renda}') r

@@ -1,3 +1,11 @@
 log_id,run_id,event_ts,stage,script_name,status,severity,environment,branch,commit_sha,input_path,output_path,entity_name,metric_name,metric_value,metric_unit,row_count,error_code,error_message,action_taken,duration_ms,notes
 2f92de0f-84c4-4bc0-8cdd-794a02ee562f,bbee9c7b-d4dc-43d6-895c-9f9b7c96b9e4,2026-03-14T23:29:59-03:00,Gold_Indicators,gold_indicators.py,STARTED,INFO,local,main,a64ecce,,,,,,,,,,,,Iniciando geração de indicadores acionáveis e metas.
 dcd3bcc0-4d13-4d89-bfea-a00cc6355f79,bbee9c7b-d4dc-43d6-895c-9f9b7c96b9e4,2026-03-14T23:29:59-03:00,Gold_Indicators,gold_indicators.py,FINISHED,INFO,local,main,a64ecce,,,,,,,,,,,97,Indicadores e Metas populados com sucesso.
+eaa7ca0a-242d-4fb0-b11c-4c5a0862d9d7,c489d36a-aa1a-4675-9742-483657af16b3,2026-03-14T23:48:50-03:00,Gold_Indicators,gold_indicators.py,STARTED,INFO,local,main,42cbc9f,,,,,,,,,,,,Iniciando geração de indicadores acionáveis e metas com suporte a filtros.
+a9dd1fd3-0639-4ab2-8ff8-0d0991bb37b1,c489d36a-aa1a-4675-9742-483657af16b3,2026-03-14T23:48:50-03:00,Gold_Indicators,gold_indicators.py,ERROR,ERROR,local,main,42cbc9f,,,,,,,,,"Erro: Binder Error: column ""Valor"" must appear in the GROUP BY clause or must be part of an aggregate function.
+Either add it to the GROUP BY list, or use ""ANY_VALUE(Valor)"" if the exact value of ""Valor"" is not important.
+
+LINE 48:                  ORDER BY Valor DESC LIMIT 3) AS Top_Gastos
+                                   ^",,,
+6609249a-92cd-4287-8321-5b73e3a453f2,f5bcbc46-1db0-44e6-a248-b4d8fef25be1,2026-03-14T23:49:11-03:00,Gold_Indicators,gold_indicators.py,STARTED,INFO,local,main,42cbc9f,,,,,,,,,,,,Iniciando geração de indicadores acionáveis e metas com suporte a filtros.
+a61fb21a-0dd0-463f-a491-56c0d0918257,f5bcbc46-1db0-44e6-a248-b4d8fef25be1,2026-03-14T23:49:12-03:00,Gold_Indicators,gold_indicators.py,FINISHED,INFO,local,main,42cbc9f,,,,,,,,,,,129,Indicadores e Metas populados com sucesso.
