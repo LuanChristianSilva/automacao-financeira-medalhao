@@ -76,3 +76,10 @@ d629a600-dffc-4edd-898c-6aa5cff7ffd4,04710e30-9cbd-42e5-aa73-616f7a1df692,2026-0
 22c109dc-ca4b-42d0-8a87-09d8b26b2950,04710e30-9cbd-42e5-aa73-616f7a1df692,2026-03-14T20:37:27-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,da2eb2a,,,Consolidate Output,rows_extracted_renda,102,rows,102,,,,,
 574f0daf-0e2e-4992-bd5e-4a48e7adbc28,04710e30-9cbd-42e5-aa73-616f7a1df692,2026-03-14T20:37:27-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,da2eb2a,,,Consolidate Output,rows_extracted_despesa,1238,rows,1238,,,,,
 5d50adc1-3a16-48a0-8990-eb0afafc38c7,04710e30-9cbd-42e5-aa73-616f7a1df692,2026-03-14T20:37:27-03:00,Bronze,extractor.py,FINISHED,INFO,local,main,da2eb2a,,,,,,,,,,,3308,
+09c7ae4e-a5d7-42ea-84ff-bbe20870f070,96ffdb7c-9480-4285-b048-933586d80c75,2026-03-14T20:54:21-03:00,Bronze,extractor.py,STARTED,INFO,local,main,b35c6c1,,,,,,,,,,,,Iniciando varredura e extração de planilhas locais.
+912970db-4d80-43dc-8108-7b12bd5da52f,96ffdb7c-9480-4285-b048-933586d80c75,2026-03-14T20:54:21-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,b35c6c1,,,Excel Tabs,total_tabs,38,count,,,,,,
+fc5acb37-2bc3-4fe8-afc5-bff59644d648,96ffdb7c-9480-4285-b048-933586d80c75,2026-03-14T20:54:21-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,b35c6c1,,,Excel Tabs,eligible_tabs,34,count,,,,,,
+9b88524b-9c84-4414-b8c2-90274b6406fa,96ffdb7c-9480-4285-b048-933586d80c75,2026-03-14T20:54:24-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,b35c6c1,,,Extraction Data,processed_tabs,34,count,,,,,,
+a471645c-a4e8-4f40-8d15-d14b2e91d23d,96ffdb7c-9480-4285-b048-933586d80c75,2026-03-14T20:54:24-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,b35c6c1,,,Consolidate Output,rows_extracted_renda,102,rows,102,,,,,
+64388055-f09f-4f5e-84dc-2cc406d73d50,96ffdb7c-9480-4285-b048-933586d80c75,2026-03-14T20:54:24-03:00,Bronze,extractor.py,SUCCESS,INFO,local,main,b35c6c1,,,Consolidate Output,rows_extracted_despesa,1238,rows,1238,,,,,
+74828c6c-6bd4-4ad1-afd0-74a406bf8811,96ffdb7c-9480-4285-b048-933586d80c75,2026-03-14T20:54:24-03:00,Bronze,extractor.py,FINISHED,INFO,local,main,b35c6c1,,,,,,,,,,,3430,

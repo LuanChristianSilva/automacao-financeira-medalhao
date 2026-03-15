@@ -18,6 +18,12 @@
     --chart-grey: #cbd5e1;
 }
 
+.loading-fade {
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
 body {
     font-family: 'Inter', -apple-system, sans-serif;
     background-color: var(--bg-main);

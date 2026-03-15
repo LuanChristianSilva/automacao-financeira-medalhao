@@ -44,6 +44,58 @@ document.addEventListener('DOMContentLoaded', () => {
         return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
     };
 
+    /**
+     * Sanitiza strings para exibição segura no HTML.
+     * Previne ataques de XSS substituindo caracteres especiais.
+     */
+    const escapeHTML = (str) => {
+        if (typeof str !== 'string') return str;
+        const p = document.createElement('p');
+        p.textContent = str;
+        return p.innerHTML;
+    };
+
+    /**
+     * Gerencia a visibilidade do spinner de carregamento.
+     */
+    const toggleLoading = (isLoading) => {
+        const loader = document.getElementById('dashboard-loader');
+        const content = document.querySelector('.main-content');
+        if (!loader || !content) return;
+        
+        if (isLoading) {
+            loader.classList.remove('d-none');
+            content.classList.add('loading-fade');
+        } else {
+            loader.classList.add('d-none');
+            content.classList.remove('loading-fade');
+        }
+    };
+
+    /**
+     * Exibe banner de erro amigável ao usuário.
+     */
+    const showError = (message) => {
+        const container = document.getElementById('error-container');
+        if (!container) return;
+        
+        container.innerHTML = `
+            <div class="alert alert-danger d-flex align-items-center gap-3 rounded-4 shadow-sm border-0" role="alert">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <div>
+                    <h4 class="h6 mb-1 fw-bold">Ops! Algo deu errado</h4>
+                    <p class="mb-0 small">${escapeHTML(message)}</p>
+                </div>
+                <button class="btn btn-sm btn-outline-danger ms-auto rounded-3" onclick="location.reload()">Tentar Novamente</button>
+            </div>
+        `;
+        container.classList.remove('d-none');
+    };
+
     const updateTrendIcon = (elementId, subtitleId, currentVal, previousVal, inverseLogic = false) => {
         const iconContainer = document.getElementById(elementId);
         const subtitleEl = document.getElementById(subtitleId);
@@ -81,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Data Fetching ---
     const fetchGoldData = async () => {
+        toggleLoading(true);
         try {
             const reqResumo = fetch('Dados/3_Gold/resumo_mensal.json');
             const reqDespesa = fetch('Dados/3_Gold/detalhado_despesa.json');
@@ -88,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const [resResumo, resDespesa, resRenda] = await Promise.all([reqResumo, reqDespesa, reqRenda]);
             
-            if (!resResumo.ok || !resDespesa.ok || !resRenda.ok) throw new Error("Erro arquivos JSON");
+            if (!resResumo.ok || !resDespesa.ok || !resRenda.ok) throw new Error("Não foi possível carregar os arquivos de dados Gold.");
 
             goldResumo = await resResumo.json();
             goldDespesas = await resDespesa.json();
@@ -117,6 +170,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             console.error("Erro na leitura Gold:", error);
+            showError(error.message);
+        } finally {
+            toggleLoading(false);
         }
     };
 
@@ -509,6 +565,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const listEl = document.getElementById('top-income-list');
         listEl.innerHTML = '';
         
+        if (sortedIncomes.length === 0) {
+            listEl.innerHTML = '<li class="text-muted small ps-3">Nenhuma fonte de renda neste período</li>';
+            return;
+        }
+
         const dotClasses = ['grey-dot', 'dark-dot', 'blue-dot', 'light-dot'];
 
         sortedIncomes.forEach((item, index) => {
@@ -517,7 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
             li.innerHTML = `
                 <div class="list-item-left">
                     <span class="dot ${dotClasses[index % dotClasses.length]}"></span>
-                    <span>${item}</span>
+                    <span>${escapeHTML(item)}</span>
                 </div>
                 <span class="list-value">${formatCurrency(val)}</span>
             `;
@@ -570,7 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
             div.className = 'w-100 mb-1';
             div.innerHTML = `
                 <div class="d-flex justify-content-between mb-1" style="font-size: 0.75rem;">
-                    <span class="text-truncate fw-medium" style="max-width: 140px;">${item}</span>
+                    <span class="text-truncate fw-medium" style="max-width: 140px;">${escapeHTML(item)}</span>
                     <span class="text-muted">${formatCurrency(val)}</span>
                 </div>
                 <div class="progress" style="height: 6px; background-color: #f1f5f9;">
