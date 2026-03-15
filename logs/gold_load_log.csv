@@ -74,3 +74,8 @@ ad69bdd6-95db-4040-90d7-660cb41a5149,e556b62f-2243-4ac9-ac7d-71b8937b8184,2026-0
 13b6dc99-5199-48c2-921d-9d0692bd4cac,cebc92dc-0f57-42a2-b9b6-6bcb3b32affc,2026-03-14T22:29:23-03:00,Gold,gold_load.py,SUCCESS,INFO,local,main,46ce77b,,,Gold Output,json_detalhe_despesa,785,rows,785,,,,,
 9e75577f-6b14-4817-826f-8e9d8a50ff1f,cebc92dc-0f57-42a2-b9b6-6bcb3b32affc,2026-03-14T22:29:23-03:00,Gold,gold_load.py,SUCCESS,INFO,local,main,46ce77b,,,Gold Output,json_detalhe_renda,49,rows,49,,,,,
 1d2eb1b8-1412-483f-ad24-94c2a29e4a14,cebc92dc-0f57-42a2-b9b6-6bcb3b32affc,2026-03-14T22:29:23-03:00,Gold,gold_load.py,FINISHED,INFO,local,main,46ce77b,,,,,,,,,,,214,Camada Gold populada com sucesso.
+e6e05ec7-2b4e-4eed-ba2e-45891849899e,1d3b4372-34ee-49a3-8da4-2b82091eed9c,2026-03-15T00:08:37-03:00,Gold,gold_load.py,STARTED,INFO,local,main,831a48e,,,,,,,,,,,,Iniciando geração de relatórios JSON da Camada Gold.
+ea9595b4-69f6-433a-a7e7-11cf3863084f,1d3b4372-34ee-49a3-8da4-2b82091eed9c,2026-03-15T00:08:37-03:00,Gold,gold_load.py,SUCCESS,INFO,local,main,831a48e,,,Gold Output,json_resumo_mensal,34,rows,34,,,,,
+ad914ea6-9df2-4dac-b8a7-41c1caa58d02,1d3b4372-34ee-49a3-8da4-2b82091eed9c,2026-03-15T00:08:37-03:00,Gold,gold_load.py,SUCCESS,INFO,local,main,831a48e,,,Gold Output,json_detalhe_despesa,785,rows,785,,,,,
+aece7c89-d64d-4061-aa3b-fa9209d9e54e,1d3b4372-34ee-49a3-8da4-2b82091eed9c,2026-03-15T00:08:37-03:00,Gold,gold_load.py,SUCCESS,INFO,local,main,831a48e,,,Gold Output,json_detalhe_renda,49,rows,49,,,,,
+99c3cf37-8c47-42f2-852c-630e4589fd83,1d3b4372-34ee-49a3-8da4-2b82091eed9c,2026-03-15T00:08:37-03:00,Gold,gold_load.py,FINISHED,INFO,local,main,831a48e,,,,,,,,,,,153,Camada Gold populada com sucesso.

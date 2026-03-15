@@ -14,11 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const filter = document.getElementById('monthFilter');
         if (!filter) return;
 
+        const currentMonthStr = '2026-03-01';
+
         filter.innerHTML = data.map(item => {
             const parts = item.Mes_Referencia.split('-');
             const date = new Date(parts[0], parts[1] - 1, parts[2]);
             const label = date.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
-            return `<option value="${item.Mes_Referencia}">${label.charAt(0).toUpperCase() + label.slice(1)}</option>`;
+            const selected = item.Mes_Referencia === currentMonthStr ? 'selected' : '';
+            return `<option value="${item.Mes_Referencia}" ${selected}>${label.charAt(0).toUpperCase() + label.slice(1)}</option>`;
         }).join('');
     };
 

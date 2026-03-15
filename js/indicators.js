@@ -17,11 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const filter = document.getElementById('monthFilter');
         if (!filter) return;
 
+        const currentMonthStr = '2026-03-01';
+
         filter.innerHTML = data.map(item => {
             const parts = item.Mes_Referencia.split('-');
             const date = new Date(parts[0], parts[1] - 1, parts[2]);
             const label = date.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
-            return `<option value="${item.Mes_Referencia}">${label.charAt(0).toUpperCase() + label.slice(1)}</option>`;
+            const selected = item.Mes_Referencia === currentMonthStr ? 'selected' : '';
+            return `<option value="${item.Mes_Referencia}" ${selected}>${label.charAt(0).toUpperCase() + label.slice(1)}</option>`;
         }).join('');
 
         filter.addEventListener('change', (e) => {
@@ -38,7 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (allData.length > 0) {
                 populateFilter(allData);
-                renderIndicators(allData[0]); // Default to latest month
+                
+                // Try to find current month (March 2026)
+                const currentMonthStr = '2026-03-01';
+                const currentData = allData.find(i => i.Mes_Referencia === currentMonthStr) || allData[0];
+                
+                renderIndicators(currentData);
             }
         } catch (error) {
             console.error('Erro ao carregar indicadores:', error);
