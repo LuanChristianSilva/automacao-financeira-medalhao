@@ -90,21 +90,45 @@ def load_indicators():
                 )
                 WHERE rn <= 3
                 GROUP BY 1
+            ),
+            indicator_values AS (
+                SELECT 
+                    m.Data_Competencia,
+                    m.Total_Renda as Renda_Base,
+                    m.Divida_Cartao as Valor_Comprometido,
+                    CASE 
+                        WHEN (m.Total_Renda - m.Total_Despesa) < 0 THEN 100
+                        WHEN m.Total_Renda > 0 THEN (m.Divida_Cartao / m.Total_Renda) * 100 
+                        ELSE 0 
+                    END AS Impacto_Divida_Pct
+                FROM meses_base m
+            ),
+            global_metrics AS (
+                SELECT 
+                    MIN(Impacto_Divida_Pct) as Min_Impact_Global,
+                    MAX(Impacto_Divida_Pct) as Max_Impact_Global,
+                    MIN(Valor_Comprometido) as Min_Debt_Global,
+                    MAX(Valor_Comprometido) as Max_Debt_Global
+                FROM indicator_values
             )
             SELECT 
                 m.Data_Competencia as Mes_Referencia,
                 m.Total_Renda - m.Total_Despesa AS Receita_Disponivel,
                 CASE WHEN m.Total_Despesa > 0 THEN (m.Total_Renda - m.Total_Despesa) / (m.Total_Despesa / 30) ELSE 30 END AS Dias_Restantes,
                 CASE WHEN (m.Total_Renda - m.Total_Despesa) < 500 THEN 'Alto' ELSE 'Baixo' END AS Risco_Saldo_Negativo,
-                CASE 
-                    WHEN (m.Total_Renda - m.Total_Despesa) < 0 THEN 100
-                    WHEN m.Total_Renda > 0 THEN (m.Divida_Cartao / m.Total_Renda) * 100 
-                    ELSE 0 
-                END AS Impacto_Divida_Pct,
+                iv.Impacto_Divida_Pct,
+                iv.Valor_Comprometido,
+                iv.Renda_Base,
+                gm.Min_Impact_Global AS Global_Min_Impacto_Pct,
+                gm.Max_Impact_Global AS Global_Max_Impacto_Pct,
+                gm.Min_Debt_Global AS Global_Min_Divida,
+                gm.Max_Debt_Global AS Global_Max_Divida,
                 COALESCE(i.Max_Restantes, 0) AS Meses_Para_Quitar,
                 COALESCE(t.Gastos, []) AS Top_Gastos,
                 COALESCE(i.Parcelas, []) AS Detalhe_Parcelas
             FROM meses_base m
+            JOIN indicator_values iv ON m.Data_Competencia = iv.Data_Competencia
+            CROSS JOIN global_metrics gm
             LEFT JOIN top_3_per_month t ON m.Data_Competencia = t.Data_Competencia
             LEFT JOIN installments_per_month i ON m.Data_Competencia = i.Data_Competencia
             ORDER BY Mes_Referencia DESC

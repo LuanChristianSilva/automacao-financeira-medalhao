@@ -110,7 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Debt Impact Gauge
-        renderDebtGauge(data.Impacto_Divida_Pct);
+        renderDebtGauge(
+            data.Impacto_Divida_Pct, 
+            data.Valor_Comprometido, 
+            data.Renda_Base, 
+            data.Global_Min_Divida, 
+            data.Global_Max_Divida
+        );
 
         // Time to Pay
         const timeEl = document.getElementById('action-debt-time');
@@ -234,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const renderDebtGauge = (value) => {
+    const renderDebtGauge = (value, debtAmount, incomeBase, minDebt, maxDebt) => {
         const ctx = document.getElementById('debtImpactGauge');
         if (!ctx) return;
 
@@ -259,9 +265,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Syncing with HTML ID: action-debt-pct
+        // Syncing with HTML IDs
         const pctText = document.getElementById('action-debt-pct');
         if (pctText) pctText.textContent = `${Math.round(value)}%`;
+
+        const debtText = document.getElementById('action-debt-value');
+        if (debtText) debtText.textContent = formatCurrency(debtAmount);
+
+        const incomeText = document.getElementById('action-income-base');
+        if (incomeText) incomeText.textContent = formatCurrency(incomeBase);
+
+        const minText = document.getElementById('action-debt-min');
+        if (minText) minText.textContent = formatCurrency(minDebt);
+
+        const maxText = document.getElementById('action-debt-max');
+        if (maxText) maxText.textContent = formatCurrency(maxDebt);
     };
 
     loadData();

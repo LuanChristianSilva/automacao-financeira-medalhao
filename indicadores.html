@@ -175,8 +175,34 @@
                                         <canvas id="debtImpactGauge"></canvas>
                                     </div>
                                     <div>
-                                        <h2 class="h1 fw-bold mb-1" id="action-debt-pct">35%</h2>
-                                        <span class="fs-7 text-danger fw-medium d-block">da sua renda comprometida</span>
+                                        <h2 class="h1 fw-bold mb-0 text-main" id="action-debt-pct">0%</h2>
+                                        <span class="fs-7 text-danger fw-medium d-block mb-3">da sua renda comprometida</span>
+                                        
+                                        <div class="vstack gap-1 mb-4">
+                                            <div class="d-flex justify-content-center align-items-baseline gap-1">
+                                                <span class="fw-bold text-main" id="action-debt-value">R$ 0,00</span>
+                                                <span class="fs-xs opacity-50">comprometidos</span>
+                                            </div>
+                                            <div class="d-flex justify-content-center align-items-baseline gap-1">
+                                                <span class="fs-xs opacity-50">de</span>
+                                                <span class="fw-bold text-main" id="action-income-base">R$ 0,00</span>
+                                                <span class="fs-xs opacity-50">de renda</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="historico-min-max pt-3 border-top border-secondary border-opacity-10">
+                                            <span class="fs-xs text-uppercase fw-bold opacity-50 d-block mb-2">Histórico</span>
+                                            <div class="d-flex justify-content-center gap-4">
+                                                <div class="text-start">
+                                                    <span class="fs-xs d-block text-success opacity-75">Min</span>
+                                                    <span class="fw-bold fs-7" id="action-debt-min">R$ 0,00</span>
+                                                </div>
+                                                <div class="text-start">
+                                                    <span class="fs-xs d-block text-danger opacity-75">Max</span>
+                                                    <span class="fw-bold fs-7" id="action-debt-max">R$ 0,00</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

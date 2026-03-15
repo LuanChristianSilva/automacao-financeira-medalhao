@@ -20,8 +20,9 @@ def start_server():
 
     handler = QuietHandler
     try:
-        with socketserver.TCPServer(("", PORT), handler) as httpd:
-            print(f"\n[SERVER] Servidor ativo em http://localhost:{PORT}")
+        # Usamos 127.0.0.1 explicitamente para evitar problemas de bind no Windows/IPv6
+        with socketserver.TCPServer(("127.0.0.1", PORT), handler) as httpd:
+            print(f"\n[SERVER] Servidor ativo em http://127.0.0.1:{PORT}")
             httpd.serve_forever()
     except OSError:
         print(f"\n[SERVER] Porta {PORT} já está em uso (servidor provavelmente já ativo).")
@@ -61,7 +62,7 @@ def run_pipeline():
         time.sleep(1)
 
         # Abre o Dashboard no Navegador
-        url = f"http://localhost:{PORT}/index.html"
+        url = f"http://127.0.0.1:{PORT}/index.html"
         print(f"\nAbrindo Dashboard em: {url}")
         print("Mantenha este terminal aberto para continuar visualizando os dados.")
         webbrowser.open(url)
