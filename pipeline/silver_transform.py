@@ -107,7 +107,9 @@ def transform_silver():
             {sql_data_competencia},
             TRY_CAST("Data de pagamento" AS DATE) AS Data_Referencia,
             UPPER(LEFT(TRIM(Origem_Aba), 3)) AS Mes_Sigla,
-            RIGHT(TRIM(Origem_Aba), 4) AS Ano
+            RIGHT(TRIM(Origem_Aba), 4) AS Ano,
+            COALESCE(TRY_CAST("Parcelas Pagas" AS INTEGER), 0) AS Parcelas_Pagas,
+            COALESCE(TRY_CAST("Num. de Parcelas" AS INTEGER), 0) AS Total_Parcelas
         FROM read_csv_auto('{bronze_despesa}')
         WHERE "Despesa Mensal" NOT ILIKE '%Total%' 
           AND "Despesa Mensal" NOT IN ('Despesa Mensal', 'Renda Mensal', 'Origem', 'Origem,Valor,Status,Data prevista pag.,,,,,Fev2026,,,,,,,,')

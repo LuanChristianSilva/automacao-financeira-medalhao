@@ -13,3 +13,10 @@ b8533db8-34fa-4fca-a372-c75ca884d646,3ef90cee-6bc0-4ab4-86c3-0fb4d6b34f6d,2026-0
 efc263b4-cdcc-42c4-bc5f-e96df7577f9d,3ef90cee-6bc0-4ab4-86c3-0fb4d6b34f6d,2026-03-15T00:31:23-03:00,Gold_Indicators,gold_indicators.py,FINISHED,INFO,local,main,2814702,,,,,,,,,,,130,Indicadores e Metas populados com sucesso.
 d6e01925-9540-49ba-90b5-2adf569b9081,b3f1295e-61d3-4765-887e-9bbc0c674472,2026-03-15T00:33:46-03:00,Gold_Indicators,gold_indicators.py,STARTED,INFO,local,main,754c2e4,,,,,,,,,,,,Iniciando geração de indicadores acionáveis e metas com suporte a filtros.
 9689860d-c37b-42f0-a3b6-4a302b1d9bc7,b3f1295e-61d3-4765-887e-9bbc0c674472,2026-03-15T00:33:46-03:00,Gold_Indicators,gold_indicators.py,FINISHED,INFO,local,main,754c2e4,,,,,,,,,,,128,Indicadores e Metas populados com sucesso.
+9d3683ec-a46c-4d50-af9c-0053264c4343,66c91342-9f2e-4db4-a1ef-fbbdd3ee1cf5,2026-03-15T00:57:39-03:00,Gold_Indicators,gold_indicators.py,STARTED,INFO,local,main,fd4907b,,,,,,,,,,,,Iniciando geração de indicadores acionáveis e metas com suporte a filtros.
+70884e32-95d6-4979-8c37-74eabce38078,66c91342-9f2e-4db4-a1ef-fbbdd3ee1cf5,2026-03-15T00:57:39-03:00,Gold_Indicators,gold_indicators.py,ERROR,ERROR,local,main,fd4907b,,,,,,,,,"Erro: Parser Error: syntax error at or near "")""
+
+LINE 20:             ),
+                    ^",,,
+62806f5c-2d28-4a92-9757-665c58e20bcf,5a572029-0bc5-4c40-83b6-354e3586816c,2026-03-15T00:58:04-03:00,Gold_Indicators,gold_indicators.py,STARTED,INFO,local,main,fd4907b,,,,,,,,,,,,Iniciando geração de indicadores acionáveis e metas com suporte a filtros.
+5fe6945e-b14c-49ce-9a70-cad8e4a31dbc,5a572029-0bc5-4c40-83b6-354e3586816c,2026-03-15T00:58:04-03:00,Gold_Indicators,gold_indicators.py,FINISHED,INFO,local,main,fd4907b,,,,,,,,,,,167,Indicadores e Metas populados com sucesso.

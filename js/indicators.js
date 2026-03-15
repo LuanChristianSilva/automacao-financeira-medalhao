@@ -116,11 +116,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const timeEl = document.getElementById('action-debt-time');
         if (timeEl) {
             if (data.Meses_Para_Quitar === -1) {
-                timeEl.innerHTML = `Indefinido <span class="h6 text-danger d-block mt-1">Saldo Negativo</span>`;
+                timeEl.innerHTML = `Indefinido <span class="h6 text-negative-highlight d-block mt-1">Saldo Negativo</span>`;
             } else {
-                timeEl.innerHTML = `${data.Meses_Para_Quitar.toFixed(1)} <span class="h4">meses</span>`;
+                timeEl.innerHTML = `${data.Meses_Para_Quitar} <span class="h4">meses</span>`;
             }
         }
+
+        // Installment Table
+        renderInstallmentTable(data.Detalhe_Parcelas);
     };
 
     const renderActionAlerts = (data) => {
@@ -184,6 +187,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         container.innerHTML = alertHtml;
+    };
+
+    const renderInstallmentTable = (installments) => {
+        const container = document.getElementById('action-installment-list');
+        if (!container) return;
+
+        if (!installments || installments.length === 0) {
+            container.innerHTML = '<div class="text-center py-4 opacity-50 fst-italic">Nenhum parcelamento ativo</div>';
+            return;
+        }
+
+        container.innerHTML = installments.map(inst => `
+            <div class="d-flex align-items-center justify-content-between p-3 rounded-4 bg-main-alt shadow-sm">
+                <div class="d-flex flex-column">
+                    <span class="fw-medium text-main">${inst.item}</span>
+                    <span class="fs-xs opacity-50">${inst.pagas}/${inst.total} parcelas</span>
+                </div>
+                <div class="text-end">
+                    <span class="fw-bold text-main d-block">${inst.restantes}</span>
+                    <span class="fs-xs opacity-50">meses</span>
+                </div>
+            </div>
+        `).join('');
     };
 
     const renderDebtGauge = (value) => {

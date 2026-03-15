@@ -1,15 +1,19 @@
 import duckdb
 
 # Caminho do seu arquivo parquet de RENDA
-caminho = r'C:\Users\luanc\Documents\Estudos\teste_antgravity\Dados\2_Silver\fato_renda.parquet'
+caminho = r'C:\Users\luanc\Documents\Estudos\teste_antgravity\Dados\2_Silver\fato_despesa.parquet'
 
 # SQL para ver o efeito do REPLACE no Item da RENDA
 df = duckdb.sql(f"""
-    SELECT
-        SUM(Valor) AS Valor,
-        item
+    SELECT 
+        Item, 
+        Valor, 
+        Parcelas_Pagas, 
+        Total_Parcelas, 
+        Origem_Aba
     FROM '{caminho}'
-    GROUP BY item
+    WHERE Total_Parcelas > 0
+    LIMIT 20
 """).df()
 
 

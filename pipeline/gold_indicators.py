@@ -51,6 +51,25 @@ def load_indicators():
                 FROM rendas r
                 LEFT JOIN despesas d ON r.Data_Competencia = d.Data_Competencia
             ),
+            installments AS (
+                SELECT 
+                    Data_Competencia,
+                    Item,
+                    MAX(Parcelas_Pagas) as Pagas,
+                    MAX(Total_Parcelas) as Total,
+                    MAX(Total_Parcelas) - MAX(Parcelas_Pagas) as Restantes
+                FROM read_parquet('{silver_despesa}')
+                WHERE Total_Parcelas > 0
+                GROUP BY 1, 2
+            ),
+            installments_per_month AS (
+                SELECT 
+                    Data_Competencia,
+                    list(json_object('item', Item, 'pagas', Pagas, 'total', Total, 'restantes', Restantes)) as Parcelas,
+                    MAX(Restantes) as Max_Restantes
+                FROM installments
+                GROUP BY 1
+            ),
             top_expenses AS (
                 SELECT 
                     Data_Competencia,
@@ -81,20 +100,18 @@ def load_indicators():
                     WHEN m.Total_Renda > 0 THEN (m.Divida_Cartao / m.Total_Renda) * 100 
                     ELSE 0 
                 END AS Impacto_Divida_Pct,
-                CASE 
-                    WHEN m.Divida_Cartao = 0 THEN 0
-                    WHEN (m.Total_Renda - m.Total_Despesa) > 0 THEN m.Divida_Cartao / (m.Total_Renda - m.Total_Despesa)
-                    ELSE -1 
-                END AS Meses_Para_Quitar,
-                COALESCE(t.Gastos, []) AS Top_Gastos
+                COALESCE(i.Max_Restantes, 0) AS Meses_Para_Quitar,
+                COALESCE(t.Gastos, []) AS Top_Gastos,
+                COALESCE(i.Parcelas, []) AS Detalhe_Parcelas
             FROM meses_base m
             LEFT JOIN top_3_per_month t ON m.Data_Competencia = t.Data_Competencia
+            LEFT JOIN installments_per_month i ON m.Data_Competencia = i.Data_Competencia
             ORDER BY Mes_Referencia DESC
         ) TO '{output_indicators}' (FORMAT JSON, ARRAY TRUE);
         """
         con.execute(query_indicators)
 
-        # --- Indicator 2: Savings Goal (Constant across months for now) ---
+        # --- Indicator 2: Savings Goal ---
         output_goals = os.path.join(PATHS["GOLD"], "metas_poupanca.json")
         query_goals = f"""
         COPY (
