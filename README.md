@@ -1,4 +1,4 @@
-# Automação Financeira: Arquitetura Medalhão 🥇 (v5.0)
+# Automação Financeira: Arquitetura Medalhão 🥇 (v6.0)
 
 Este projeto automatiza a extração e transformação de dados financeiros pessoais de arquivos Excel, seguindo a **Arquitetura Medalhão** (Bronze, Silver e Gold), integrando um pipeline robusto em Python com um dashboard executivo moderno.
 
@@ -30,31 +30,33 @@ graph TD
 - Limpeza e padronização usando **DuckDB SQL**. Criação de dimensões temporais para análise histórica.
 
 ### 3. Camada Gold (Consumo)
-- **Script**: `pipeline/gold_load.py`
-- Agrega dados corporativos em arquivos JSON (`resumo_mensal.json`) otimizados para consumo instantâneo pelo front-end.
+- **Scripts**: 
+    - `pipeline/gold_load.py`: Dados históricos e agregados simples.
+    - `pipeline/gold_indicators.py`: Indicadores complexos, alertas e gestão de parcelas.
+- Gera arquivos JSON (`indicadores_acao.json`, `metas_poupanca.json`) otimizados para consumo instantâneo.
 
 ## 🛠️ Tecnologias
 - **Python 3.x**: Motor principal da pipeline.
 - **DuckDB**: Engine SQL de alta performance (in-memory).
-- **Bootstrap 5.3**: Layout responsivo e componentes UI.
-- **Chart.js**: Renderização de sparklines e gráficos interativos.
+- **Bootstrap 5.3**: Layout responsivo e componentes UI modernos.
+- **Chart.js**: Gráficos de Gauge e Sparklines.
 - **Pandas**: Suporte a leitura de Excel e CSV.
 
 ## 📁 Estrutura do Repositório
 ```text
 teste_antgravity/
 ├── Dados/
-│   ├── 1_Bronze/         # CSVs consolidados
-│   ├── 2_Silver/         # Parquet (Performance)
-│   └── 3_Gold/           # JSON (Consumo Dash)
+│   ├── 1_Bronze/         # CSVs consolidados (Raw)
+│   ├── 2_Silver/         # Parquet (Performance & Cleansed)
+│   └── 3_Gold/           # JSON (BI & Alertas IA)
 ├── pipeline/             # Scripts da arquitetura medalhão
 │   ├── utils/            # Helpers (Logger, etc.)
 │   ├── extractor.py
 │   ├── silver_transform.py
-│   ├── gold_load.py
+│   ├── gold_indicators.py
 │   └── validate_results.py
-├── css/ & js/            # Assets do Dashboard
-├── index.html            # Front-end do Dashboard
+├── css/ & js/            # Dashboard Assets (indicators.js, etc.)
+├── indicadores.html      # Página Principal de Gestão
 ├── main.py               # Orquestrador End-to-End
 └── README.md             # Documentação Principal
 ```

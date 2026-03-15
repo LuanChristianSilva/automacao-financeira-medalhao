@@ -84,6 +84,9 @@ SELECT
         END || '-01' AS DATE
     ) AS Data_Competencia,
     TRY_CAST("Data de pagamento" AS DATE) AS Data_Referencia,
+    -- Suporte a Parcelamentos (v6.0)
+    COALESCE(TRY_CAST("Parcelas Pagas" AS INTEGER), 0) AS Parcelas_Pagas,
+    COALESCE(TRY_CAST("Num. de Parcelas" AS INTEGER), 0) AS Total_Parcelas,
     UPPER(LEFT(TRIM(Origem_Aba), 3)) AS Mes_Sigla,
     RIGHT(TRIM(Origem_Aba), 4) AS Ano
 FROM bronze_despesa

@@ -49,18 +49,29 @@ GROUP BY 1, 2, 3
 ORDER BY Data_Competencia;
 ```
 
-### B. Detalhado (Transações)
-Query para tabelas de busca:
+### B. Indicadores Acionáveis e Alertas (v6.0)
+Query detalhada em `pipeline/gold_indicators.py` que gera o JSON para o dashboard executivo:
 ```sql
-SELECT 
-    Data_Referencia,
-    Item,
-    Valor,
-    Status,
-    Credor
-FROM read_parquet('Dados/2_Silver/fato_despesa.parquet')
-WHERE Status != 'Cancelado';
+-- CTE para capturar progresso de parcelas
+WITH installments AS (
+    SELECT 
+        Data_Competencia, Item, MAX(Valor) as Valor,
+        MAX(Parcelas_Pagas) as Pagas, MAX(Total_Parcelas) as Total,
+        MAX(Total_Parcelas) - MAX(Parcelas_Pagas) as Restantes
+    FROM read_parquet('fato_despesa.parquet')
+    WHERE Total_Parcelas > 0
+    GROUP BY 1, 2
+)
+-- Saída: indicadores_acao.json (Bias para o front-end)
 ```
+
+### C. Estrutura do JSON de BI
+O arquivo `indicadores_acao.json` contém:
+- `Receita_Disponivel`: Valor líquido do mês.
+- `Meses_Para_Quitar`: Prazo máximo real das parcelas ativas.
+- `Detalhe_Parcelas`: Array de objetos com {item, valor, pagas, total, restantes}.
+- `Top_Gastos`: Ranking das 3 maiores despesas.
+- `Impacto_Divida_Pct`: % de comprometimento da renda.
 
 ## 5. Implementação no Site
 O front-end consome os dados diretamente via `fetch`:

@@ -50,7 +50,8 @@ A organização dos dados segue o padrão medalhão para garantir a qualidade:
 
 ### 🥇 [3_Gold] - Camada de Negócio
 * **O que faz**: Contém tabelas agregadas, cálculos de indicadores (KPIs) e visões otimizadas para ferramentas de BI.
-* **Objetivo**: Facilitar a criação de dashboards e a tomada de decisão rápida.
+* **Novidade (v6.0)**: Implementação de **Consultoria Ativa**, fornecendo alertas de saúde financeira e gestão real de parcelamentos (identificando meses restantes e progresso individual de dívidas).
+* **Objetivo**: Facilitar a criação de dashboards dinâmicos e a tomada de decisão rápida baseada em dados reais e não apenas estimativas.
 
 ## 4. Benefícios desta Estrutura
 - **Escalabilidade**: Fácil adaptação para novos anos ou arquivos.
