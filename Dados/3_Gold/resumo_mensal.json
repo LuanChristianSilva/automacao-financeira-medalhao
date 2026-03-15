@@ -1,0 +1,106 @@
+[
+    {
+        "Data_Competencia": "2025-01-01",
+        "Mes_Sigla": "JAN",
+        "Ano": "2025",
+        "Total_Renda": 5520.0,
+        "Total_Despesa": 3815.0,
+        "Saldo": 1705.0
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Mes_Sigla": "FEV",
+        "Ano": "2025",
+        "Total_Renda": 5540.0,
+        "Total_Despesa": 3830.0,
+        "Saldo": 1710.0
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Mes_Sigla": "MAR",
+        "Ano": "2025",
+        "Total_Renda": 5560.0,
+        "Total_Despesa": 3845.0,
+        "Saldo": 1715.0
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Mes_Sigla": "ABR",
+        "Ano": "2025",
+        "Total_Renda": 5580.0,
+        "Total_Despesa": 3860.0,
+        "Saldo": 1720.0
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Mes_Sigla": "MAI",
+        "Ano": "2025",
+        "Total_Renda": 5600.0,
+        "Total_Despesa": 3875.0,
+        "Saldo": 1725.0
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Mes_Sigla": "JUN",
+        "Ano": "2025",
+        "Total_Renda": 5620.0,
+        "Total_Despesa": 3890.0,
+        "Saldo": 1730.0
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Mes_Sigla": "JUL",
+        "Ano": "2025",
+        "Total_Renda": 5640.0,
+        "Total_Despesa": 3905.0,
+        "Saldo": 1735.0
+    },
+    {
+        "Data_Competencia": "2025-08-01",
+        "Mes_Sigla": "AGO",
+        "Ano": "2025",
+        "Total_Renda": 5660.0,
+        "Total_Despesa": 3920.0,
+        "Saldo": 1740.0
+    },
+    {
+        "Data_Competencia": "2025-09-01",
+        "Mes_Sigla": "SET",
+        "Ano": "2025",
+        "Total_Renda": 5680.0,
+        "Total_Despesa": 3935.0,
+        "Saldo": 1745.0
+    },
+    {
+        "Data_Competencia": "2025-10-01",
+        "Mes_Sigla": "OUT",
+        "Ano": "2025",
+        "Total_Renda": 5700.0,
+        "Total_Despesa": 3950.0,
+        "Saldo": 1750.0
+    },
+    {
+        "Data_Competencia": "2026-11-01",
+        "Mes_Sigla": "NOV",
+        "Ano": "2026",
+        "Total_Renda": 5720.0,
+        "Total_Despesa": 3965.0,
+        "Saldo": 1755.0
+    },
+    {
+        "Data_Competencia": "2026-12-01",
+        "Mes_Sigla": "DEZ",
+        "Ano": "2026",
+        "Total_Renda": 5740.0,
+        "Total_Despesa": 3980.0,
+        "Saldo": 1760.0
+    },
+    {
+        "Data_Competencia": "2026-01-01",
+        "Mes_Sigla": "JAN",
+        "Ano": "2026",
+        "Total_Renda": 5760.0,
+        "Total_Despesa": 3995.0,
+        "Saldo": 1765.0
+    }
+]

@@ -1,0 +1,548 @@
+[
+    {
+        "Mes_Referencia": "2025-01-01",
+        "Receita_Disponivel": 1705.0,
+        "Dias_Restantes": 30,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 31.85,
+        "Valor_Comprometido": 1172.07,
+        "Renda_Base": 3680.0,
+        "Global_Min_Divida": 294.0,
+        "Global_Max_Divida": 4084.0,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Mock",
+                "valor": 900.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2200.0
+            },
+            {
+                "item": "Lazer",
+                "valor": 150.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 10,
+                "restantes": 5
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            }
+        ]
+    },
+    {
+        "Mes_Referencia": "2025-02-01",
+        "Receita_Disponivel": 1710.0,
+        "Dias_Restantes": 30,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 31.85,
+        "Valor_Comprometido": 1172.07,
+        "Renda_Base": 3680.0,
+        "Global_Min_Divida": 294.0,
+        "Global_Max_Divida": 4084.0,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Mock",
+                "valor": 900.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2200.0
+            },
+            {
+                "item": "Lazer",
+                "valor": 150.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 10,
+                "restantes": 5
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            }
+        ]
+    },
+    {
+        "Mes_Referencia": "2025-03-01",
+        "Receita_Disponivel": 1715.0,
+        "Dias_Restantes": 30,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 31.85,
+        "Valor_Comprometido": 1172.07,
+        "Renda_Base": 3680.0,
+        "Global_Min_Divida": 294.0,
+        "Global_Max_Divida": 4084.0,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Mock",
+                "valor": 900.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2200.0
+            },
+            {
+                "item": "Lazer",
+                "valor": 150.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 10,
+                "restantes": 5
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            }
+        ]
+    },
+    {
+        "Mes_Referencia": "2025-04-01",
+        "Receita_Disponivel": 1720.0,
+        "Dias_Restantes": 30,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 31.85,
+        "Valor_Comprometido": 1172.07,
+        "Renda_Base": 3680.0,
+        "Global_Min_Divida": 294.0,
+        "Global_Max_Divida": 4084.0,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Mock",
+                "valor": 900.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2200.0
+            },
+            {
+                "item": "Lazer",
+                "valor": 150.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 10,
+                "restantes": 5
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            }
+        ]
+    },
+    {
+        "Mes_Referencia": "2025-05-01",
+        "Receita_Disponivel": 1725.0,
+        "Dias_Restantes": 30,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 31.85,
+        "Valor_Comprometido": 1172.07,
+        "Renda_Base": 3680.0,
+        "Global_Min_Divida": 294.0,
+        "Global_Max_Divida": 4084.0,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Mock",
+                "valor": 900.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2200.0
+            },
+            {
+                "item": "Lazer",
+                "valor": 150.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 10,
+                "restantes": 5
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            }
+        ]
+    },
+    {
+        "Mes_Referencia": "2025-06-01",
+        "Receita_Disponivel": 1730.0,
+        "Dias_Restantes": 30,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 31.85,
+        "Valor_Comprometido": 1172.07,
+        "Renda_Base": 3680.0,
+        "Global_Min_Divida": 294.0,
+        "Global_Max_Divida": 4084.0,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Mock",
+                "valor": 900.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2200.0
+            },
+            {
+                "item": "Lazer",
+                "valor": 150.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 10,
+                "restantes": 5
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            }
+        ]
+    },
+    {
+        "Mes_Referencia": "2025-07-01",
+        "Receita_Disponivel": 1735.0,
+        "Dias_Restantes": 30,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 31.85,
+        "Valor_Comprometido": 1172.07,
+        "Renda_Base": 3680.0,
+        "Global_Min_Divida": 294.0,
+        "Global_Max_Divida": 4084.0,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Mock",
+                "valor": 900.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2200.0
+            },
+            {
+                "item": "Lazer",
+                "valor": 150.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 10,
+                "restantes": 5
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            }
+        ]
+    },
+    {
+        "Mes_Referencia": "2025-08-01",
+        "Receita_Disponivel": 1740.0,
+        "Dias_Restantes": 30,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 31.85,
+        "Valor_Comprometido": 1172.07,
+        "Renda_Base": 3680.0,
+        "Global_Min_Divida": 294.0,
+        "Global_Max_Divida": 4084.0,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Mock",
+                "valor": 900.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2200.0
+            },
+            {
+                "item": "Lazer",
+                "valor": 150.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 10,
+                "restantes": 5
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            }
+        ]
+    },
+    {
+        "Mes_Referencia": "2025-09-01",
+        "Receita_Disponivel": 1745.0,
+        "Dias_Restantes": 30,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 31.85,
+        "Valor_Comprometido": 1172.07,
+        "Renda_Base": 3680.0,
+        "Global_Min_Divida": 294.0,
+        "Global_Max_Divida": 4084.0,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Mock",
+                "valor": 900.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2200.0
+            },
+            {
+                "item": "Lazer",
+                "valor": 150.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 10,
+                "restantes": 5
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            }
+        ]
+    },
+    {
+        "Mes_Referencia": "2025-10-01",
+        "Receita_Disponivel": 1750.0,
+        "Dias_Restantes": 30,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 31.85,
+        "Valor_Comprometido": 1172.07,
+        "Renda_Base": 3680.0,
+        "Global_Min_Divida": 294.0,
+        "Global_Max_Divida": 4084.0,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Mock",
+                "valor": 900.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2200.0
+            },
+            {
+                "item": "Lazer",
+                "valor": 150.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 10,
+                "restantes": 5
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            }
+        ]
+    },
+    {
+        "Mes_Referencia": "2026-11-01",
+        "Receita_Disponivel": 1755.0,
+        "Dias_Restantes": 30,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 31.85,
+        "Valor_Comprometido": 1172.07,
+        "Renda_Base": 3680.0,
+        "Global_Min_Divida": 294.0,
+        "Global_Max_Divida": 4084.0,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Mock",
+                "valor": 900.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2200.0
+            },
+            {
+                "item": "Lazer",
+                "valor": 150.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 10,
+                "restantes": 5
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            }
+        ]
+    },
+    {
+        "Mes_Referencia": "2026-12-01",
+        "Receita_Disponivel": 1760.0,
+        "Dias_Restantes": 30,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 31.85,
+        "Valor_Comprometido": 1172.07,
+        "Renda_Base": 3680.0,
+        "Global_Min_Divida": 294.0,
+        "Global_Max_Divida": 4084.0,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Mock",
+                "valor": 900.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2200.0
+            },
+            {
+                "item": "Lazer",
+                "valor": 150.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 10,
+                "restantes": 5
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            }
+        ]
+    },
+    {
+        "Mes_Referencia": "2026-01-01",
+        "Receita_Disponivel": 1765.0,
+        "Dias_Restantes": 30,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 31.85,
+        "Valor_Comprometido": 1172.07,
+        "Renda_Base": 3680.0,
+        "Global_Min_Divida": 294.0,
+        "Global_Max_Divida": 4084.0,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Mock",
+                "valor": 900.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2200.0
+            },
+            {
+                "item": "Lazer",
+                "valor": 150.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 10,
+                "restantes": 5
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            }
+        ]
+    }
+]
