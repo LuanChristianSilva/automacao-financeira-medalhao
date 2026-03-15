@@ -274,12 +274,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const incomeText = document.getElementById('action-income-base');
         if (incomeText) incomeText.textContent = formatCurrency(incomeBase);
-
-        const minText = document.getElementById('action-debt-min');
-        if (minText) minText.textContent = formatCurrency(minDebt);
-
-        const maxText = document.getElementById('action-debt-max');
-        if (maxText) maxText.textContent = formatCurrency(maxDebt);
     };
 
     loadData();
