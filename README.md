@@ -61,6 +61,25 @@ teste_antgravity/
 └── README.md             # Documentação Principal
 ```
 
+## 🖥️ Navegação e Funcionalidades
+
+O dashboard é dividido em 3 visões estratégicas, acessíveis pela barra lateral:
+
+### 1. Visão Geral (`index.html`)
+- **Foco**: Fluxo de caixa imediato e categorização.
+- **Destaques**: Gráfico de histórico mensal (Renda vs Despesa), distribuição de gastos por categoria e lista completa de transações do mês selecionado.
+
+### 2. Indicadores Estratégicos (`indicadores.html`)
+- **Foco**: Consultoria financeira ativa e gestão de passivos.
+- **Destaques**: 
+    - **Alertas de IA**: Feedback contextual sobre a saúde do seu saldo.
+    - **Impacto de Dívidas**: Percentual de comprometimento da renda.
+    - **Gestão de Parcelas**: Tabela dinâmica com progresso real e tempo para quitação de cada dívida.
+
+### 3. Metas de Poupança (`poupanca.html`)
+- **Foco**: Planejamento de futuro e reserva de emergência.
+- **Destaques**: Acompanhamento do valor acumulado total, percentual de progresso em direção à meta de R$ 50.000,00 e cálculo de necessidade restante.
+
 ## 🏁 Como Executar
 Basta rodar o orquestrador na raiz do projeto:
 ```bash
