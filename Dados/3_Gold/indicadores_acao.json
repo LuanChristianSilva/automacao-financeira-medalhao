@@ -1,0 +1,85 @@
+[
+    {
+        "Mes_Referencia": "2026-03-01",
+        "Receita_Disponivel": 1250.75,
+        "Dias_Restantes": 45,
+        "Risco_Saldo_Negativo": "Baixo",
+        "Impacto_Divida_Pct": 22.5,
+        "Meses_Para_Quitar": 6,
+        "Top_Gastos": [
+            {
+                "item": "Supermercado Exemplo",
+                "valor": 850.0
+            },
+            {
+                "item": "Restaurantes",
+                "valor": 420.5
+            },
+            {
+                "item": "Assinaturas Stream",
+                "valor": 120.9
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook Novo",
+                "valor": 450.0,
+                "pagas": 4,
+                "total": 10,
+                "restantes": 6
+            },
+            {
+                "item": "Curso Online",
+                "valor": 190.0,
+                "pagas": 8,
+                "total": 12,
+                "restantes": 4
+            },
+            {
+                "item": "Smartphone",
+                "valor": 300.0,
+                "pagas": 2,
+                "total": 10,
+                "restantes": 8
+            }
+        ]
+    },
+    {
+        "Mes_Referencia": "2026-02-01",
+        "Receita_Disponivel": -150.0,
+        "Dias_Restantes": 0,
+        "Risco_Saldo_Negativo": "Alto",
+        "Impacto_Divida_Pct": 45.0,
+        "Meses_Para_Quitar": -1,
+        "Top_Gastos": [
+            {
+                "item": "Manutenção Carro",
+                "valor": 1200.0
+            },
+            {
+                "item": "Aluguel",
+                "valor": 2500.0
+            },
+            {
+                "item": "Saúde",
+                "valor": 600.0
+            }
+        ],
+        "Detalhe_Parcelas": [
+            {
+                "item": "Notebook Novo",
+                "valor": 450.0,
+                "pagas": 3,
+                "total": 10,
+                "restantes": 7
+            },
+            {
+                "item": "Curso Online",
+                "valor": 190.0,
+                "pagas": 7,
+                "total": 12,
+                "restantes": 5
+            }
+        ]
+    }
+]

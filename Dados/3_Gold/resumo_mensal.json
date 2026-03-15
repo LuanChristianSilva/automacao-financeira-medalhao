@@ -1,0 +1,20 @@
+[
+    {
+        "Mes_Sigla": "JAN",
+        "Ano": "2026",
+        "Total_Valor": 4200.0,
+        "Total_Renda": 5500.0
+    },
+    {
+        "Mes_Sigla": "FEV",
+        "Ano": "2026",
+        "Total_Valor": 5650.0,
+        "Total_Renda": 5500.0
+    },
+    {
+        "Mes_Sigla": "MAR",
+        "Ano": "2026",
+        "Total_Valor": 4249.25,
+        "Total_Renda": 5500.0
+    }
+]
