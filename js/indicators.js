@@ -189,8 +189,11 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = alertHtml;
     };
 
+    let currentSortDesc = true; // State for installment sorting
+
     const renderInstallmentTable = (installments) => {
         const container = document.getElementById('action-installment-list');
+        const sortLabel = document.getElementById('sort-label');
         if (!container) return;
 
         if (!installments || installments.length === 0) {
@@ -198,11 +201,19 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        container.innerHTML = installments.map(inst => `
+        // Apply state label
+        if (sortLabel) sortLabel.textContent = currentSortDesc ? 'Maiores Prazos' : 'Menores Prazos';
+
+        // Sort and Take Top 5
+        const sorted = [...installments].sort((a, b) => {
+            return currentSortDesc ? b.restantes - a.restantes : a.restantes - b.restantes;
+        }).slice(0, 5);
+
+        container.innerHTML = sorted.map(inst => `
             <div class="d-flex align-items-center justify-content-between p-3 rounded-4 bg-main-alt shadow-sm">
                 <div class="d-flex flex-column">
                     <span class="fw-medium text-main">${inst.item}</span>
-                    <span class="fs-xs opacity-50">${inst.pagas}/${inst.total} parcelas</span>
+                    <span class="fs-xs opacity-50 text-truncate" style="max-width: 150px;">${inst.pagas}/${inst.total} parcelas | ${formatCurrency(inst.valor)}</span>
                 </div>
                 <div class="text-end">
                     <span class="fw-bold text-main d-block">${inst.restantes}</span>
@@ -211,6 +222,17 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `).join('');
     };
+
+    // Event Listener for sorting toggle
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('#toggle-installment-sort');
+        if (btn && allData.length > 0) {
+            currentSortDesc = !currentSortDesc;
+            const filter = document.getElementById('monthFilter');
+            const selectedData = allData.find(i => i.Mes_Referencia === filter.value) || allData[0];
+            renderInstallmentTable(selectedData.Detalhe_Parcelas);
+        }
+    });
 
     const renderDebtGauge = (value) => {
         const ctx = document.getElementById('debtImpactGauge');

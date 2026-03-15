@@ -55,6 +55,7 @@ def load_indicators():
                 SELECT 
                     Data_Competencia,
                     Item,
+                    MAX(Valor) as Valor,
                     MAX(Parcelas_Pagas) as Pagas,
                     MAX(Total_Parcelas) as Total,
                     MAX(Total_Parcelas) - MAX(Parcelas_Pagas) as Restantes
@@ -65,7 +66,7 @@ def load_indicators():
             installments_per_month AS (
                 SELECT 
                     Data_Competencia,
-                    list(json_object('item', Item, 'pagas', Pagas, 'total', Total, 'restantes', Restantes)) as Parcelas,
+                    list(json_object('item', Item, 'valor', Valor, 'pagas', Pagas, 'total', Total, 'restantes', Restantes)) as Parcelas,
                     MAX(Restantes) as Max_Restantes
                 FROM installments
                 GROUP BY 1

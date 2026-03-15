@@ -182,14 +182,23 @@
 
                     <div class="col-12 col-md-6">
                         <div class="card metric-card p-4 border-0 shadow-sm rounded-4 h-100">
-                            <h3 class="h6 mb-3 text-muted">Tempo para Quitar tudo</h3>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h3 class="h6 mb-0 text-muted">Tempo para Quitar tudo</h3>
+                                <button id="toggle-installment-sort" class="btn btn-sm btn-outline-secondary rounded-pill px-3 fs-xs fw-medium">
+                                    <span id="sort-label">Maiores Prazos</span>
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ms-1">
+                                        <path d="M7 15l5 5 5-5M7 9l5-5 5 5"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            
                             <div class="d-flex flex-column mb-4 text-center">
                                 <h2 class="display-6 fw-bold mb-0 text-main" id="action-debt-time">-- <span class="h4">meses</span></h2>
                                 <span class="fs-xs opacity-50">Prazo para quitação da dívida mais longa</span>
                             </div>
                             
                             <div class="installment-table-container">
-                                <h4 class="fs-xs fw-bold text-uppercase text-muted mb-3 opacity-75">Parcelamentos Ativos</h4>
+                                <h4 class="fs-xs fw-bold text-uppercase text-muted mb-3 opacity-75">Parcelamentos Ativos (Top 5)</h4>
                                 <div id="action-installment-list" class="vstack gap-2">
                                     <div class="text-center py-3 opacity-50 fs-7">Carregando dados...</div>
                                 </div>
