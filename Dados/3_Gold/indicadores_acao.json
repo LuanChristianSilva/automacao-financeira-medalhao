@@ -43,43 +43,5 @@
                 "restantes": 8
             }
         ]
-    },
-    {
-        "Mes_Referencia": "2026-02-01",
-        "Receita_Disponivel": -150.0,
-        "Dias_Restantes": 0,
-        "Risco_Saldo_Negativo": "Alto",
-        "Impacto_Divida_Pct": 45.0,
-        "Meses_Para_Quitar": -1,
-        "Top_Gastos": [
-            {
-                "item": "Manutenção Carro",
-                "valor": 1200.0
-            },
-            {
-                "item": "Aluguel",
-                "valor": 2500.0
-            },
-            {
-                "item": "Saúde",
-                "valor": 600.0
-            }
-        ],
-        "Detalhe_Parcelas": [
-            {
-                "item": "Notebook Novo",
-                "valor": 450.0,
-                "pagas": 3,
-                "total": 10,
-                "restantes": 7
-            },
-            {
-                "item": "Curso Online",
-                "valor": 190.0,
-                "pagas": 7,
-                "total": 12,
-                "restantes": 5
-            }
-        ]
     }
 ]
