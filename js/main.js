@@ -360,6 +360,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        if (actual.length === 0 && expenses.length === 0) {
+            const canvas = document.getElementById('revenueTargetChart');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0,0, canvas.width, canvas.height);
+            ctx.font = "14px Inter";
+            ctx.fillStyle = "#94a3b8";
+            ctx.textAlign = "center";
+            ctx.fillText("Sem dados para o período", canvas.width/2, canvas.height/2);
+            return;
+        }
+
         if (charts.revenueTarget) charts.revenueTarget.destroy();
         charts.revenueTarget = new Chart(document.getElementById('revenueTargetChart'), {
             type: 'line',
@@ -369,18 +380,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     {
                         label: 'Receita',
                         data: actual,
-                        borderColor: chartDefaults.colorMain,
-                        borderWidth: 2,
-                        tension: 0.3,
-                        pointRadius: 2
+                        borderColor: chartDefaults.greenLine,
+                        backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                        borderWidth: 2.5,
+                        tension: 0.4,
+                        pointRadius: 0,
+                        fill: true
                     },
                     {
                         label: 'Despesa',
                         data: expenses,
                         borderColor: chartDefaults.redLine,
-                        borderWidth: 2,
-                        tension: 0.3,
-                        pointRadius: 2
+                        backgroundColor: 'rgba(239, 68, 68, 0.05)',
+                        borderWidth: 2.5,
+                        tension: 0.4,
+                        pointRadius: 0,
+                        fill: true
                     },
                     {
                         label: 'Meta Projetada',
@@ -396,8 +411,31 @@ document.addEventListener('DOMContentLoaded', () => {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
-                scales: { y: { beginAtZero: true } }
+                interaction: { mode: 'index', intersect: false },
+                plugins: { 
+                    legend: { 
+                        display: true,
+                        position: 'top',
+                        align: 'end',
+                        labels: { boxWidth: 12, usePointStyle: true, font: { size: 10 } }
+                    }, 
+                    tooltip: { mode: 'index', intersect: false } 
+                },
+                scales: { 
+                    y: { 
+                        beginAtZero: true,
+                        grid: { borderDash: [5, 5] },
+                        ticks: { font: { size: 10 } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { 
+                            maxRotation: 0,
+                            autoSkip: true,
+                            font: { size: 10 }
+                        }
+                    }
+                }
             }
         });
     };
@@ -434,25 +472,52 @@ document.addEventListener('DOMContentLoaded', () => {
         const vals = sortedTypes.map(t => typeMap[t]);
 
         if (charts.expenseCategory) charts.expenseCategory.destroy();
+        
+        if (vals.length === 0) {
+            const canvas = document.getElementById('expenseChart');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0,0, canvas.width, canvas.height);
+            ctx.font = "12px Inter";
+            ctx.fillStyle = "#94a3b8";
+            ctx.textAlign = "center";
+            ctx.fillText("Sem dados para o período", canvas.width/2, canvas.height/2);
+            return;
+        }
+
         charts.expenseCategory = new Chart(document.getElementById('expenseChart'), {
             type: 'bar',
             data: {
                 labels: sortedTypes,
                 datasets: [{
+                    label: 'Despesas',
                     data: vals,
                     backgroundColor: chartDefaults.colorMain,
-                    barPercentage: 0.4,
-                    borderRadius: 4
+                    barPercentage: 0.5,
+                    borderRadius: 6
                 }]
             },
             options: {
                 indexAxis: 'y',
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
+                plugins: { 
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => formatCurrency(context.raw)
+                        }
+                    }
+                },
                 scales: {
-                    x: { display: false },
-                    y: { grid: { display: false }, ticks: { color: chartDefaults.colorMain, font: { weight: 500 } } }
+                    x: { 
+                        beginAtZero: true,
+                        grid: { display: false },
+                        ticks: { display: false }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { font: { size: 11, weight: '500' } }
+                    }
                 }
             }
         });
@@ -463,6 +528,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const initProfitTrendChart = () => {
         const labels = rolling12MonthsResumo.map(d => `${d.Mes_Sigla} - ${d.Ano}`);
         const margins = rolling12MonthsResumo.map(d => d.Total_Renda > 0 ? (d.Saldo / d.Total_Renda) * 100 : 0);
+
+        if (margins.length === 0) {
+            const canvas = document.getElementById('profitTrendChart');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0,0, canvas.width, canvas.height);
+                ctx.font = "12px Inter";
+                ctx.fillStyle = "#94a3b8";
+                ctx.textAlign = "center";
+                ctx.fillText("Sem dados", canvas.width/2, canvas.height/2);
+            }
+            return;
+        }
 
         if (charts.profitTrend) charts.profitTrend.destroy();
         charts.profitTrend = new Chart(document.getElementById('profitTrendChart'), {
@@ -498,6 +576,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const labels = rolling12MonthsResumo.map(d => `${d.Mes_Sigla} - ${d.Ano}`);
         const incomes = rolling12MonthsResumo.map(d => d.Total_Renda);
         const expenses = rolling12MonthsResumo.map(d => d.Total_Despesa);
+
+        if (incomes.length === 0 && expenses.length === 0) {
+            const canvas = document.getElementById('regionalChart');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0,0, canvas.width, canvas.height);
+                ctx.font = "12px Inter";
+                ctx.fillStyle = "#94a3b8";
+                ctx.textAlign = "center";
+                ctx.fillText("Sem dados acumulados", canvas.width/2, canvas.height/2);
+            }
+            return;
+        }
 
         if (charts.regionalComparison) charts.regionalComparison.destroy();
         charts.regionalComparison = new Chart(document.getElementById('regionalChart'), {
@@ -624,19 +715,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         sortedIncomes.forEach((item, index) => {
             const val = incomeMap[item];
-            const maxVal = Math.max(...dataVals);
-            const percentage = maxVal > 0 ? (val / maxVal) * 100 : 0;
+            const total = dataVals.reduce((a, b) => a + b, 0);
+            const percentage = total > 0 ? (val / total) * 100 : 0;
             
             const div = document.createElement('div');
-            div.className = 'w-100 mb-1';
+            div.className = 'w-100 mb-2';
             div.innerHTML = `
-                <div class="d-flex justify-content-between mb-1" style="font-size: 0.75rem;">
-                    <span class="text-truncate fw-medium" style="max-width: 140px;">${escapeHTML(item)}</span>
-                    <span class="text-muted">${formatCurrency(val)}</span>
+                <div class="d-flex justify-content-between mb-1" style="font-size: 0.8rem;">
+                    <span class="text-truncate fw-semibold" style="max-width: 160px; color: #334155;">${escapeHTML(item)}</span>
+                    <span class="fw-bold" style="color: #1e293b;">${formatCurrency(val)}</span>
                 </div>
-                <div class="progress" style="height: 6px; background-color: #f1f5f9;">
-                    <div class="progress-bar" role="progressbar" 
-                         style="width: ${percentage}%; background-color: ${colors[index % colors.length]}; border-radius: 3px;"></div>
+                <div class="progress" style="height: 10px; background-color: #f1f5f9; border-radius: 20px;">
+                    <div class="progress-bar shadow-sm" role="progressbar" 
+                         style="width: ${percentage}%; background-color: ${colors[index % colors.length]}; border-radius: 20px; transition: width 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);"></div>
                 </div>
             `;
             barContainer.appendChild(div);
