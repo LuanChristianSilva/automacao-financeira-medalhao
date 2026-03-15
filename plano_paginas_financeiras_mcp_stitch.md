@@ -27,7 +27,8 @@ Esta página deve concentrar os indicadores com foco em decisão imediata:
 8. **Top 3 gastos do mês**
 
 ### Página 2 — Meta de poupança
-Esta página deve ser separada da anterior e dedicada ao acompanhamento da meta de poupança.
+**Status: 🛑 Suspensa Temporariamente (Código Preservado)**
+Esta página está estruturada mas desativada via UI (Shield de Bloqueio) para priorizar a correção de lógica da Página 1.
 
 ---
 
@@ -263,6 +264,8 @@ Conectar a camada visual aos dados preparados e garantir que cada componente exi
 
 ### Critério de conclusão
 A etapa termina quando a tela estiver usando dados reais de forma consistente, responsiva e validada.
+**Status Página 1: ✅ Concluído (Refinado na v7.0 com nova lógica de cartão).**
+**Status Página 2: ⏸️ Pausado (Aguardando retomada do roadmap).**
 
 ---
 
@@ -300,4 +303,8 @@ Ao final, o produto deve ter:
 - fluxo de construção organizado;
 - separação limpa entre arquitetura, design, dados e integração;
 - base pronta para evoluções futuras com mais métricas e análises.
+
+## 📝 Notas de Versão (v7.0)
+- **Refinamento Crítico**: O indicador "Impacto das Dívidas" foi renomeado para "Uso do Cartão de Crédito" e sua fórmula foi corrigida para refletir o comprometimento real da renda.
+- **Segurança**: Adicionado shield de redirecionamento na `poupanca.html` para evitar acesso a funcionalidades incompletas na versão online.
 

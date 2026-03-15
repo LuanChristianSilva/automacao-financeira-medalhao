@@ -15,14 +15,15 @@ Esta documentação cobre:
 
 ---
 
-# 🚀 Estado Atual (v5.0 Implementado)
+# 🚀 Estado Atual (v7.0 Implementado)
 
 Atualmente, o projeto já possui o motor de processamento e a interface visual totalmente funcionais localmente:
 
 ### 1. Pipeline Medalhão (pipeline/)
 - **Bronze**: Extração via `extractor.py` com detecção dinâmica.
 - **Silver**: Transformação via `silver_transform.py` usando DuckDB SQL.
-- **Gold**: Geração de JSON via `gold_load.py` agregando histórico de 12 meses.
+- **Gold**: Geração de JSON via `gold_indicators.py` agregando indicadores estratégicos e metas.
+- **Segurança**: Proteção de dados reais via `.gitignore` e publicação de mocks oficiais via `generate_mock_data.py`.
 - **Validação**: Verificação de integridade via `validate_results.py`.
 
 ### 2. Dashboard Executivo
@@ -89,7 +90,8 @@ teste_antgravity/          # (v5.0 Atual)
 │   ├── main.py            # Orquestrador local
 │   ├── extractor.py       # Extração Bronze
 │   ├── silver_transform.py # Transformação Silver
-│   ├── gold_load.py       # Carga Gold
+│   ├── gold_indicators.py # Indicadores e Alertas
+│   ├── generate_mock_data.py # NOVO: Gerador de demonstração
 │   └── validate_results.py # Validação
 │
 ├── js/
@@ -339,8 +341,8 @@ O workflow deve executar:
 1. baixar o código do repositório
 2. configurar ambiente Python
 3. instalar dependências
-4. executar pipeline Python
-5. validar geração do JSON
+4. executar pipeline Python (Mock-first para Web)
+5. validar geração do JSON com dados simulados
 6. publicar o site
 
 ---

@@ -2,11 +2,17 @@
 
 https://luanchristiansilva.github.io/automacao-financeira-medalhao/index.html
 
-# Automação Financeira: Arquitetura Medalhão 🥇 (v6.0)
+# Automação Financeira: Arquitetura Medalhão 🥇 (v7.0)
 
 Este projeto automatiza a extração e transformação de dados financeiros pessoais de arquivos Excel, seguindo a **Arquitetura Medalhão** (Bronze, Silver e Gold), integrando um pipeline robusto em Python com um dashboard executivo moderno.
 
-## 🚀 Novidades Recentes (v5.0)
+## 🚀 Novidades Recentes (v7.0)
+- **Segurança Blindada**: Implementação de `.gitignore` recursivo e limpeza de histórico para proteção de dados reais.
+- **Lógica de Crédito Corrigida**: Nova fórmula de comprometimento de renda e inclusão de valores monetários absolutos (R$).
+- **Dashboard Online Seguro**: Publicação oficial de dados simulados (Mock) para visualização pública sem riscos.
+- **Gestão de Roadmap**: Desativação temporária da página de Investimentos com camada de proteção (Shield) e preservação de código.
+
+## 🚀 Novidades Anteriores (v5.0/v6.0)
 - **Dashboard Refinado**: Reorganização dos KPIs para layout de 3 colunas, melhorando a densidade de informação.
 - **Consolidação de Renda**: Nova visualização em barras horizontais para "Distribuição da Renda" integrando valores diretamente na legenda.
 - **UI Premium**: Implementação total com Bootstrap 5.3, suporte a valores negativos sem quebra de linha e sparklines otimizadas.
@@ -58,6 +64,7 @@ teste_antgravity/
 │   ├── extractor.py
 │   ├── silver_transform.py
 │   ├── gold_indicators.py
+│   ├── generate_mock_data.py # Gerador de dados fictícios para Web
 │   └── validate_results.py
 ├── css/ & js/            # Dashboard Assets (indicators.js, etc.)
 ├── indicadores.html      # Página Principal de Gestão
@@ -81,8 +88,8 @@ O dashboard é dividido em 3 visões estratégicas, acessíveis pela barra later
     - **Gestão de Parcelas**: Tabela dinâmica com progresso real e tempo para quitação de cada dívida.
 
 ### 3. Metas de Poupança (`poupanca.html`)
-- **Foco**: Planejamento de futuro e reserva de emergência.
-- **Destaques**: Acompanhamento do valor acumulado total, percentual de progresso em direção à meta de R$ 50.000,00 e cálculo de necessidade restante.
+- **Status**: 🛑 Temporariamente desabilitada (Em desenvolvimento).
+- **Funcionalidade**: Planejamento de futuro e reserva de emergência. Acessível via código mas protegida por shield de redirecionamento na versão atual.
 
 ## 🏁 Como Executar
 Basta rodar o orquestrador na raiz do projeto:
