@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="d-flex align-items-center justify-content-between p-3 rounded-4 bg-main-alt shadow-sm">
                 <div class="d-flex flex-column">
                     <span class="fw-medium text-main">${inst.item}</span>
-                    <span class="fs-xs opacity-50 text-truncate" style="max-width: 150px;">${inst.pagas}/${inst.total} parcelas | ${formatCurrency(inst.valor)}</span>
+                    <span class="fs-xs opacity-50">${inst.pagas}/${inst.total} parcelas | ${formatCurrency(inst.valor)}</span>
                 </div>
                 <div class="text-end">
                     <span class="fw-bold text-main d-block">${inst.restantes}</span>

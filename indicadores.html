@@ -166,20 +166,32 @@
 
                     <!-- Secondary Indicators -->
                     <div class="col-12 col-md-6">
-                        <div class="card metric-card p-4 border-0 shadow-sm rounded-4 h-100">
-                            <h3 class="h6 mb-3 text-muted">Impacto das Dívidas</h3>
-                            <div class="d-flex flex-column align-items-center justify-content-center flex-grow-1 text-center py-2">
-                                <div class="chart-container mb-3" style="width: 180px; height: 100px;">
-                                    <canvas id="debtImpactGauge"></canvas>
+                        <div class="vstack gap-4 h-100">
+                            <!-- Impacto Card -->
+                            <div class="card metric-card p-4 border-0 shadow-sm rounded-4">
+                                <h3 class="h6 mb-3 text-muted">Impacto das Dívidas</h3>
+                                <div class="d-flex flex-column align-items-center justify-content-center text-center py-2">
+                                    <div class="chart-container mb-3" style="width: 180px; height: 100px;">
+                                        <canvas id="debtImpactGauge"></canvas>
+                                    </div>
+                                    <div>
+                                        <h2 class="h1 fw-bold mb-1" id="action-debt-pct">35%</h2>
+                                        <span class="fs-7 text-danger fw-medium d-block">da sua renda comprometida</span>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h2 class="h1 fw-bold mb-1" id="action-debt-pct">35%</h2>
-                                    <span class="fs-7 text-danger fw-medium d-block">da sua renda comprometida</span>
+                            </div>
+
+                            <!-- Top 3 Gastos Card -->
+                            <div class="card metric-card p-4 border-0 shadow-sm rounded-4 flex-grow-1">
+                                <h3 class="h6 mb-4 text-muted fw-bold text-uppercase">Top 3 Gastos do Mês</h3>
+                                <div id="action-top-expenses" class="vstack gap-3">
+                                    <div class="text-center py-3 opacity-50 fs-7">Carregando dados...</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Tempo Card (Right) -->
                     <div class="col-12 col-md-6">
                         <div class="card metric-card p-4 border-0 shadow-sm rounded-4 h-100">
                             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -201,23 +213,6 @@
                                 <h4 class="fs-xs fw-bold text-uppercase text-muted mb-3 opacity-75">Parcelamentos Ativos (Top 5)</h4>
                                 <div id="action-installment-list" class="vstack gap-2">
                                     <div class="text-center py-3 opacity-50 fs-7">Carregando dados...</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Top 3 Gastos Ranking -->
-                    <div class="col-12">
-                        <div class="card metric-card p-4 border-0 shadow-sm rounded-4">
-                            <h3 class="h6 mb-4 text-muted fw-bold text-uppercase">Top 3 Gastos do Mês</h3>
-                            <div id="action-top-expenses" class="vstack gap-3">
-                                <!-- Example item -->
-                                <div class="d-flex align-items-center justify-content-between p-3 rounded-4 bg-main-alt">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <div class="rank-circle">1</div>
-                                        <span class="fw-medium">Carregando...</span>
-                                    </div>
-                                    <span class="fw-bold">R$ 0,00</span>
                                 </div>
                             </div>
                         </div>
