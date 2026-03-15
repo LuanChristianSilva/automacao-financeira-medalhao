@@ -1,3 +1,7 @@
+# Automação Financeira: Link do Projeto
+
+https://luanchristiansilva.github.io/automacao-financeira-medalhao/index.html
+
 # Automação Financeira: Arquitetura Medalhão 🥇 (v6.0)
 
 Este projeto automatiza a extração e transformação de dados financeiros pessoais de arquivos Excel, seguindo a **Arquitetura Medalhão** (Bronze, Silver e Gold), integrando um pipeline robusto em Python com um dashboard executivo moderno.
