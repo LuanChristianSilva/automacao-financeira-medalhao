@@ -1,22 +1,39 @@
+import os
 import duckdb
+import pandas as pd
+import tkinter as tk
+from tkinter import ttk
 
-# Caminho do seu arquivo parquet de RENDA
-caminho = r'C:\Users\luanc\Documents\Estudos\teste_antgravity\Dados\2_Silver\fato_despesa.parquet'
+caminho = r'C:\Users\luanc\Documents\Estudos\teste_antgravity\Dados\2_Silver'
+silver_despesa = os.path.join(caminho, 'fato_despesa.parquet')
 
-# SQL para ver o efeito do REPLACE no Item da RENDA
 df = duckdb.sql(f"""
-    SELECT 
-        Item, 
-        Valor, 
-        Parcelas_Pagas, 
-        Total_Parcelas, 
-        Origem_Aba
-    FROM '{caminho}'
-    WHERE Total_Parcelas > 0
-    LIMIT 20
+    SELECT
+        Data_Competencia,
+        SUM(Valor) AS Total_Despesa,
+        SUM(CASE WHEN Tipo_Pagamento LIKE 'Cred%' THEN Valor ELSE 0 END) AS Divida_Cartao
+    FROM read_parquet('{silver_despesa}')
+    GROUP BY 1
 """).df()
 
+# janela
+root = tk.Tk()
+root.title("Visualização dos Dados")
 
-# Exibe os resultados
-print("--- Verificando Fato Renda (Item columns) ---")
-print(df.head(20))
+frame = ttk.Frame(root)
+frame.pack(fill="both", expand=True)
+
+tree = ttk.Treeview(frame)
+tree.pack(fill="both", expand=True)
+
+tree["columns"] = list(df.columns)
+tree["show"] = "headings"
+
+for col in df.columns:
+    tree.heading(col, text=col)
+    tree.column(col, width=150)
+
+for _, row in df.iterrows():
+    tree.insert("", "end", values=list(row))
+
+root.mainloop()

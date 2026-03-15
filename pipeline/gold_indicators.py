@@ -36,7 +36,7 @@ def load_indicators():
         COPY (
             WITH despesas AS (
                 SELECT Data_Competencia, SUM(Valor) as Total_Despesa,
-                       SUM(CASE WHEN Item LIKE 'Cartão%' THEN Valor ELSE 0 END) as Divida_Cartao
+                       SUM(CASE WHEN Tipo_Pagamento LIKE 'Cred%' THEN Valor ELSE 0 END) AS Divida_Cartao
                 FROM read_parquet('{silver_despesa}')
                 GROUP BY 1
             ),
