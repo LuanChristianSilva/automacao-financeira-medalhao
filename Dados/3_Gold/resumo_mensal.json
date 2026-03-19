@@ -3,104 +3,104 @@
         "Data_Competencia": "2025-01-01",
         "Mes_Sigla": "JAN",
         "Ano": "2025",
-        "Total_Renda": 5520.0,
-        "Total_Despesa": 3815.0,
-        "Saldo": 1705.0
+        "Total_Renda": 5690.56,
+        "Total_Despesa": 3659.42,
+        "Saldo": 2031.14
     },
     {
         "Data_Competencia": "2025-02-01",
         "Mes_Sigla": "FEV",
         "Ano": "2025",
-        "Total_Renda": 5540.0,
-        "Total_Despesa": 3830.0,
-        "Saldo": 1710.0
+        "Total_Renda": 5279.8,
+        "Total_Despesa": 3949.77,
+        "Saldo": 1330.03
     },
     {
         "Data_Competencia": "2025-03-01",
         "Mes_Sigla": "MAR",
         "Ano": "2025",
-        "Total_Renda": 5560.0,
-        "Total_Despesa": 3845.0,
-        "Saldo": 1715.0
+        "Total_Renda": 5783.71,
+        "Total_Despesa": 3686.77,
+        "Saldo": 2096.94
     },
     {
         "Data_Competencia": "2025-04-01",
         "Mes_Sigla": "ABR",
         "Ano": "2025",
-        "Total_Renda": 5580.0,
-        "Total_Despesa": 3860.0,
-        "Saldo": 1720.0
+        "Total_Renda": 5187.21,
+        "Total_Despesa": 3948.09,
+        "Saldo": 1239.12
     },
     {
         "Data_Competencia": "2025-05-01",
         "Mes_Sigla": "MAI",
         "Ano": "2025",
-        "Total_Renda": 5600.0,
-        "Total_Despesa": 3875.0,
-        "Saldo": 1725.0
+        "Total_Renda": 5862.9,
+        "Total_Despesa": 3772.78,
+        "Saldo": 2090.12
     },
     {
         "Data_Competencia": "2025-06-01",
         "Mes_Sigla": "JUN",
         "Ano": "2025",
-        "Total_Renda": 5620.0,
-        "Total_Despesa": 3890.0,
-        "Saldo": 1730.0
+        "Total_Renda": 5338.83,
+        "Total_Despesa": 3984.27,
+        "Saldo": 1354.56
     },
     {
         "Data_Competencia": "2025-07-01",
         "Mes_Sigla": "JUL",
         "Ano": "2025",
-        "Total_Renda": 5640.0,
-        "Total_Despesa": 3905.0,
-        "Saldo": 1735.0
+        "Total_Renda": 5726.73,
+        "Total_Despesa": 4107.44,
+        "Saldo": 1619.29
     },
     {
         "Data_Competencia": "2025-08-01",
         "Mes_Sigla": "AGO",
         "Ano": "2025",
-        "Total_Renda": 5660.0,
-        "Total_Despesa": 3920.0,
-        "Saldo": 1740.0
+        "Total_Renda": 5655.54,
+        "Total_Despesa": 3876.74,
+        "Saldo": 1778.8
     },
     {
         "Data_Competencia": "2025-09-01",
         "Mes_Sigla": "SET",
         "Ano": "2025",
-        "Total_Renda": 5680.0,
-        "Total_Despesa": 3935.0,
-        "Saldo": 1745.0
+        "Total_Renda": 5476.62,
+        "Total_Despesa": 3899.89,
+        "Saldo": 1576.73
     },
     {
         "Data_Competencia": "2025-10-01",
         "Mes_Sigla": "OUT",
         "Ano": "2025",
-        "Total_Renda": 5700.0,
-        "Total_Despesa": 3950.0,
-        "Saldo": 1750.0
+        "Total_Renda": 5946.88,
+        "Total_Despesa": 3685.35,
+        "Saldo": 2261.53
     },
     {
-        "Data_Competencia": "2026-11-01",
+        "Data_Competencia": "2025-11-01",
         "Mes_Sigla": "NOV",
-        "Ano": "2026",
-        "Total_Renda": 5720.0,
-        "Total_Despesa": 3965.0,
-        "Saldo": 1755.0
+        "Ano": "2025",
+        "Total_Renda": 6100.21,
+        "Total_Despesa": 3899.71,
+        "Saldo": 2200.5
     },
     {
-        "Data_Competencia": "2026-12-01",
+        "Data_Competencia": "2025-12-01",
         "Mes_Sigla": "DEZ",
-        "Ano": "2026",
-        "Total_Renda": 5740.0,
-        "Total_Despesa": 3980.0,
-        "Saldo": 1760.0
+        "Ano": "2025",
+        "Total_Renda": 6241.27,
+        "Total_Despesa": 3757.21,
+        "Saldo": 2484.06
     },
     {
         "Data_Competencia": "2026-01-01",
         "Mes_Sigla": "JAN",
         "Ano": "2026",
-        "Total_Renda": 5760.0,
-        "Total_Despesa": 3995.0,
-        "Saldo": 1765.0
+        "Total_Renda": 5643.2,
+        "Total_Despesa": 4033.0,
+        "Saldo": 1610.2
     }
 ]

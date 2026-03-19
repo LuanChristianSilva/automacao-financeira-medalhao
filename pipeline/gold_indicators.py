@@ -82,7 +82,7 @@ def load_indicators():
             top_3_per_month AS (
                 SELECT 
                     Data_Competencia,
-                    list(json_object('item', Item, 'valor', Total_Valor)) as Gastos
+                    list(json_object('item', Item, 'valor', Total_Valor) ORDER BY Total_Valor DESC) as Gastos
                 FROM (
                     SELECT Data_Competencia, Item, Total_Valor,
                            row_number() OVER (PARTITION BY Data_Competencia ORDER BY Total_Valor DESC) as rn

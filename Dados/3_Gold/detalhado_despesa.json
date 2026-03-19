@@ -1,587 +1,1271 @@
 [
     {
         "Data_Competencia": "2025-01-01",
-        "Data_Referencia": "2025-01-01",
-        "Item": "Gasto JAN 1",
-        "Valor": 100.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Referencia": "2025-01-19",
+        "Item": "Gasto Restaurante 1",
+        "Valor": 153.13,
+        "Status": "Pago",
+        "Credor": "Netflix",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-01-01",
-        "Data_Referencia": "2025-01-02",
-        "Item": "Gasto JAN 2",
-        "Valor": 200.0,
-        "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Data_Referencia": "2025-01-09",
+        "Item": "Gasto Restaurante 2",
+        "Valor": 170.51,
+        "Status": "Pendente",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-01-01",
         "Data_Referencia": "2025-01-03",
-        "Item": "Gasto JAN 3",
-        "Valor": 300.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Item": "Gasto Viagem 3",
+        "Valor": 152.17,
+        "Status": "Pendente",
+        "Credor": "Localiza",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-01-01",
-        "Data_Referencia": "2025-01-04",
-        "Item": "Gasto JAN 4",
-        "Valor": 400.0,
+        "Data_Referencia": "2025-01-15",
+        "Item": "Gasto Restaurante 4",
+        "Valor": 333.79,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-01-01",
-        "Data_Referencia": "2025-01-05",
-        "Item": "Gasto JAN 5",
-        "Valor": 500.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Referencia": "2025-01-09",
+        "Item": "Gasto Manutenção Casa 5",
+        "Valor": 142.98,
+        "Status": "Pendente",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-01-01",
+        "Data_Referencia": "2025-01-12",
+        "Item": "Gasto Educação 6",
+        "Valor": 328.72,
+        "Status": "Pago",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-01-01",
+        "Data_Referencia": "2025-01-20",
+        "Item": "Gasto Restaurante 7",
+        "Valor": 360.85,
+        "Status": "Pago",
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-01-01",
+        "Data_Referencia": "2025-01-08",
+        "Item": "Gasto Restaurante 8",
+        "Valor": 143.1,
+        "Status": "Pendente",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-01-01",
+        "Data_Referencia": "2025-01-27",
+        "Item": "Gasto Transporte 9",
+        "Valor": 151.39,
+        "Status": "Pago",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-10",
+        "Item": "Gasto Transporte 1",
+        "Valor": 418.03,
+        "Status": "Pago",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-11",
+        "Item": "Gasto Viagem 2",
+        "Valor": 124.2,
+        "Status": "Pendente",
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-26",
+        "Item": "Gasto Saúde 3",
+        "Valor": 100.57,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-13",
+        "Item": "Gasto Manutenção Casa 4",
+        "Valor": 162.34,
+        "Status": "Pendente",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-08",
+        "Item": "Gasto Transporte 5",
+        "Valor": 193.64,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-02-01",
-        "Data_Referencia": "2025-02-01",
-        "Item": "Gasto FEV 1",
-        "Valor": 100.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Referencia": "2025-02-08",
+        "Item": "Gasto Manutenção Casa 6",
+        "Valor": 57.34,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-14",
+        "Item": "Gasto Restaurante 7",
+        "Valor": 132.02,
+        "Status": "Pago",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-12",
+        "Item": "Gasto Assinaturas 8",
+        "Valor": 163.55,
+        "Status": "Pago",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-07",
+        "Item": "Gasto Transporte 9",
+        "Valor": 193.09,
+        "Status": "Pendente",
+        "Credor": "Localiza",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-02-01",
         "Data_Referencia": "2025-02-02",
-        "Item": "Gasto FEV 2",
-        "Valor": 200.0,
-        "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Item": "Gasto Educação 10",
+        "Valor": 226.86,
+        "Status": "Pendente",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "Cartão de Crédito"
     },
     {
         "Data_Competencia": "2025-02-01",
-        "Data_Referencia": "2025-02-03",
-        "Item": "Gasto FEV 3",
-        "Valor": 300.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Referencia": "2025-02-20",
+        "Item": "Gasto Viagem 11",
+        "Valor": 22.36,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-06",
+        "Item": "Gasto Supermercado 12",
+        "Valor": 207.93,
+        "Status": "Pendente",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-02-01",
+        "Data_Referencia": "2025-02-17",
+        "Item": "Gasto Saúde 13",
+        "Valor": 301.34,
+        "Status": "Pago",
+        "Credor": "Amazon",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-02-01",
-        "Data_Referencia": "2025-02-04",
-        "Item": "Gasto FEV 4",
-        "Valor": 400.0,
+        "Data_Referencia": "2025-02-26",
+        "Item": "Gasto Restaurante 14",
+        "Valor": 83.45,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
-    },
-    {
-        "Data_Competencia": "2025-02-01",
-        "Data_Referencia": "2025-02-05",
-        "Item": "Gasto FEV 5",
-        "Valor": 500.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Credor": "Mercado Livre",
         "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2025-03-01",
-        "Data_Referencia": "2025-03-01",
-        "Item": "Gasto MAR 1",
-        "Valor": 100.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2025-03-01",
-        "Data_Referencia": "2025-03-02",
-        "Item": "Gasto MAR 2",
-        "Valor": 200.0,
-        "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
-    },
-    {
-        "Data_Competencia": "2025-03-01",
-        "Data_Referencia": "2025-03-03",
-        "Item": "Gasto MAR 3",
-        "Valor": 300.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2025-03-01",
-        "Data_Referencia": "2025-03-04",
-        "Item": "Gasto MAR 4",
-        "Valor": 400.0,
-        "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
     },
     {
         "Data_Competencia": "2025-03-01",
         "Data_Referencia": "2025-03-05",
-        "Item": "Gasto MAR 5",
-        "Valor": 500.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Item": "Gasto Educação 1",
+        "Valor": 397.79,
+        "Status": "Pendente",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-23",
+        "Item": "Gasto Saúde 2",
+        "Valor": 442.74,
+        "Status": "Pendente",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-11",
+        "Item": "Gasto Manutenção Casa 3",
+        "Valor": 397.35,
+        "Status": "Pago",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-19",
+        "Item": "Gasto Educação 4",
+        "Valor": 268.55,
+        "Status": "Pendente",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-13",
+        "Item": "Gasto Manutenção Casa 5",
+        "Valor": 378.24,
+        "Status": "Pendente",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-04",
+        "Item": "Gasto Manutenção Casa 6",
+        "Valor": 178.85,
+        "Status": "Pendente",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-06",
+        "Item": "Gasto Transporte 7",
+        "Valor": 71.8,
+        "Status": "Pago",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-26",
+        "Item": "Gasto Viagem 8",
+        "Valor": 467.27,
+        "Status": "Pendente",
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-07",
+        "Item": "Gasto Manutenção Casa 9",
+        "Valor": 176.26,
+        "Status": "Pago",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-14",
+        "Item": "Gasto Educação 10",
+        "Valor": 307.79,
+        "Status": "Pendente",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-07",
+        "Item": "Gasto Supermercado 11",
+        "Valor": 346.93,
+        "Status": "Pago",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-27",
+        "Item": "Gasto Educação 12",
+        "Valor": 46.89,
+        "Status": "Pago",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-03",
+        "Item": "Gasto Educação 13",
+        "Valor": 359.1,
+        "Status": "Pendente",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-03-01",
+        "Data_Referencia": "2025-03-01",
+        "Item": "Gasto Assinaturas 14",
+        "Valor": 297.13,
+        "Status": "Pago",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Data_Referencia": "2025-04-12",
+        "Item": "Gasto Assinaturas 1",
+        "Valor": 247.61,
+        "Status": "Pago",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Data_Referencia": "2025-04-02",
+        "Item": "Gasto Educação 2",
+        "Valor": 460.35,
+        "Status": "Pendente",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Data_Referencia": "2025-04-25",
+        "Item": "Gasto Saúde 3",
+        "Valor": 496.16,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Data_Referencia": "2025-04-23",
+        "Item": "Gasto Lazer 4",
+        "Valor": 236.0,
+        "Status": "Pago",
+        "Credor": "Netflix",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-04-01",
         "Data_Referencia": "2025-04-01",
-        "Item": "Gasto ABR 1",
-        "Valor": 100.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2025-04-01",
-        "Data_Referencia": "2025-04-02",
-        "Item": "Gasto ABR 2",
-        "Valor": 200.0,
+        "Item": "Gasto Viagem 5",
+        "Valor": 375.52,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-04-01",
         "Data_Referencia": "2025-04-03",
-        "Item": "Gasto ABR 3",
-        "Valor": 300.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Item": "Gasto Assinaturas 6",
+        "Valor": 481.17,
+        "Status": "Pendente",
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Data_Referencia": "2025-04-22",
+        "Item": "Gasto Saúde 7",
+        "Valor": 65.62,
+        "Status": "Pago",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Data_Referencia": "2025-04-24",
+        "Item": "Gasto Lazer 8",
+        "Valor": 452.67,
+        "Status": "Pendente",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Data_Referencia": "2025-04-10",
+        "Item": "Gasto Assinaturas 9",
+        "Valor": 286.79,
+        "Status": "Pendente",
+        "Credor": "Posto Shell",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-04-01",
-        "Data_Referencia": "2025-04-04",
-        "Item": "Gasto ABR 4",
-        "Valor": 400.0,
+        "Data_Referencia": "2025-04-17",
+        "Item": "Gasto Saúde 10",
+        "Valor": 338.85,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-04-01",
-        "Data_Referencia": "2025-04-05",
-        "Item": "Gasto ABR 5",
-        "Valor": 500.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Referencia": "2025-04-07",
+        "Item": "Gasto Manutenção Casa 11",
+        "Valor": 366.78,
+        "Status": "Pago",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-04-01",
+        "Data_Referencia": "2025-04-06",
+        "Item": "Gasto Manutenção Casa 12",
+        "Valor": 325.77,
+        "Status": "Pendente",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Data_Referencia": "2025-05-27",
+        "Item": "Gasto Educação 1",
+        "Valor": 115.71,
+        "Status": "Pendente",
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Data_Referencia": "2025-05-07",
+        "Item": "Gasto Supermercado 2",
+        "Valor": 111.15,
+        "Status": "Pago",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Data_Referencia": "2025-05-08",
+        "Item": "Gasto Transporte 3",
+        "Valor": 104.79,
+        "Status": "Pago",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Data_Referencia": "2025-05-04",
+        "Item": "Gasto Lazer 4",
+        "Valor": 300.38,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-05-01",
         "Data_Referencia": "2025-05-01",
-        "Item": "Gasto MAI 1",
-        "Valor": 100.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2025-05-01",
-        "Data_Referencia": "2025-05-02",
-        "Item": "Gasto MAI 2",
-        "Valor": 200.0,
-        "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
-    },
-    {
-        "Data_Competencia": "2025-05-01",
-        "Data_Referencia": "2025-05-03",
-        "Item": "Gasto MAI 3",
-        "Valor": 300.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Item": "Gasto Viagem 5",
+        "Valor": 498.59,
+        "Status": "Pendente",
+        "Credor": "Netflix",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-05-01",
         "Data_Referencia": "2025-05-04",
-        "Item": "Gasto MAI 4",
-        "Valor": 400.0,
+        "Item": "Gasto Viagem 6",
+        "Valor": 406.09,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "PIX"
     },
     {
         "Data_Competencia": "2025-05-01",
-        "Data_Referencia": "2025-05-05",
-        "Item": "Gasto MAI 5",
-        "Valor": 500.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Referencia": "2025-05-03",
+        "Item": "Gasto Restaurante 7",
+        "Valor": 34.79,
+        "Status": "Pendente",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Data_Referencia": "2025-05-11",
+        "Item": "Gasto Lazer 8",
+        "Valor": 481.24,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-05-01",
+        "Data_Referencia": "2025-05-22",
+        "Item": "Gasto Supermercado 9",
+        "Valor": 473.29,
+        "Status": "Pago",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Data_Referencia": "2025-06-20",
+        "Item": "Gasto Restaurante 1",
+        "Valor": 237.25,
+        "Status": "Pendente",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Data_Referencia": "2025-06-05",
+        "Item": "Gasto Manutenção Casa 2",
+        "Valor": 21.34,
+        "Status": "Pago",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Data_Referencia": "2025-06-08",
+        "Item": "Gasto Manutenção Casa 3",
+        "Valor": 310.56,
+        "Status": "Pago",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Data_Referencia": "2025-06-04",
+        "Item": "Gasto Restaurante 4",
+        "Valor": 393.79,
+        "Status": "Pendente",
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Data_Referencia": "2025-06-08",
+        "Item": "Gasto Restaurante 5",
+        "Valor": 124.85,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Data_Referencia": "2025-06-06",
+        "Item": "Gasto Transporte 6",
+        "Valor": 202.11,
+        "Status": "Pago",
+        "Credor": "Posto Shell",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-06-01",
         "Data_Referencia": "2025-06-01",
-        "Item": "Gasto JUN 1",
-        "Valor": 100.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
+        "Item": "Gasto Saúde 7",
+        "Valor": 260.85,
+        "Status": "Pago",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-06-01",
+        "Data_Referencia": "2025-06-14",
+        "Item": "Gasto Transporte 8",
+        "Valor": 91.51,
+        "Status": "Pago",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "Cartão de Crédito"
     },
     {
         "Data_Competencia": "2025-06-01",
         "Data_Referencia": "2025-06-02",
-        "Item": "Gasto JUN 2",
-        "Valor": 200.0,
+        "Item": "Gasto Supermercado 9",
+        "Valor": 378.11,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "PIX"
     },
     {
-        "Data_Competencia": "2025-06-01",
-        "Data_Referencia": "2025-06-03",
-        "Item": "Gasto JUN 3",
-        "Valor": 300.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2025-06-01",
-        "Data_Referencia": "2025-06-04",
-        "Item": "Gasto JUN 4",
-        "Valor": 400.0,
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-07",
+        "Item": "Gasto Lazer 1",
+        "Valor": 43.67,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
-    },
-    {
-        "Data_Competencia": "2025-06-01",
-        "Data_Referencia": "2025-06-05",
-        "Item": "Gasto JUN 5",
-        "Valor": 500.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Credor": "Posto Shell",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-07-01",
-        "Data_Referencia": "2025-07-01",
-        "Item": "Gasto JUL 1",
-        "Valor": 100.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Referencia": "2025-07-13",
+        "Item": "Gasto Viagem 2",
+        "Valor": 41.85,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-26",
+        "Item": "Gasto Educação 3",
+        "Valor": 283.99,
+        "Status": "Pendente",
+        "Credor": "Posto Shell",
         "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-18",
+        "Item": "Gasto Assinaturas 4",
+        "Valor": 300.58,
+        "Status": "Pago",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-22",
+        "Item": "Gasto Saúde 5",
+        "Valor": 183.81,
+        "Status": "Pago",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-19",
+        "Item": "Gasto Saúde 6",
+        "Valor": 276.52,
+        "Status": "Pago",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-28",
+        "Item": "Gasto Restaurante 7",
+        "Valor": 151.07,
+        "Status": "Pago",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-20",
+        "Item": "Gasto Assinaturas 8",
+        "Valor": 427.24,
+        "Status": "Pago",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-20",
+        "Item": "Gasto Restaurante 9",
+        "Valor": 346.85,
+        "Status": "Pendente",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-07",
+        "Item": "Gasto Restaurante 10",
+        "Valor": 387.77,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-28",
+        "Item": "Gasto Restaurante 11",
+        "Valor": 135.33,
+        "Status": "Pago",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-26",
+        "Item": "Gasto Transporte 12",
+        "Valor": 388.6,
+        "Status": "Pago",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-07-01",
+        "Data_Referencia": "2025-07-13",
+        "Item": "Gasto Transporte 13",
+        "Valor": 78.67,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "Cartão de Crédito"
     },
     {
         "Data_Competencia": "2025-07-01",
         "Data_Referencia": "2025-07-02",
-        "Item": "Gasto JUL 2",
-        "Valor": 200.0,
+        "Item": "Gasto Manutenção Casa 14",
+        "Valor": 70.49,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Cartão de Crédito"
     },
     {
-        "Data_Competencia": "2025-07-01",
-        "Data_Referencia": "2025-07-03",
-        "Item": "Gasto JUL 3",
-        "Valor": 300.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2025-07-01",
-        "Data_Referencia": "2025-07-04",
-        "Item": "Gasto JUL 4",
-        "Valor": 400.0,
+        "Data_Competencia": "2025-08-01",
+        "Data_Referencia": "2025-08-18",
+        "Item": "Gasto Restaurante 1",
+        "Valor": 426.66,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "PIX"
     },
     {
-        "Data_Competencia": "2025-07-01",
-        "Data_Referencia": "2025-07-05",
-        "Item": "Gasto JUL 5",
-        "Valor": 500.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Competencia": "2025-08-01",
+        "Data_Referencia": "2025-08-20",
+        "Item": "Gasto Assinaturas 2",
+        "Valor": 348.54,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-08-01",
+        "Data_Referencia": "2025-08-28",
+        "Item": "Gasto Educação 3",
+        "Valor": 488.6,
+        "Status": "Pendente",
+        "Credor": "Netflix",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-08-01",
-        "Data_Referencia": "2025-08-01",
-        "Item": "Gasto AGO 1",
-        "Valor": 100.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Referencia": "2025-08-13",
+        "Item": "Gasto Lazer 4",
+        "Valor": 359.46,
+        "Status": "Pendente",
+        "Credor": "Mercado Livre",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-08-01",
         "Data_Referencia": "2025-08-02",
-        "Item": "Gasto AGO 2",
-        "Valor": 200.0,
+        "Item": "Gasto Saúde 5",
+        "Valor": 235.2,
+        "Status": "Pendente",
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-08-01",
+        "Data_Referencia": "2025-08-14",
+        "Item": "Gasto Manutenção Casa 6",
+        "Valor": 38.79,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Cartão de Crédito"
     },
     {
         "Data_Competencia": "2025-08-01",
-        "Data_Referencia": "2025-08-03",
-        "Item": "Gasto AGO 3",
-        "Valor": 300.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2025-08-01",
-        "Data_Referencia": "2025-08-04",
-        "Item": "Gasto AGO 4",
-        "Valor": 400.0,
-        "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
-    },
-    {
-        "Data_Competencia": "2025-08-01",
-        "Data_Referencia": "2025-08-05",
-        "Item": "Gasto AGO 5",
-        "Valor": 500.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Referencia": "2025-08-12",
+        "Item": "Gasto Supermercado 7",
+        "Valor": 36.17,
+        "Status": "Pendente",
+        "Credor": "iFood",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-09-01",
-        "Data_Referencia": "2025-09-01",
-        "Item": "Gasto SET 1",
-        "Valor": 100.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Referencia": "2025-09-12",
+        "Item": "Gasto Supermercado 1",
+        "Valor": 280.14,
+        "Status": "Pendente",
+        "Credor": "Netflix",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-09-01",
-        "Data_Referencia": "2025-09-02",
-        "Item": "Gasto SET 2",
-        "Valor": 200.0,
-        "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Data_Referencia": "2025-09-22",
+        "Item": "Gasto Supermercado 2",
+        "Valor": 253.04,
+        "Status": "Pendente",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-09-01",
-        "Data_Referencia": "2025-09-03",
-        "Item": "Gasto SET 3",
-        "Valor": 300.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Referencia": "2025-09-10",
+        "Item": "Gasto Assinaturas 3",
+        "Valor": 433.99,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-09-01",
+        "Data_Referencia": "2025-09-21",
+        "Item": "Gasto Restaurante 4",
+        "Valor": 387.67,
+        "Status": "Pago",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-09-01",
+        "Data_Referencia": "2025-09-28",
+        "Item": "Gasto Saúde 5",
+        "Valor": 212.93,
+        "Status": "Pendente",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-09-01",
+        "Data_Referencia": "2025-09-21",
+        "Item": "Gasto Supermercado 6",
+        "Valor": 266.14,
+        "Status": "Pago",
+        "Credor": "Netflix",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-09-01",
         "Data_Referencia": "2025-09-04",
-        "Item": "Gasto SET 4",
-        "Valor": 400.0,
+        "Item": "Gasto Supermercado 7",
+        "Valor": 306.52,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "Cartão de Crédito"
     },
     {
         "Data_Competencia": "2025-09-01",
-        "Data_Referencia": "2025-09-05",
-        "Item": "Gasto SET 5",
-        "Valor": 500.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Referencia": "2025-09-09",
+        "Item": "Gasto Viagem 8",
+        "Valor": 45.81,
+        "Status": "Pendente",
+        "Credor": "Amazon",
         "Tipo_Pagamento": "Boleto"
     },
     {
-        "Data_Competencia": "2025-10-01",
-        "Data_Referencia": "2025-10-01",
-        "Item": "Gasto OUT 1",
-        "Valor": 100.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2025-10-01",
-        "Data_Referencia": "2025-10-02",
-        "Item": "Gasto OUT 2",
-        "Valor": 200.0,
+        "Data_Competencia": "2025-09-01",
+        "Data_Referencia": "2025-09-09",
+        "Item": "Gasto Lazer 9",
+        "Valor": 62.88,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "PIX"
     },
     {
         "Data_Competencia": "2025-10-01",
-        "Data_Referencia": "2025-10-03",
-        "Item": "Gasto OUT 3",
-        "Valor": 300.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2025-10-01",
-        "Data_Referencia": "2025-10-04",
-        "Item": "Gasto OUT 4",
-        "Valor": 400.0,
+        "Data_Referencia": "2025-10-06",
+        "Item": "Gasto Saúde 1",
+        "Valor": 70.54,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-10-01",
+        "Data_Referencia": "2025-10-12",
+        "Item": "Gasto Saúde 2",
+        "Valor": 440.18,
+        "Status": "Pago",
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2025-10-01",
         "Data_Referencia": "2025-10-05",
-        "Item": "Gasto OUT 5",
-        "Valor": 500.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
+        "Item": "Gasto Restaurante 3",
+        "Valor": 364.67,
+        "Status": "Pendente",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Cartão de Crédito"
     },
     {
-        "Data_Competencia": "2026-11-01",
-        "Data_Referencia": "2026-11-01",
-        "Item": "Gasto NOV 1",
-        "Valor": 100.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2026-11-01",
-        "Data_Referencia": "2026-11-02",
-        "Item": "Gasto NOV 2",
-        "Valor": 200.0,
+        "Data_Competencia": "2025-10-01",
+        "Data_Referencia": "2025-10-02",
+        "Item": "Gasto Saúde 4",
+        "Valor": 379.77,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "PIX"
     },
     {
-        "Data_Competencia": "2026-11-01",
-        "Data_Referencia": "2026-11-03",
-        "Item": "Gasto NOV 3",
-        "Valor": 300.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
+        "Data_Competencia": "2025-10-01",
+        "Data_Referencia": "2025-10-27",
+        "Item": "Gasto Manutenção Casa 5",
+        "Valor": 30.87,
+        "Status": "Pendente",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Cartão de Crédito"
     },
     {
-        "Data_Competencia": "2026-11-01",
-        "Data_Referencia": "2026-11-04",
-        "Item": "Gasto NOV 4",
-        "Valor": 400.0,
+        "Data_Competencia": "2025-10-01",
+        "Data_Referencia": "2025-10-09",
+        "Item": "Gasto Restaurante 6",
+        "Valor": 162.04,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "Cartão de Crédito"
     },
     {
-        "Data_Competencia": "2026-11-01",
-        "Data_Referencia": "2026-11-05",
-        "Item": "Gasto NOV 5",
-        "Valor": 500.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2026-12-01",
-        "Data_Referencia": "2026-12-01",
-        "Item": "Gasto DEZ 1",
-        "Valor": 100.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2026-12-01",
-        "Data_Referencia": "2026-12-02",
-        "Item": "Gasto DEZ 2",
-        "Valor": 200.0,
+        "Data_Competencia": "2025-10-01",
+        "Data_Referencia": "2025-10-03",
+        "Item": "Gasto Supermercado 7",
+        "Valor": 122.19,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "PIX"
     },
     {
-        "Data_Competencia": "2026-12-01",
-        "Data_Referencia": "2026-12-03",
-        "Item": "Gasto DEZ 3",
-        "Valor": 300.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Competencia": "2025-10-01",
+        "Data_Referencia": "2025-10-15",
+        "Item": "Gasto Supermercado 8",
+        "Valor": 257.98,
+        "Status": "Pago",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-10-01",
+        "Data_Referencia": "2025-10-02",
+        "Item": "Gasto Supermercado 9",
+        "Valor": 80.78,
+        "Status": "Pago",
+        "Credor": "Posto Shell",
         "Tipo_Pagamento": "Boleto"
     },
     {
-        "Data_Competencia": "2026-12-01",
-        "Data_Referencia": "2026-12-04",
-        "Item": "Gasto DEZ 4",
-        "Valor": 400.0,
+        "Data_Competencia": "2025-10-01",
+        "Data_Referencia": "2025-10-11",
+        "Item": "Gasto Assinaturas 10",
+        "Valor": 125.74,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "Cartão de Crédito"
     },
     {
-        "Data_Competencia": "2026-12-01",
-        "Data_Referencia": "2026-12-05",
-        "Item": "Gasto DEZ 5",
-        "Valor": 500.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Data_Competencia": "2025-11-01",
+        "Data_Referencia": "2025-11-21",
+        "Item": "Gasto Saúde 1",
+        "Valor": 130.25,
+        "Status": "Pago",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-11-01",
+        "Data_Referencia": "2025-11-25",
+        "Item": "Gasto Lazer 2",
+        "Valor": 95.45,
+        "Status": "Pago",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-11-01",
+        "Data_Referencia": "2025-11-15",
+        "Item": "Gasto Manutenção Casa 3",
+        "Valor": 268.88,
+        "Status": "Pago",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-11-01",
+        "Data_Referencia": "2025-11-25",
+        "Item": "Gasto Educação 4",
+        "Valor": 95.74,
+        "Status": "Pago",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-11-01",
+        "Data_Referencia": "2025-11-13",
+        "Item": "Gasto Restaurante 5",
+        "Valor": 162.89,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-11-01",
+        "Data_Referencia": "2025-11-10",
+        "Item": "Gasto Educação 6",
+        "Valor": 382.0,
+        "Status": "Pendente",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-11-01",
+        "Data_Referencia": "2025-11-26",
+        "Item": "Gasto Assinaturas 7",
+        "Valor": 39.05,
+        "Status": "Pendente",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-11-01",
+        "Data_Referencia": "2025-11-15",
+        "Item": "Gasto Manutenção Casa 8",
+        "Valor": 208.5,
+        "Status": "Pendente",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-11-01",
+        "Data_Referencia": "2025-11-25",
+        "Item": "Gasto Educação 9",
+        "Valor": 426.09,
+        "Status": "Pago",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-11-01",
+        "Data_Referencia": "2025-11-24",
+        "Item": "Gasto Manutenção Casa 10",
+        "Valor": 263.46,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-11-01",
+        "Data_Referencia": "2025-11-17",
+        "Item": "Gasto Viagem 11",
+        "Valor": 407.41,
+        "Status": "Pago",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-11-01",
+        "Data_Referencia": "2025-11-06",
+        "Item": "Gasto Supermercado 12",
+        "Valor": 379.75,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-10",
+        "Item": "Gasto Educação 1",
+        "Valor": 151.01,
+        "Status": "Pendente",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-18",
+        "Item": "Gasto Assinaturas 2",
+        "Valor": 48.43,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-18",
+        "Item": "Gasto Saúde 3",
+        "Valor": 95.85,
+        "Status": "Pago",
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-22",
+        "Item": "Gasto Saúde 4",
+        "Valor": 224.7,
+        "Status": "Pago",
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-17",
+        "Item": "Gasto Lazer 5",
+        "Valor": 70.77,
+        "Status": "Pago",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-01",
+        "Item": "Gasto Transporte 6",
+        "Valor": 36.9,
+        "Status": "Pago",
+        "Credor": "iFood",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-10",
+        "Item": "Gasto Transporte 7",
+        "Valor": 364.63,
+        "Status": "Pago",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-03",
+        "Item": "Gasto Transporte 8",
+        "Valor": 253.86,
+        "Status": "Pago",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-10",
+        "Item": "Gasto Assinaturas 9",
+        "Valor": 349.02,
+        "Status": "Pendente",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-01",
+        "Item": "Gasto Manutenção Casa 10",
+        "Valor": 362.48,
+        "Status": "Pago",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-26",
+        "Item": "Gasto Restaurante 11",
+        "Valor": 458.9,
+        "Status": "Pendente",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-28",
+        "Item": "Gasto Viagem 12",
+        "Valor": 315.19,
+        "Status": "Pendente",
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-22",
+        "Item": "Gasto Assinaturas 13",
+        "Valor": 438.62,
+        "Status": "Pendente",
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2025-12-01",
+        "Data_Referencia": "2025-12-27",
+        "Item": "Gasto Saúde 14",
+        "Valor": 289.57,
+        "Status": "Pago",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2026-01-01",
+        "Data_Referencia": "2026-01-17",
+        "Item": "Gasto Lazer 1",
+        "Valor": 87.87,
+        "Status": "Pago",
+        "Credor": "Netflix",
+        "Tipo_Pagamento": "PIX"
+    },
+    {
+        "Data_Competencia": "2026-01-01",
+        "Data_Referencia": "2026-01-15",
+        "Item": "Gasto Educação 2",
+        "Valor": 143.21,
+        "Status": "Pendente",
+        "Credor": "Amazon",
         "Tipo_Pagamento": "Boleto"
     },
     {
         "Data_Competencia": "2026-01-01",
-        "Data_Referencia": "2026-01-01",
-        "Item": "Gasto JAN 1",
-        "Valor": 100.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
+        "Data_Referencia": "2026-01-12",
+        "Item": "Gasto Educação 3",
+        "Valor": 245.89,
+        "Status": "Pendente",
+        "Credor": "Posto Shell",
+        "Tipo_Pagamento": "Cartão de Crédito"
     },
     {
         "Data_Competencia": "2026-01-01",
-        "Data_Referencia": "2026-01-02",
-        "Item": "Gasto JAN 2",
-        "Valor": 200.0,
+        "Data_Referencia": "2026-01-07",
+        "Item": "Gasto Educação 4",
+        "Valor": 380.27,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "Amazon",
+        "Tipo_Pagamento": "PIX"
     },
     {
         "Data_Competencia": "2026-01-01",
-        "Data_Referencia": "2026-01-03",
-        "Item": "Gasto JAN 3",
-        "Valor": 300.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Boleto"
-    },
-    {
-        "Data_Competencia": "2026-01-01",
-        "Data_Referencia": "2026-01-04",
-        "Item": "Gasto JAN 4",
-        "Valor": 400.0,
+        "Data_Referencia": "2026-01-07",
+        "Item": "Gasto Manutenção Casa 5",
+        "Valor": 84.98,
         "Status": "Pago",
-        "Credor": "Loja Exemplo",
-        "Tipo_Pagamento": "Cartão"
+        "Credor": "iFood",
+        "Tipo_Pagamento": "PIX"
     },
     {
         "Data_Competencia": "2026-01-01",
         "Data_Referencia": "2026-01-05",
-        "Item": "Gasto JAN 5",
-        "Valor": 500.0,
-        "Status": "Não Pago",
-        "Credor": "Loja Exemplo",
+        "Item": "Gasto Lazer 6",
+        "Valor": 45.43,
+        "Status": "Pago",
+        "Credor": "Localiza",
+        "Tipo_Pagamento": "Cartão de Crédito"
+    },
+    {
+        "Data_Competencia": "2026-01-01",
+        "Data_Referencia": "2026-01-28",
+        "Item": "Gasto Lazer 7",
+        "Valor": 71.51,
+        "Status": "Pendente",
+        "Credor": "Mercado Livre",
+        "Tipo_Pagamento": "Boleto"
+    },
+    {
+        "Data_Competencia": "2026-01-01",
+        "Data_Referencia": "2026-01-19",
+        "Item": "Gasto Supermercado 8",
+        "Valor": 307.0,
+        "Status": "Pendente",
+        "Credor": "Posto Shell",
         "Tipo_Pagamento": "Boleto"
     }
 ]

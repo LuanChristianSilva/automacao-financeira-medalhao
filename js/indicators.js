@@ -98,7 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Top Expenses
         const expensesContainer = document.getElementById('action-top-expenses');
         if (expensesContainer && data.Top_Gastos) {
-            expensesContainer.innerHTML = data.Top_Gastos.map((item, index) => `
+            const sortedGastos = [...data.Top_Gastos].sort((a, b) => b.valor - a.valor);
+            expensesContainer.innerHTML = sortedGastos.map((item, index) => `
                 <div class="d-flex align-items-center justify-content-between p-3 rounded-4 bg-main-alt shadow-sm">
                     <div class="d-flex align-items-center gap-3">
                         <div class="rank-text">#${index + 1}</div>

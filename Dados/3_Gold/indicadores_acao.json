@@ -1,166 +1,257 @@
 [
     {
         "Mes_Referencia": "2025-01-01",
-        "Receita_Disponivel": 1705.0,
-        "Dias_Restantes": 30,
+        "Receita_Disponivel": 2031.14,
+        "Dias_Restantes": 25,
         "Risco_Saldo_Negativo": "Baixo",
-        "Impacto_Divida_Pct": 31.85,
-        "Valor_Comprometido": 1172.07,
-        "Renda_Base": 3680.0,
-        "Global_Min_Divida": 294.0,
-        "Global_Max_Divida": 4084.0,
-        "Meses_Para_Quitar": 6,
+        "Impacto_Divida_Pct": 35.52,
+        "Valor_Comprometido": 1405.3,
+        "Renda_Base": 5690.56,
+        "Global_Min_Divida": 1500.0,
+        "Global_Max_Divida": 4500.0,
+        "Meses_Para_Quitar": 23,
         "Top_Gastos": [
             {
-                "item": "Supermercado Mock",
-                "valor": 900.0
-            },
-            {
-                "item": "Aluguel",
+                "item": "Aluguel Fixo",
                 "valor": 2200.0
             },
             {
-                "item": "Lazer",
-                "valor": 150.0
+                "item": "Saúde",
+                "valor": 422.32
+            },
+            {
+                "item": "Assinaturas",
+                "valor": 201.6
             }
         ],
         "Detalhe_Parcelas": [
             {
-                "item": "Notebook",
-                "valor": 450.0,
-                "pagas": 5,
-                "total": 10,
-                "restantes": 5
+                "item": "iPhone 15 Pro",
+                "valor": 650.0,
+                "pagas": 1,
+                "total": 12,
+                "restantes": 11
             },
             {
-                "item": "Smartphone",
-                "valor": 300.0,
-                "pagas": 3,
+                "item": "Seguro Auto Porto",
+                "valor": 185.4,
+                "pagas": 1,
                 "total": 10,
-                "restantes": 7
+                "restantes": 9
+            },
+            {
+                "item": "Academia BlueFit",
+                "valor": 119.9,
+                "pagas": 1,
+                "total": 12,
+                "restantes": 11
+            },
+            {
+                "item": "MBA Finanças",
+                "valor": 450.0,
+                "pagas": 1,
+                "total": 24,
+                "restantes": 23
             }
         ]
     },
     {
         "Mes_Referencia": "2025-02-01",
-        "Receita_Disponivel": 1710.0,
-        "Dias_Restantes": 30,
+        "Receita_Disponivel": 1330.03,
+        "Dias_Restantes": 28,
         "Risco_Saldo_Negativo": "Baixo",
-        "Impacto_Divida_Pct": 31.85,
-        "Valor_Comprometido": 1172.07,
-        "Renda_Base": 3680.0,
-        "Global_Min_Divida": 294.0,
-        "Global_Max_Divida": 4084.0,
-        "Meses_Para_Quitar": 6,
+        "Impacto_Divida_Pct": 43.58,
+        "Valor_Comprometido": 1695.2,
+        "Renda_Base": 5279.8,
+        "Global_Min_Divida": 1500.0,
+        "Global_Max_Divida": 4500.0,
+        "Meses_Para_Quitar": 22,
         "Top_Gastos": [
             {
-                "item": "Supermercado Mock",
-                "valor": 900.0
-            },
-            {
-                "item": "Aluguel",
+                "item": "Aluguel Fixo",
                 "valor": 2200.0
             },
             {
-                "item": "Lazer",
-                "valor": 150.0
+                "item": "Viagem",
+                "valor": 476.17
+            },
+            {
+                "item": "Manutenção Casa",
+                "valor": 62.72
             }
         ],
         "Detalhe_Parcelas": [
             {
-                "item": "Notebook",
-                "valor": 450.0,
-                "pagas": 5,
-                "total": 10,
-                "restantes": 5
+                "item": "iPhone 15 Pro",
+                "valor": 650.0,
+                "pagas": 2,
+                "total": 12,
+                "restantes": 10
             },
             {
-                "item": "Smartphone",
-                "valor": 300.0,
-                "pagas": 3,
+                "item": "Seguro Auto Porto",
+                "valor": 185.4,
+                "pagas": 2,
                 "total": 10,
-                "restantes": 7
+                "restantes": 8
+            },
+            {
+                "item": "Academia BlueFit",
+                "valor": 119.9,
+                "pagas": 2,
+                "total": 12,
+                "restantes": 10
+            },
+            {
+                "item": "MBA Finanças",
+                "valor": 450.0,
+                "pagas": 2,
+                "total": 24,
+                "restantes": 22
+            },
+            {
+                "item": "Geladeira Samsung",
+                "valor": 289.9,
+                "pagas": 1,
+                "total": 10,
+                "restantes": 9
             }
         ]
     },
     {
         "Mes_Referencia": "2025-03-01",
-        "Receita_Disponivel": 1715.0,
+        "Receita_Disponivel": 2096.94,
         "Dias_Restantes": 30,
         "Risco_Saldo_Negativo": "Baixo",
-        "Impacto_Divida_Pct": 31.85,
-        "Valor_Comprometido": 1172.07,
-        "Renda_Base": 3680.0,
-        "Global_Min_Divida": 294.0,
-        "Global_Max_Divida": 4084.0,
-        "Meses_Para_Quitar": 6,
+        "Impacto_Divida_Pct": 39.69,
+        "Valor_Comprometido": 2015.2,
+        "Renda_Base": 5783.71,
+        "Global_Min_Divida": 1500.0,
+        "Global_Max_Divida": 4500.0,
+        "Meses_Para_Quitar": 21,
         "Top_Gastos": [
             {
-                "item": "Supermercado Mock",
-                "valor": 900.0
-            },
-            {
-                "item": "Aluguel",
+                "item": "Aluguel Fixo",
                 "valor": 2200.0
             },
             {
-                "item": "Lazer",
-                "valor": 150.0
+                "item": "Educação",
+                "valor": 341.88
+            },
+            {
+                "item": "Manutenção Casa",
+                "valor": 137.74
             }
         ],
         "Detalhe_Parcelas": [
             {
-                "item": "Notebook",
-                "valor": 450.0,
-                "pagas": 5,
-                "total": 10,
-                "restantes": 5
+                "item": "iPhone 15 Pro",
+                "valor": 650.0,
+                "pagas": 3,
+                "total": 12,
+                "restantes": 9
             },
             {
-                "item": "Smartphone",
-                "valor": 300.0,
+                "item": "Seguro Auto Porto",
+                "valor": 185.4,
                 "pagas": 3,
                 "total": 10,
                 "restantes": 7
+            },
+            {
+                "item": "Sofá Retrátil",
+                "valor": 320.0,
+                "pagas": 1,
+                "total": 8,
+                "restantes": 7
+            },
+            {
+                "item": "Academia BlueFit",
+                "valor": 119.9,
+                "pagas": 3,
+                "total": 12,
+                "restantes": 9
+            },
+            {
+                "item": "MBA Finanças",
+                "valor": 450.0,
+                "pagas": 3,
+                "total": 24,
+                "restantes": 21
+            },
+            {
+                "item": "Geladeira Samsung",
+                "valor": 289.9,
+                "pagas": 2,
+                "total": 10,
+                "restantes": 8
             }
         ]
     },
     {
         "Mes_Referencia": "2025-04-01",
-        "Receita_Disponivel": 1720.0,
+        "Receita_Disponivel": 1239.12,
         "Dias_Restantes": 30,
         "Risco_Saldo_Negativo": "Baixo",
-        "Impacto_Divida_Pct": 31.85,
-        "Valor_Comprometido": 1172.07,
-        "Renda_Base": 3680.0,
-        "Global_Min_Divida": 294.0,
-        "Global_Max_Divida": 4084.0,
-        "Meses_Para_Quitar": 6,
+        "Impacto_Divida_Pct": 29.34,
+        "Valor_Comprometido": 2015.2,
+        "Renda_Base": 5187.21,
+        "Global_Min_Divida": 1500.0,
+        "Global_Max_Divida": 4500.0,
+        "Meses_Para_Quitar": 20,
         "Top_Gastos": [
             {
-                "item": "Supermercado Mock",
-                "valor": 900.0
-            },
-            {
-                "item": "Aluguel",
+                "item": "Aluguel Fixo",
                 "valor": 2200.0
             },
             {
-                "item": "Lazer",
-                "valor": 150.0
+                "item": "Assinaturas",
+                "valor": 741.91
+            },
+            {
+                "item": "Viagem",
+                "valor": 259.1
             }
         ],
         "Detalhe_Parcelas": [
             {
-                "item": "Notebook",
-                "valor": 450.0,
-                "pagas": 5,
-                "total": 10,
-                "restantes": 5
+                "item": "iPhone 15 Pro",
+                "valor": 650.0,
+                "pagas": 4,
+                "total": 12,
+                "restantes": 8
             },
             {
-                "item": "Smartphone",
-                "valor": 300.0,
+                "item": "Seguro Auto Porto",
+                "valor": 185.4,
+                "pagas": 4,
+                "total": 10,
+                "restantes": 6
+            },
+            {
+                "item": "Sofá Retrátil",
+                "valor": 320.0,
+                "pagas": 2,
+                "total": 8,
+                "restantes": 6
+            },
+            {
+                "item": "Academia BlueFit",
+                "valor": 119.9,
+                "pagas": 4,
+                "total": 12,
+                "restantes": 8
+            },
+            {
+                "item": "MBA Finanças",
+                "valor": 450.0,
+                "pagas": 4,
+                "total": 24,
+                "restantes": 20
+            },
+            {
+                "item": "Geladeira Samsung",
+                "valor": 289.9,
                 "pagas": 3,
                 "total": 10,
                 "restantes": 7
@@ -169,379 +260,624 @@
     },
     {
         "Mes_Referencia": "2025-05-01",
-        "Receita_Disponivel": 1725.0,
-        "Dias_Restantes": 30,
+        "Receita_Disponivel": 2090.12,
+        "Dias_Restantes": 26,
         "Risco_Saldo_Negativo": "Baixo",
-        "Impacto_Divida_Pct": 31.85,
-        "Valor_Comprometido": 1172.07,
-        "Renda_Base": 3680.0,
-        "Global_Min_Divida": 294.0,
-        "Global_Max_Divida": 4084.0,
-        "Meses_Para_Quitar": 6,
+        "Impacto_Divida_Pct": 25.39,
+        "Valor_Comprometido": 2565.2,
+        "Renda_Base": 5862.9,
+        "Global_Min_Divida": 1500.0,
+        "Global_Max_Divida": 4500.0,
+        "Meses_Para_Quitar": 19,
         "Top_Gastos": [
             {
-                "item": "Supermercado Mock",
-                "valor": 900.0
-            },
-            {
-                "item": "Aluguel",
+                "item": "Aluguel Fixo",
                 "valor": 2200.0
             },
             {
-                "item": "Lazer",
-                "valor": 150.0
+                "item": "Manutenção Casa",
+                "valor": 290.61
+            },
+            {
+                "item": "Educação",
+                "valor": 279.14
             }
         ],
         "Detalhe_Parcelas": [
             {
-                "item": "Notebook",
-                "valor": 450.0,
+                "item": "iPhone 15 Pro",
+                "valor": 650.0,
+                "pagas": 5,
+                "total": 12,
+                "restantes": 7
+            },
+            {
+                "item": "Seguro Auto Porto",
+                "valor": 185.4,
                 "pagas": 5,
                 "total": 10,
                 "restantes": 5
             },
             {
-                "item": "Smartphone",
-                "valor": 300.0,
+                "item": "Sofá Retrátil",
+                "valor": 320.0,
                 "pagas": 3,
-                "total": 10,
+                "total": 8,
+                "restantes": 5
+            },
+            {
+                "item": "Academia BlueFit",
+                "valor": 119.9,
+                "pagas": 5,
+                "total": 12,
                 "restantes": 7
+            },
+            {
+                "item": "MBA Finanças",
+                "valor": 450.0,
+                "pagas": 5,
+                "total": 24,
+                "restantes": 19
+            },
+            {
+                "item": "Geladeira Samsung",
+                "valor": 289.9,
+                "pagas": 4,
+                "total": 10,
+                "restantes": 6
+            },
+            {
+                "item": "MacBook Air M2",
+                "valor": 550.0,
+                "pagas": 1,
+                "total": 12,
+                "restantes": 11
             }
         ]
     },
     {
         "Mes_Referencia": "2025-06-01",
-        "Receita_Disponivel": 1730.0,
-        "Dias_Restantes": 30,
+        "Receita_Disponivel": 1354.56,
+        "Dias_Restantes": 28,
         "Risco_Saldo_Negativo": "Baixo",
-        "Impacto_Divida_Pct": 31.85,
-        "Valor_Comprometido": 1172.07,
-        "Renda_Base": 3680.0,
-        "Global_Min_Divida": 294.0,
-        "Global_Max_Divida": 4084.0,
-        "Meses_Para_Quitar": 6,
+        "Impacto_Divida_Pct": 28.13,
+        "Valor_Comprometido": 2565.2,
+        "Renda_Base": 5338.83,
+        "Global_Min_Divida": 1500.0,
+        "Global_Max_Divida": 4500.0,
+        "Meses_Para_Quitar": 18,
         "Top_Gastos": [
             {
-                "item": "Supermercado Mock",
-                "valor": 900.0
-            },
-            {
-                "item": "Aluguel",
+                "item": "Aluguel Fixo",
                 "valor": 2200.0
             },
             {
-                "item": "Lazer",
-                "valor": 150.0
+                "item": "Viagem",
+                "valor": 233.43
+            },
+            {
+                "item": "Restaurante",
+                "valor": 221.06
             }
         ],
         "Detalhe_Parcelas": [
             {
-                "item": "Notebook",
+                "item": "iPhone 15 Pro",
+                "valor": 650.0,
+                "pagas": 6,
+                "total": 12,
+                "restantes": 6
+            },
+            {
+                "item": "Seguro Auto Porto",
+                "valor": 185.4,
+                "pagas": 6,
+                "total": 10,
+                "restantes": 4
+            },
+            {
+                "item": "Sofá Retrátil",
+                "valor": 320.0,
+                "pagas": 4,
+                "total": 8,
+                "restantes": 4
+            },
+            {
+                "item": "Academia BlueFit",
+                "valor": 119.9,
+                "pagas": 6,
+                "total": 12,
+                "restantes": 6
+            },
+            {
+                "item": "MBA Finanças",
                 "valor": 450.0,
+                "pagas": 6,
+                "total": 24,
+                "restantes": 18
+            },
+            {
+                "item": "Geladeira Samsung",
+                "valor": 289.9,
                 "pagas": 5,
                 "total": 10,
                 "restantes": 5
             },
             {
-                "item": "Smartphone",
-                "valor": 300.0,
-                "pagas": 3,
-                "total": 10,
-                "restantes": 7
+                "item": "MacBook Air M2",
+                "valor": 550.0,
+                "pagas": 2,
+                "total": 12,
+                "restantes": 10
             }
         ]
     },
     {
         "Mes_Referencia": "2025-07-01",
-        "Receita_Disponivel": 1735.0,
-        "Dias_Restantes": 30,
+        "Receita_Disponivel": 1619.29,
+        "Dias_Restantes": 28,
         "Risco_Saldo_Negativo": "Baixo",
-        "Impacto_Divida_Pct": 31.85,
-        "Valor_Comprometido": 1172.07,
-        "Renda_Base": 3680.0,
-        "Global_Min_Divida": 294.0,
-        "Global_Max_Divida": 4084.0,
-        "Meses_Para_Quitar": 6,
+        "Impacto_Divida_Pct": 26.7,
+        "Valor_Comprometido": 2565.2,
+        "Renda_Base": 5726.73,
+        "Global_Min_Divida": 1500.0,
+        "Global_Max_Divida": 4500.0,
+        "Meses_Para_Quitar": 17,
         "Top_Gastos": [
             {
-                "item": "Supermercado Mock",
-                "valor": 900.0
-            },
-            {
-                "item": "Aluguel",
+                "item": "Aluguel Fixo",
                 "valor": 2200.0
             },
             {
-                "item": "Lazer",
-                "valor": 150.0
+                "item": "Assinaturas",
+                "valor": 620.73
+            },
+            {
+                "item": "Transporte",
+                "valor": 346.82
             }
         ],
         "Detalhe_Parcelas": [
             {
-                "item": "Notebook",
-                "valor": 450.0,
-                "pagas": 5,
-                "total": 10,
+                "item": "iPhone 15 Pro",
+                "valor": 650.0,
+                "pagas": 7,
+                "total": 12,
                 "restantes": 5
             },
             {
-                "item": "Smartphone",
-                "valor": 300.0,
-                "pagas": 3,
+                "item": "Seguro Auto Porto",
+                "valor": 185.4,
+                "pagas": 7,
                 "total": 10,
-                "restantes": 7
+                "restantes": 3
+            },
+            {
+                "item": "Sofá Retrátil",
+                "valor": 320.0,
+                "pagas": 5,
+                "total": 8,
+                "restantes": 3
+            },
+            {
+                "item": "Academia BlueFit",
+                "valor": 119.9,
+                "pagas": 7,
+                "total": 12,
+                "restantes": 5
+            },
+            {
+                "item": "MBA Finanças",
+                "valor": 450.0,
+                "pagas": 7,
+                "total": 24,
+                "restantes": 17
+            },
+            {
+                "item": "Geladeira Samsung",
+                "valor": 289.9,
+                "pagas": 6,
+                "total": 10,
+                "restantes": 4
+            },
+            {
+                "item": "MacBook Air M2",
+                "valor": 550.0,
+                "pagas": 3,
+                "total": 12,
+                "restantes": 9
             }
         ]
     },
     {
         "Mes_Referencia": "2025-08-01",
-        "Receita_Disponivel": 1740.0,
-        "Dias_Restantes": 30,
+        "Receita_Disponivel": 1778.8,
+        "Dias_Restantes": 29,
         "Risco_Saldo_Negativo": "Baixo",
-        "Impacto_Divida_Pct": 31.85,
-        "Valor_Comprometido": 1172.07,
-        "Renda_Base": 3680.0,
-        "Global_Min_Divida": 294.0,
-        "Global_Max_Divida": 4084.0,
-        "Meses_Para_Quitar": 6,
+        "Impacto_Divida_Pct": 28.41,
+        "Valor_Comprometido": 2565.2,
+        "Renda_Base": 5655.54,
+        "Global_Min_Divida": 1500.0,
+        "Global_Max_Divida": 4500.0,
+        "Meses_Para_Quitar": 16,
         "Top_Gastos": [
             {
-                "item": "Supermercado Mock",
-                "valor": 900.0
-            },
-            {
-                "item": "Aluguel",
+                "item": "Aluguel Fixo",
                 "valor": 2200.0
             },
             {
-                "item": "Lazer",
-                "valor": 150.0
+                "item": "Restaurante",
+                "valor": 373.31
+            },
+            {
+                "item": "Educação",
+                "valor": 65.83
             }
         ],
         "Detalhe_Parcelas": [
             {
-                "item": "Notebook",
-                "valor": 450.0,
-                "pagas": 5,
-                "total": 10,
-                "restantes": 5
+                "item": "iPhone 15 Pro",
+                "valor": 650.0,
+                "pagas": 8,
+                "total": 12,
+                "restantes": 4
             },
             {
-                "item": "Smartphone",
-                "valor": 300.0,
-                "pagas": 3,
+                "item": "Seguro Auto Porto",
+                "valor": 185.4,
+                "pagas": 8,
                 "total": 10,
-                "restantes": 7
+                "restantes": 2
+            },
+            {
+                "item": "Sofá Retrátil",
+                "valor": 320.0,
+                "pagas": 6,
+                "total": 8,
+                "restantes": 2
+            },
+            {
+                "item": "Academia BlueFit",
+                "valor": 119.9,
+                "pagas": 8,
+                "total": 12,
+                "restantes": 4
+            },
+            {
+                "item": "MBA Finanças",
+                "valor": 450.0,
+                "pagas": 8,
+                "total": 24,
+                "restantes": 16
+            },
+            {
+                "item": "Geladeira Samsung",
+                "valor": 289.9,
+                "pagas": 7,
+                "total": 10,
+                "restantes": 3
+            },
+            {
+                "item": "MacBook Air M2",
+                "valor": 550.0,
+                "pagas": 4,
+                "total": 12,
+                "restantes": 8
             }
         ]
     },
     {
         "Mes_Referencia": "2025-09-01",
-        "Receita_Disponivel": 1745.0,
-        "Dias_Restantes": 30,
+        "Receita_Disponivel": 1576.73,
+        "Dias_Restantes": 25,
         "Risco_Saldo_Negativo": "Baixo",
-        "Impacto_Divida_Pct": 31.85,
-        "Valor_Comprometido": 1172.07,
-        "Renda_Base": 3680.0,
-        "Global_Min_Divida": 294.0,
-        "Global_Max_Divida": 4084.0,
-        "Meses_Para_Quitar": 6,
+        "Impacto_Divida_Pct": 27.67,
+        "Valor_Comprometido": 2565.2,
+        "Renda_Base": 5476.62,
+        "Global_Min_Divida": 1500.0,
+        "Global_Max_Divida": 4500.0,
+        "Meses_Para_Quitar": 15,
         "Top_Gastos": [
             {
-                "item": "Supermercado Mock",
-                "valor": 900.0
-            },
-            {
-                "item": "Aluguel",
+                "item": "Aluguel Fixo",
                 "valor": 2200.0
             },
             {
+                "item": "Transporte",
+                "valor": 551.54
+            },
+            {
                 "item": "Lazer",
-                "valor": 150.0
+                "valor": 395.2
             }
         ],
         "Detalhe_Parcelas": [
             {
-                "item": "Notebook",
-                "valor": 450.0,
-                "pagas": 5,
-                "total": 10,
-                "restantes": 5
+                "item": "iPhone 15 Pro",
+                "valor": 650.0,
+                "pagas": 9,
+                "total": 12,
+                "restantes": 3
             },
             {
-                "item": "Smartphone",
-                "valor": 300.0,
-                "pagas": 3,
+                "item": "Seguro Auto Porto",
+                "valor": 185.4,
+                "pagas": 9,
                 "total": 10,
+                "restantes": 1
+            },
+            {
+                "item": "Sofá Retrátil",
+                "valor": 320.0,
+                "pagas": 7,
+                "total": 8,
+                "restantes": 1
+            },
+            {
+                "item": "Academia BlueFit",
+                "valor": 119.9,
+                "pagas": 9,
+                "total": 12,
+                "restantes": 3
+            },
+            {
+                "item": "MBA Finanças",
+                "valor": 450.0,
+                "pagas": 9,
+                "total": 24,
+                "restantes": 15
+            },
+            {
+                "item": "Geladeira Samsung",
+                "valor": 289.9,
+                "pagas": 8,
+                "total": 10,
+                "restantes": 2
+            },
+            {
+                "item": "MacBook Air M2",
+                "valor": 550.0,
+                "pagas": 5,
+                "total": 12,
                 "restantes": 7
             }
         ]
     },
     {
         "Mes_Referencia": "2025-10-01",
-        "Receita_Disponivel": 1750.0,
-        "Dias_Restantes": 30,
+        "Receita_Disponivel": 2261.53,
+        "Dias_Restantes": 25,
         "Risco_Saldo_Negativo": "Baixo",
-        "Impacto_Divida_Pct": 31.85,
-        "Valor_Comprometido": 1172.07,
-        "Renda_Base": 3680.0,
-        "Global_Min_Divida": 294.0,
-        "Global_Max_Divida": 4084.0,
-        "Meses_Para_Quitar": 6,
+        "Impacto_Divida_Pct": 42.61,
+        "Valor_Comprometido": 2565.2,
+        "Renda_Base": 5946.88,
+        "Global_Min_Divida": 1500.0,
+        "Global_Max_Divida": 4500.0,
+        "Meses_Para_Quitar": 14,
         "Top_Gastos": [
             {
-                "item": "Supermercado Mock",
-                "valor": 900.0
-            },
-            {
-                "item": "Aluguel",
+                "item": "Aluguel Fixo",
                 "valor": 2200.0
             },
             {
+                "item": "Assinaturas",
+                "valor": 700.38
+            },
+            {
                 "item": "Lazer",
-                "valor": 150.0
+                "valor": 149.51
             }
         ],
         "Detalhe_Parcelas": [
             {
-                "item": "Notebook",
-                "valor": 450.0,
-                "pagas": 5,
-                "total": 10,
-                "restantes": 5
+                "item": "iPhone 15 Pro",
+                "valor": 650.0,
+                "pagas": 10,
+                "total": 12,
+                "restantes": 2
             },
             {
-                "item": "Smartphone",
-                "valor": 300.0,
-                "pagas": 3,
+                "item": "Seguro Auto Porto",
+                "valor": 185.4,
+                "pagas": 10,
                 "total": 10,
-                "restantes": 7
+                "restantes": 0
+            },
+            {
+                "item": "Sofá Retrátil",
+                "valor": 320.0,
+                "pagas": 8,
+                "total": 8,
+                "restantes": 0
+            },
+            {
+                "item": "Academia BlueFit",
+                "valor": 119.9,
+                "pagas": 10,
+                "total": 12,
+                "restantes": 2
+            },
+            {
+                "item": "MBA Finanças",
+                "valor": 450.0,
+                "pagas": 10,
+                "total": 24,
+                "restantes": 14
+            },
+            {
+                "item": "Geladeira Samsung",
+                "valor": 289.9,
+                "pagas": 9,
+                "total": 10,
+                "restantes": 1
+            },
+            {
+                "item": "MacBook Air M2",
+                "valor": 550.0,
+                "pagas": 6,
+                "total": 12,
+                "restantes": 6
             }
         ]
     },
     {
-        "Mes_Referencia": "2026-11-01",
-        "Receita_Disponivel": 1755.0,
-        "Dias_Restantes": 30,
+        "Mes_Referencia": "2025-11-01",
+        "Receita_Disponivel": 2200.5,
+        "Dias_Restantes": 29,
         "Risco_Saldo_Negativo": "Baixo",
-        "Impacto_Divida_Pct": 31.85,
-        "Valor_Comprometido": 1172.07,
-        "Renda_Base": 3680.0,
-        "Global_Min_Divida": 294.0,
-        "Global_Max_Divida": 4084.0,
-        "Meses_Para_Quitar": 6,
+        "Impacto_Divida_Pct": 32.15,
+        "Valor_Comprometido": 2059.8,
+        "Renda_Base": 6100.21,
+        "Global_Min_Divida": 1500.0,
+        "Global_Max_Divida": 4500.0,
+        "Meses_Para_Quitar": 13,
         "Top_Gastos": [
             {
-                "item": "Supermercado Mock",
-                "valor": 900.0
-            },
-            {
-                "item": "Aluguel",
+                "item": "Aluguel Fixo",
                 "valor": 2200.0
             },
             {
-                "item": "Lazer",
-                "valor": 150.0
+                "item": "Transporte",
+                "valor": 500.15
+            },
+            {
+                "item": "Restaurante",
+                "valor": 129.77
             }
         ],
         "Detalhe_Parcelas": [
             {
-                "item": "Notebook",
-                "valor": 450.0,
-                "pagas": 5,
-                "total": 10,
-                "restantes": 5
+                "item": "iPhone 15 Pro",
+                "valor": 650.0,
+                "pagas": 11,
+                "total": 12,
+                "restantes": 1
             },
             {
-                "item": "Smartphone",
-                "valor": 300.0,
-                "pagas": 3,
+                "item": "Academia BlueFit",
+                "valor": 119.9,
+                "pagas": 11,
+                "total": 12,
+                "restantes": 1
+            },
+            {
+                "item": "MBA Finanças",
+                "valor": 450.0,
+                "pagas": 11,
+                "total": 24,
+                "restantes": 13
+            },
+            {
+                "item": "Geladeira Samsung",
+                "valor": 289.9,
+                "pagas": 10,
                 "total": 10,
-                "restantes": 7
+                "restantes": 0
+            },
+            {
+                "item": "MacBook Air M2",
+                "valor": 550.0,
+                "pagas": 7,
+                "total": 12,
+                "restantes": 5
             }
         ]
     },
     {
-        "Mes_Referencia": "2026-12-01",
-        "Receita_Disponivel": 1760.0,
-        "Dias_Restantes": 30,
+        "Mes_Referencia": "2025-12-01",
+        "Receita_Disponivel": 2484.06,
+        "Dias_Restantes": 26,
         "Risco_Saldo_Negativo": "Baixo",
-        "Impacto_Divida_Pct": 31.85,
-        "Valor_Comprometido": 1172.07,
-        "Renda_Base": 3680.0,
-        "Global_Min_Divida": 294.0,
-        "Global_Max_Divida": 4084.0,
-        "Meses_Para_Quitar": 6,
+        "Impacto_Divida_Pct": 36.3,
+        "Valor_Comprometido": 1769.9,
+        "Renda_Base": 6241.27,
+        "Global_Min_Divida": 1500.0,
+        "Global_Max_Divida": 4500.0,
+        "Meses_Para_Quitar": 12,
         "Top_Gastos": [
             {
-                "item": "Supermercado Mock",
-                "valor": 900.0
-            },
-            {
-                "item": "Aluguel",
+                "item": "Aluguel Fixo",
                 "valor": 2200.0
             },
             {
+                "item": "Manutenção Casa",
+                "valor": 586.32
+            },
+            {
                 "item": "Lazer",
-                "valor": 150.0
+                "valor": 139.04
             }
         ],
         "Detalhe_Parcelas": [
             {
-                "item": "Notebook",
-                "valor": 450.0,
-                "pagas": 5,
-                "total": 10,
-                "restantes": 5
+                "item": "iPhone 15 Pro",
+                "valor": 650.0,
+                "pagas": 12,
+                "total": 12,
+                "restantes": 0
             },
             {
-                "item": "Smartphone",
-                "valor": 300.0,
-                "pagas": 3,
-                "total": 10,
-                "restantes": 7
+                "item": "Academia BlueFit",
+                "valor": 119.9,
+                "pagas": 12,
+                "total": 12,
+                "restantes": 0
+            },
+            {
+                "item": "MBA Finanças",
+                "valor": 450.0,
+                "pagas": 12,
+                "total": 24,
+                "restantes": 12
+            },
+            {
+                "item": "MacBook Air M2",
+                "valor": 550.0,
+                "pagas": 8,
+                "total": 12,
+                "restantes": 4
             }
         ]
     },
     {
         "Mes_Referencia": "2026-01-01",
-        "Receita_Disponivel": 1765.0,
-        "Dias_Restantes": 30,
+        "Receita_Disponivel": 1610.2,
+        "Dias_Restantes": 27,
         "Risco_Saldo_Negativo": "Baixo",
-        "Impacto_Divida_Pct": 31.85,
-        "Valor_Comprometido": 1172.07,
-        "Renda_Base": 3680.0,
-        "Global_Min_Divida": 294.0,
-        "Global_Max_Divida": 4084.0,
-        "Meses_Para_Quitar": 6,
+        "Impacto_Divida_Pct": 34.07,
+        "Valor_Comprometido": 1000.0,
+        "Renda_Base": 5643.2,
+        "Global_Min_Divida": 1500.0,
+        "Global_Max_Divida": 4500.0,
+        "Meses_Para_Quitar": 11,
         "Top_Gastos": [
             {
-                "item": "Supermercado Mock",
-                "valor": 900.0
-            },
-            {
-                "item": "Aluguel",
+                "item": "Aluguel Fixo",
                 "valor": 2200.0
             },
             {
-                "item": "Lazer",
-                "valor": 150.0
+                "item": "Supermercado",
+                "valor": 430.83
+            },
+            {
+                "item": "Educação",
+                "valor": 268.83
             }
         ],
         "Detalhe_Parcelas": [
             {
-                "item": "Notebook",
+                "item": "MBA Finanças",
                 "valor": 450.0,
-                "pagas": 5,
-                "total": 10,
-                "restantes": 5
+                "pagas": 13,
+                "total": 24,
+                "restantes": 11
             },
             {
-                "item": "Smartphone",
-                "valor": 300.0,
-                "pagas": 3,
-                "total": 10,
-                "restantes": 7
+                "item": "MacBook Air M2",
+                "valor": 550.0,
+                "pagas": 9,
+                "total": 12,
+                "restantes": 3
             }
         ]
     }
